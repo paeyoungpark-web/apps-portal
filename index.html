@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lupe — 프라이버시 우선 온디바이스 Mac·iOS 앱</title>
+<meta name="description" content="파일 검색 Lupa, 회의 녹음·요약 VerbaNote — 모든 처리가 기기 안에서만 일어나는 프라이버시 우선 앱들. Privacy-first, on-device apps for Mac & iOS.">
+<meta property="og:title" content="Lupe — 온디바이스 Mac·iOS 앱">
+<meta property="og:description" content="프라이버시 우선, 온디바이스. Lupa · VerbaNote.">
+<link rel="icon" href="assets/lupa.png">
+<style>
+  :root{
+    --ground:#0C0D10; --surface:#15171B; --sunk:#101216; --card:#141519;
+    --t1:#F1F2F4; --t2:rgba(241,242,244,.62); --t3:rgba(241,242,244,.40);
+    --hair:rgba(241,242,244,.13); --hair2:rgba(241,242,244,.24); --wash:rgba(241,242,244,.06);
+    --shadow:0 24px 70px rgba(0,0,0,.5), 0 2px 8px rgba(0,0,0,.4);
+    --sans:-apple-system,BlinkMacSystemFont,"SF Pro Text","Apple SD Gothic Neo","Pretendard",system-ui,sans-serif;
+    --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,monospace;
+  }
+  :root:not([data-theme="light"]) {}
+  @media (prefers-color-scheme: light){:root:not([data-theme="dark"]){
+    --ground:#F4F5F6; --surface:#FFFFFF; --sunk:#EDEEF0; --card:#FFFFFF;
+    --t1:#0C0D10; --t2:rgba(12,13,16,.62); --t3:rgba(12,13,16,.40);
+    --hair:rgba(12,13,16,.12); --hair2:rgba(12,13,16,.22); --wash:rgba(12,13,16,.05);
+    --shadow:0 24px 70px rgba(12,13,16,.16), 0 2px 8px rgba(12,13,16,.08);
+  }}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--ground);color:var(--t1);font-family:var(--sans);line-height:1.6;
+    -webkit-font-smoothing:antialiased;min-height:100vh}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:900px;margin:0 auto;padding:0 24px}
+
+  header{text-align:center;padding:96px 0 20px}
+  .mark{width:16px;height:16px;border:2px solid var(--t1);border-radius:50%;display:inline-block;
+    position:relative;vertical-align:-2px;margin-right:9px}
+  .mark::after{content:"";position:absolute;width:2px;height:7px;background:var(--t1);
+    right:-3px;bottom:-5px;transform:rotate(-45deg);border-radius:1px}
+  .brand{font-size:20px;font-weight:680;letter-spacing:-.01em}
+  header h1{font-size:clamp(27px,5vw,40px);font-weight:660;letter-spacing:-.03em;
+    line-height:1.16;margin:28px auto 0;max-width:640px;text-wrap:balance}
+  header .en{color:var(--t3);font-size:15px;margin-top:14px;font-family:var(--mono);letter-spacing:.01em}
+  header .meta{margin-top:20px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+  .tagpill{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--t2);border:1px solid var(--hair2);border-radius:100px;padding:5px 13px}
+
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;padding:44px 0 20px}
+  @media(max-width:720px){.grid{grid-template-columns:1fr}}
+  .appcard{background:var(--card);border:1px solid var(--hair2);border-radius:16px;padding:26px 26px 22px;
+    box-shadow:var(--shadow);display:flex;flex-direction:column;position:relative;overflow:hidden;
+    transition:transform .16s ease,border-color .16s ease}
+  .appcard:hover{transform:translateY(-3px);border-color:var(--hair)}
+  .appcard .glow{position:absolute;inset:0;background:radial-gradient(420px 200px at 85% -10%,var(--acc,transparent),transparent 70%);
+    opacity:.16;pointer-events:none}
+  .apphead{display:flex;align-items:center;gap:15px;margin-bottom:16px}
+  .apphead img{width:60px;height:60px;border-radius:14px;box-shadow:0 6px 18px rgba(0,0,0,.3);flex:none}
+  .apptitle{display:flex;flex-direction:column;gap:5px}
+  .apptitle .nm{font-size:22px;font-weight:680;letter-spacing:-.02em}
+  .plat{display:flex;gap:6px}
+  .plat span{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;color:var(--t3);
+    border:1px solid var(--hair);border-radius:3px;padding:2px 7px}
+  .appcard .tag{font-size:16px;font-weight:600;letter-spacing:-.01em;margin-bottom:7px}
+  .appcard .desc{color:var(--t2);font-size:14px;flex:1;margin-bottom:18px}
+  .links{display:flex;gap:8px;flex-wrap:wrap}
+  .lk{display:inline-block;padding:9px 16px;border-radius:6px;font-size:13.5px;font-weight:560;
+    border:1px solid var(--hair2);color:var(--t1);transition:background .14s ease,opacity .14s ease}
+  .lk:hover{background:var(--wash)}
+  .lk.primary{background:var(--t1);color:var(--ground);border-color:var(--t1)}
+  .lk.primary:hover{opacity:.85}
+  .lk.soon{color:var(--t3);border-style:dashed;pointer-events:none}
+  .lk .arw{opacity:.5;margin-left:4px}
+
+  .soonc{background:transparent;border:1px dashed var(--hair2);box-shadow:none;
+    align-items:center;justify-content:center;text-align:center;min-height:200px;color:var(--t3)}
+  .soonc:hover{transform:none}
+  .soonc .plus{font-size:30px;font-weight:300;margin-bottom:6px;color:var(--t3)}
+
+  footer{text-align:center;color:var(--t3);font-size:13px;padding:40px 0 60px;border-top:1px solid var(--hair);margin-top:28px}
+  footer a{color:var(--t2);border-bottom:1px solid transparent}
+  footer a:hover{border-color:var(--t3)}
+  footer .row{margin-top:8px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div><span class="mark"></span><span class="brand">Lupe</span></div>
+    <h1>프라이버시 우선, 온디바이스 앱을 만듭니다</h1>
+    <p class="en">Privacy-first, on-device apps for Mac &amp; iOS</p>
+    <div class="meta">
+      <span class="tagpill">100% 온디바이스</span>
+      <span class="tagpill">네트워크 0</span>
+      <span class="tagpill">Apple Silicon 최적화</span>
+    </div>
+  </header>
+
+  <main class="grid" id="grid"></main>
+
+  <footer>
+    <div>© 2026 Paeyoung Park · Lupe</div>
+    <div class="row">
+      <a href="mailto:paeyoung.park@gmail.com">문의</a>
+      <a href="https://lupa.kr">lupa.kr</a>
+      <a href="https://verbanote.lupa.kr">verbanote.lupa.kr</a>
+      <a href="https://www.youtube.com/@lupa-app">YouTube</a>
+    </div>
+  </footer>
+</div>
+
+<script>
+  // ── 앱 목록: 새 앱 추가 = 아래 배열에 객체 하나 추가하면 끝 ──────────────
+  const APPS = [
+    {
+      name:"Lupa", icon:"assets/lupa.png", accent:"#8A93F9",
+      platforms:["macOS"],
+      tag:"기억의 조각으로 파일을 찾다",
+      desc:"파일 이름이 기억 안 나도, 문서 속 단어 하나로. 한글(HWP) 내용검색·0.03초, 그리고 AI 에이전트가 자연어로 찾아주는 CLI까지.",
+      links:[
+        {t:"홈페이지", u:"https://lupa.kr", primary:true},
+        {t:"App Store", u:"https://apps.apple.com/kr/app/id6789231809"},
+        {t:"YouTube", u:"https://www.youtube.com/@lupa-app"},
+      ]
+    },
+    {
+      name:"VerbaNote", icon:"assets/verbanote.png", accent:"#2DD4BF",
+      platforms:["macOS","iOS"],
+      tag:"녹음이 끝나면, 회의록도 끝나 있습니다",
+      desc:"기기 안의 AI가 회의·강의를 전사하고 요약·결정사항·액션아이템·구간 강의록까지 정리합니다. 서버도, 업로드도 없습니다.",
+      links:[
+        {t:"홈페이지", u:"https://verbanote.lupa.kr", primary:true},
+        {t:"App Store · 준비중", u:"#", soon:true},
+      ]
+    },
+  ];
+
+  const grid = document.getElementById('grid');
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  APPS.forEach(a => {
+    const card = document.createElement('a');
+    card.className = 'appcard';
+    card.href = a.links[0]?.u || '#';
+    card.style.setProperty('--acc', a.accent);
+    card.innerHTML =
+      `<div class="glow"></div>
+       <div class="apphead">
+         <img src="${esc(a.icon)}" alt="${esc(a.name)} 아이콘" width="60" height="60">
+         <div class="apptitle">
+           <span class="nm">${esc(a.name)}</span>
+           <span class="plat">${a.platforms.map(p=>`<span>${esc(p)}</span>`).join('')}</span>
+         </div>
+       </div>
+       <div class="tag">${esc(a.tag)}</div>
+       <div class="desc">${esc(a.desc)}</div>
+       <div class="links">${a.links.map(l =>
+         `<span class="lk ${l.primary?'primary':''}${l.soon?' soon':''}"${l.primary?'':' data-u="'+esc(l.u)+'"'}>${esc(l.t)}${l.primary?'<span class="arw">→</span>':''}</span>`
+       ).join('')}</div>`;
+    // 카드 전체 = 첫 링크로, 개별 버튼은 각자 링크로
+    card.querySelectorAll('.lk[data-u]').forEach(el=>{
+      el.addEventListener('click', e=>{ e.preventDefault(); e.stopPropagation(); window.open(el.dataset.u,'_blank'); });
+    });
+    grid.appendChild(card);
+  });
+
+  // Coming soon 자리
+  const soon = document.createElement('div');
+  soon.className = 'appcard soonc';
+  soon.innerHTML = `<div class="plus">+</div><div>다음 앱 준비 중</div>`;
+  grid.appendChild(soon);
+</script>
+</body>
+</html>
