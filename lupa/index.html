@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lupa — 맥에서 파일을 내용으로 찾습니다</title>
+<meta name="description" content="파일 이름이 기억나지 않아도 문서 속 단어 하나로 찾습니다. 한글(HWP) 내용검색, 0.03초, 그리고 AI 에이전트가 자연어로 찾아주는 CLI까지. 100% 온디바이스.">
+<meta property="og:title" content="Lupa — 맥에서 파일을 내용으로 찾습니다">
+<meta property="og:description" content="이름이 기억나지 않아도, 내용으로 찾습니다. 한글·PDF·이미지 속 글자까지. AI 에이전트 연동. 100% 온디바이스.">
+<meta property="og:image" content="../assets/lupa.png">
+<link rel="icon" href="../assets/lupa.png">
+<style>
+  :root{
+    --ground:#0C0D10; --surface:#15171B; --sunk:#101216; --card:#141519;
+    --t1:#F1F2F4; --t2:rgba(241,242,244,.62); --t3:rgba(241,242,244,.40);
+    --hair:rgba(241,242,244,.13); --hair2:rgba(241,242,244,.24); --wash:rgba(241,242,244,.06);
+    --acc:#8A93F9;
+    --shadow:0 24px 70px rgba(0,0,0,.5), 0 2px 8px rgba(0,0,0,.4);
+    --sans:-apple-system,BlinkMacSystemFont,"SF Pro Text","Apple SD Gothic Neo","Pretendard",system-ui,sans-serif;
+    --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,monospace;
+  }
+  @media (prefers-color-scheme: light){:root:not([data-theme="dark"]){
+    --ground:#F4F5F6; --surface:#FFFFFF; --sunk:#EDEEF0; --card:#FFFFFF;
+    --t1:#0C0D10; --t2:rgba(12,13,16,.62); --t3:rgba(12,13,16,.40);
+    --hair:rgba(12,13,16,.12); --hair2:rgba(12,13,16,.22); --wash:rgba(12,13,16,.05);
+    --shadow:0 24px 70px rgba(12,13,16,.16), 0 2px 8px rgba(12,13,16,.08);
+  }}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--ground);color:var(--t1);font-family:var(--sans);line-height:1.68;
+    -webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:820px;margin:0 auto;padding:0 24px}
+
+  /* ── top bar ── */
+  .top{position:sticky;top:0;z-index:20;backdrop-filter:saturate(160%) blur(14px);
+    background:color-mix(in srgb,var(--ground) 82%,transparent);border-bottom:1px solid var(--hair)}
+  .top .wrap{display:flex;align-items:center;justify-content:space-between;height:56px}
+  .back{font-size:13px;color:var(--t2);display:flex;align-items:center;gap:7px}
+  .back:hover{color:var(--t1)}
+  .top .store{font-size:12.5px;font-weight:600;padding:7px 14px;border-radius:7px;
+    background:var(--t1);color:var(--ground)}
+  .top .store:hover{opacity:.85}
+
+  /* ── hero ── */
+  header{text-align:center;padding:76px 0 40px}
+  header img.icon{width:88px;height:88px;border-radius:20px;margin:0 auto 22px;
+    box-shadow:0 10px 34px rgba(0,0,0,.4)}
+  header h1{font-size:clamp(30px,6vw,50px);font-weight:680;letter-spacing:-.035em;
+    line-height:1.12;text-wrap:balance}
+  header .sub{color:var(--t2);font-size:clamp(15px,2.4vw,19px);margin-top:18px;
+    max-width:560px;margin-left:auto;margin-right:auto;text-wrap:balance}
+  header .meta{margin-top:22px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+  .pill{font-family:var(--mono);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;
+    color:var(--t2);border:1px solid var(--hair2);border-radius:100px;padding:5px 13px}
+  .cta{margin-top:30px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;align-items:center}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:9px;
+    font-size:15px;font-weight:620;border:1px solid var(--hair2);transition:.15s}
+  .btn.primary{background:var(--t1);color:var(--ground);border-color:var(--t1)}
+  .btn.primary:hover{opacity:.86;transform:translateY(-1px)}
+  .btn.ghost:hover{background:var(--wash)}
+  .free{font-size:12.5px;color:var(--t3);margin-top:14px}
+
+  /* ── sections ── */
+  section{padding:44px 0;border-top:1px solid var(--hair)}
+  .kicker{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--acc);margin-bottom:12px}
+  h2{font-size:clamp(22px,3.6vw,30px);font-weight:660;letter-spacing:-.025em;line-height:1.22;text-wrap:balance}
+  section p.lead{color:var(--t2);font-size:16px;margin-top:14px;max-width:660px}
+  .shot{margin-top:26px;border:1px solid var(--hair2);border-radius:13px;overflow:hidden;
+    box-shadow:var(--shadow);background:var(--sunk)}
+  .cap{font-size:12.5px;color:var(--t3);margin-top:11px;text-align:center;font-family:var(--mono)}
+
+  /* syntax chips */
+  .syntax{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}
+  .chip{font-family:var(--mono);font-size:13px;padding:8px 13px;border-radius:7px;
+    background:var(--wash);border:1px solid var(--hair);color:var(--t1)}
+  .chip b{color:var(--acc);font-weight:600}
+  .chip span{color:var(--t3)}
+
+  /* terminal */
+  .term{margin-top:26px;background:#0A0B0D;border:1px solid var(--hair2);border-radius:12px;
+    overflow:hidden;box-shadow:var(--shadow);font-family:var(--mono);font-size:13px;line-height:1.85}
+  .term .bar{display:flex;gap:7px;padding:11px 14px;border-bottom:1px solid rgba(255,255,255,.08);background:#111318}
+  .term .bar i{width:11px;height:11px;border-radius:50%;background:#3a3d44;display:block}
+  .term .bar i:nth-child(1){background:#ff5f57}.term .bar i:nth-child(2){background:#febc2e}.term .bar i:nth-child(3){background:#28c840}
+  .term .body{padding:16px 18px;color:#e6e7ea;overflow-x:auto}
+  .term .pr{color:#5b6470}.term .cmd{color:#c8f168}.term .k{color:#8A93F9}
+  .term .out{color:rgba(230,231,234,.72)}.term .hi{color:#febc2e}
+
+  /* comparison table */
+  .cmpwrap{margin-top:26px;overflow-x:auto;border:1px solid var(--hair2);border-radius:12px}
+  table.cmp{width:100%;border-collapse:collapse;font-size:14px;min-width:460px}
+  table.cmp th,table.cmp td{padding:13px 16px;text-align:left;border-bottom:1px solid var(--hair)}
+  table.cmp thead th{font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--t3);font-weight:600}
+  table.cmp tbody tr:last-child td{border-bottom:none}
+  table.cmp td.lupa{color:var(--t1);font-weight:600}
+  table.cmp td.lupa b{color:var(--acc)}
+  table.cmp td.other{color:var(--t2)}
+  table.cmp td:first-child{color:var(--t2);font-weight:500}
+
+  /* price */
+  .price{margin-top:26px;background:var(--card);border:1px solid var(--hair2);border-radius:14px;
+    padding:28px;box-shadow:var(--shadow)}
+  .price .now{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.08em;
+    text-transform:uppercase;color:#28c840;border:1px solid rgba(40,200,64,.4);border-radius:100px;padding:4px 12px}
+  .price h3{font-size:24px;font-weight:680;letter-spacing:-.02em;margin-top:16px}
+  .price p{color:var(--t2);font-size:15px;margin-top:10px}
+  .price .em{color:var(--t1);font-weight:600}
+
+  footer{text-align:center;color:var(--t3);font-size:13px;padding:48px 0 64px;border-top:1px solid var(--hair)}
+  footer .row{margin-top:10px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+  footer a{color:var(--t2)}footer a:hover{color:var(--t1)}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="wrap">
+    <a class="back" href="/">← Lupe 앱</a>
+    <a class="store" href="https://apps.apple.com/kr/app/id6789231809" target="_blank" rel="noopener">App Store에서 받기</a>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <header>
+    <img class="icon" src="../assets/lupa.png" alt="Lupa 아이콘">
+    <h1>맥에서 파일을,<br>내용으로 찾습니다</h1>
+    <p class="sub">파일 이름이 기억나지 않아도, 문서 안에 있던 단어 하나면 됩니다. 한글(HWP)·PDF·이미지 속 글자까지, 0.03초 만에.</p>
+    <div class="meta">
+      <span class="pill">100% 온디바이스</span>
+      <span class="pill">네트워크 0</span>
+      <span class="pill">Apple Silicon</span>
+    </div>
+    <div class="cta">
+      <a class="btn primary" href="https://apps.apple.com/kr/app/id6789231809" target="_blank" rel="noopener">App Store에서 받기 — 무료</a>
+      <a class="btn ghost" href="https://lupa.kr" target="_blank" rel="noopener">기능 자세히 →</a>
+    </div>
+    <p class="free">지금은 한시적 무료 · macOS 14 이상</p>
+  </header>
+
+  <!-- 배경 -->
+  <section>
+    <div class="kicker">왜 만들었나</div>
+    <h2>Spotlight로는 못 찾는 파일이 너무 많았습니다</h2>
+    <p class="lead">맥의 기본 검색은 파일 이름 위주라, 정작 “그 문서 안에 분명히 있었는데” 하는 순간에 약합니다. 한글(HWP) 문서는 아예 내용이 안 잡히고, 결과는 수천 건씩 쏟아지거나 엉뚱한 것만 나옵니다. Lupa는 그 반대로 만들었습니다 — <span class="em" style="color:var(--t1);font-weight:600">이름이 아니라 내용으로, 정확하게, 즉시.</span></p>
+  </section>
+
+  <!-- 내용 검색 -->
+  <section>
+    <div class="kicker">핵심 · 내용 검색</div>
+    <h2>문서 안의 단어로 찾습니다</h2>
+    <p class="lead">한글·워드·PDF·엑셀·파워포인트·마크다운, 그리고 mp3 같은 미디어의 메타데이터까지 하나의 색인으로 검색합니다. 조사(“를/을/이/가”)를 붙여도, 붙이지 않아도 같은 결과가 나옵니다.</p>
+    <div class="shot"><img src="../assets/lupa-search.png" alt="Lupa 검색 화면 — 여러 형식이 한 번에"></div>
+    <p class="cap">한 번의 검색에 hwp · pdf · pptx · mp3가 함께 잡힌다</p>
+    <div class="syntax">
+      <span class="chip"><b>내용:</b>계약 <span>· 문서 안의 단어</span></span>
+      <span class="chip"><b>파일:</b>보고서 <span>· 이름으로</span></span>
+      <span class="chip"><b>"위약금 청구"</b> <span>· 정확한 구문</span></span>
+      <span class="chip"><b>-임시</b> <span>· 제외</span></span>
+      <span class="chip"><b>종류:</b>이미지 <span>· 파일 종류</span></span>
+      <span class="chip"><b>*.mp3</b> <span>· 확장자</span></span>
+      <span class="chip"><b>날짜:</b>2026 <span>· 기간</span></span>
+    </div>
+  </section>
+
+  <!-- 한글 HWP -->
+  <section>
+    <div class="kicker">한컴 없이</div>
+    <h2>한글(HWP) 내용검색 · 첫 페이지 미리보기</h2>
+    <p class="lead">한글 오피스를 열지 않고도 HWP 문서의 본문을 검색하고, 첫 페이지를 바로 미리봅니다. 계약서·협약서·공문처럼 “한글로 쌓여 있던” 문서가 드디어 검색됩니다.</p>
+    <div class="shot"><img src="../assets/lupa-hwp.png" alt="Lupa 한글 HWP 검색 결과와 미리보기"></div>
+    <p class="cap">HWP 본문 검색 + 앱 안에서 바로 미리보기</p>
+  </section>
+
+  <!-- AI 에이전트 (킬러) -->
+  <section>
+    <div class="kicker">가장 강력한 기능</div>
+    <h2>AI 에이전트가 당신의 Mac 문서를 찾아줍니다</h2>
+    <p class="lead">Lupa에 동봉된 명령줄 도구(<code>lupa-search</code>)를 통해, Claude 같은 AI 에이전트가 <span class="em" style="color:var(--t1);font-weight:600">파일을 직접 열지 않고도</span> 문서의 내용을 검색합니다. 에이전트에게 파일 접근 권한을 통째로 넘길 필요가 없습니다 — 색인만 조회하니까요. “작년 그 위약금 조항 있던 계약서 찾아줘” 한마디면 됩니다.</p>
+    <div class="term">
+      <div class="bar"><i></i><i></i><i></i></div>
+      <div class="body">
+<span class="pr">$</span> <span class="cmd">lupa-search</span> <span class="k">"파일:심사보고서 내용:경영검토"</span> --json<br>
+<span class="out">{ "total_matches": 3, "results": [</span><br>
+<span class="out">&nbsp;&nbsp;{ "path": "…/2026_심사보고서.hwp", "score": <span class="hi">0.94</span> },</span><br>
+<span class="out">&nbsp;&nbsp;{ "path": "…/경영검토_회의록.pdf", "score": <span class="hi">0.88</span> } ] }</span><br>
+<span class="pr">⏱</span> <span class="out">19ms · 파일을 열지 않고 색인만 조회</span>
+      </div>
+    </div>
+    <div class="cmpwrap">
+      <table class="cmp">
+        <thead><tr><th>같은 작업</th><th>일반 도구</th><th>Lupa + 에이전트</th></tr></thead>
+        <tbody>
+          <tr><td>한글(HWP) 본문</td><td class="other">검색 불가</td><td class="lupa"><b>색인되어 검색</b></td></tr>
+          <tr><td>응답 속도</td><td class="other"><code>find</code> 수 초</td><td class="lupa"><b>약 19ms</b></td></tr>
+          <tr><td>에이전트 권한</td><td class="other">폴더 전체 접근</td><td class="lupa"><b>색인 조회만</b></td></tr>
+          <tr><td>토큰 사용</td><td class="other">파일 통째로 읽음</td><td class="lupa"><b>매칭 결과만</b></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="cap">설정 → 일반 → “명령줄 도구 설치…” 한 번이면 준비 끝</p>
+  </section>
+
+  <!-- 프라이버시 -->
+  <section>
+    <div class="kicker">프라이버시가 정체성</div>
+    <h2>모든 처리가 이 Mac 안에서만 일어납니다</h2>
+    <p class="lead">색인도, 검색도, 미리보기도 전부 기기 안에서. 네트워크로 나가는 코드가 아예 없습니다. 여러분의 계약서와 회의록은 이 컴퓨터를 떠나지 않습니다.</p>
+  </section>
+
+  <!-- 가격 -->
+  <section>
+    <div class="kicker">가격</div>
+    <h2>지금 받으면, 평생 무료</h2>
+    <div class="price">
+      <span class="now">지금은 한시적 무료</span>
+      <h3>무료로 전체 기능 사용</h3>
+      <p>추후 파일 5만 개 이상을 색인하는 헤비 유저를 위해 <span class="em">Pro($4.99 · ₩6,900)</span>가 추가될 예정입니다. 그전에 받아두신 분들은 <span class="em">계속 무료</span>로 쓰실 수 있습니다. 지금이 가장 좋은 타이밍입니다.</p>
+    </div>
+    <div class="cta" style="justify-content:flex-start">
+      <a class="btn primary" href="https://apps.apple.com/kr/app/id6789231809" target="_blank" rel="noopener">App Store에서 받기 — 무료</a>
+    </div>
+  </section>
+
+  <footer>
+    <div>© 2026 Paeyoung Park · Lupa — Find it before you forget it.</div>
+    <div class="row">
+      <a href="https://lupa.kr">lupa.kr</a>
+      <a href="/">다른 앱 보기</a>
+      <a href="https://www.youtube.com/@lupa-app">YouTube</a>
+      <a href="mailto:paeyoung.park@gmail.com">문의</a>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
