@@ -99,6 +99,12 @@
   table.cmp td.other{color:var(--t2)}
   table.cmp td:first-child{color:var(--t2);font-weight:500}
 
+  /* works-with */
+  .works{margin-top:26px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  .works-label{font-size:12.5px;color:var(--t3);margin-right:2px}
+  .wchip{font-size:13.5px;font-weight:560;padding:7px 14px;border-radius:100px;
+    border:1px solid var(--hair2);color:var(--t1);background:var(--wash)}
+
   /* price */
   .price{margin-top:26px;background:var(--card);border:1px solid var(--hair2);border-radius:14px;
     padding:28px;box-shadow:var(--shadow)}
@@ -201,6 +207,13 @@
       </table>
     </div>
     <p class="cap">설정 → 일반 → “명령줄 도구 설치…” 한 번이면 준비 끝</p>
+    <div class="works">
+      <span class="works-label">함께 쓰는 에이전트·도구</span>
+      <span class="wchip">Claude</span>
+      <span class="wchip">Hermes</span>
+      <span class="wchip">OpenClaw</span>
+      <span class="wchip">Obsidian</span>
+    </div>
   </section>
 
   <!-- 프라이버시 -->
