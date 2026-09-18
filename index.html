@@ -2,12 +2,15 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lupe — 온디바이스 앱과 교회·공동체 도구</title>
-<meta name="description" content="박배영이 만드는 앱과 도구. 기기 안에서 끝나는 온디바이스 앱(Lupa, VerbaNote)과 교회·공동체를 위한 웹 도구(헤노테스 찬양 모니터, 주간 성경퀴즈 답안지 제출 관리).">
-<meta property="og:title" content="Lupe — 온디바이스 앱과 교회·공동체 도구">
-<meta property="og:description" content="Lupa · VerbaNote · 헤노테스 · 주간 성경퀴즈">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lupe — 박배영 포트폴리오 · 앱과 도구</title>
+<meta name="description" content="만드는 사람 박배영의 포트폴리오. 온디바이스 앱(Lupa, VerbaNote), 교회·공동체 도구(헤노테스 찬양 모니터, 주간 성경퀴즈), 콘텐츠(온고,오늘)까지 한 화면에서.">
+<meta property="og:title" content="Lupe — 박배영 포트폴리오">
+<meta property="og:description" content="Lupa · VerbaNote · 헤노테스 · 주간 성경퀴즈 · 온고,오늘">
+<meta name="theme-color" content="#0C0D10" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F4F5F6" media="(prefers-color-scheme: light)">
 <link rel="icon" href="assets/lupa.png">
+<link rel="apple-touch-icon" href="assets/lupa.png">
 <link rel="canonical" href="https://apps.lupa.kr/">
 <style>
   :root{
@@ -15,6 +18,7 @@
     --t1:#F1F2F4; --t2:rgba(241,242,244,.62); --t3:rgba(241,242,244,.40);
     --hair:rgba(241,242,244,.13); --hair2:rgba(241,242,244,.24); --wash:rgba(241,242,244,.06);
     --shadow:0 24px 70px rgba(0,0,0,.5), 0 2px 8px rgba(0,0,0,.4);
+    --icon-shadow:0 10px 24px rgba(0,0,0,.45), 0 1px 2px rgba(0,0,0,.4);
     --sans:-apple-system,BlinkMacSystemFont,"SF Pro Text","Apple SD Gothic Neo","Pretendard",system-ui,sans-serif;
     --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,monospace;
   }
@@ -23,6 +27,7 @@
     --t1:#0C0D10; --t2:rgba(12,13,16,.62); --t3:rgba(12,13,16,.40);
     --hair:rgba(12,13,16,.12); --hair2:rgba(12,13,16,.22); --wash:rgba(12,13,16,.05);
     --shadow:0 24px 70px rgba(12,13,16,.16), 0 2px 8px rgba(12,13,16,.08);
+    --icon-shadow:0 10px 24px rgba(12,13,16,.16), 0 1px 2px rgba(12,13,16,.12);
   }}
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -31,27 +36,43 @@
   a{color:inherit;text-decoration:none}
   .wrap{max-width:900px;margin:0 auto;padding:0 24px}
 
-  /* ── top nav ── */
-  .top{display:flex;align-items:center;justify-content:space-between;height:60px}
-  .top .brandwrap{display:flex;align-items:center}
+  /* ── top bar ── */
+  .top{display:flex;align-items:center;justify-content:space-between;height:56px}
+  .brandwrap{display:flex;align-items:center}
   .mark{width:16px;height:16px;border:2px solid var(--t1);border-radius:50%;display:inline-block;
     position:relative;vertical-align:-2px;margin-right:9px}
   .mark::after{content:"";position:absolute;width:2px;height:7px;background:var(--t1);
     right:-3px;bottom:-5px;transform:rotate(-45deg);border-radius:1px}
-  .brand{font-size:18px;font-weight:680;letter-spacing:-.01em}
+  .brand{font-size:17px;font-weight:680;letter-spacing:-.01em}
   .topnav{display:flex;gap:18px;font-size:13.5px;color:var(--t2)}
   .topnav a:hover{color:var(--t1)}
   @media(max-width:560px){.topnav{display:none}}
 
-  /* ── hero ── */
-  header{text-align:center;padding:64px 0 12px}
-  header h1{font-size:clamp(27px,5vw,40px);font-weight:660;letter-spacing:-.03em;
-    line-height:1.16;margin:0 auto;max-width:640px;text-wrap:balance}
-  header .lede{color:var(--t2);font-size:16px;margin:18px auto 0;max-width:560px;text-wrap:pretty}
-  header .en{color:var(--t3);font-size:13.5px;margin-top:12px;font-family:var(--mono);letter-spacing:.01em}
+  /* ── launcher (첫 화면: 모바일 한 화면에 아이콘 전부) ── */
+  .launcher{padding:28px 0 30px}
+  .intro{text-align:center}
+  .intro h1{font-size:clamp(21px,4.4vw,32px);font-weight:660;letter-spacing:-.03em;line-height:1.2;text-wrap:balance}
+  .intro p{color:var(--t3);font-size:13px;margin-top:8px;font-family:var(--mono);letter-spacing:.01em}
+  .icons{display:grid;grid-template-columns:repeat(4,1fr);gap:22px 12px;margin:30px auto 0;max-width:640px}
+  @media(max-width:560px){.icons{grid-template-columns:repeat(3,1fr);gap:18px 8px;margin-top:24px}}
+  .app{display:flex;flex-direction:column;align-items:center;gap:9px;text-align:center;
+    -webkit-tap-highlight-color:transparent;transition:transform .14s ease}
+  .app:hover{transform:translateY(-3px)}
+  .app:active{transform:scale(.94)}
+  .app img{width:72px;height:72px;border-radius:18px;box-shadow:var(--icon-shadow);display:block}
+  @media(max-width:560px){.app img{width:64px;height:64px;border-radius:16px}}
+  .app .nm{font-size:13px;font-weight:600;letter-spacing:-.01em;line-height:1.25}
+  .app .sub{font-size:11px;color:var(--t3);line-height:1.25;margin-top:-4px}
+  .app.ghost img{opacity:.35;box-shadow:none;border:1px dashed var(--hair2)}
+  .app.ghost .nm{color:var(--t3)}
+  .cue{display:flex;justify-content:center;margin-top:30px;color:var(--t3);font-size:12px;gap:6px;align-items:center}
+  .cue svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;
+    animation:bob 1.8s ease-in-out infinite}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(3px)}}
+  @media(prefers-reduced-motion:reduce){.cue svg{animation:none}}
 
   /* ── section ── */
-  section{padding:44px 0 8px}
+  section{padding:44px 0 8px;border-top:1px solid var(--hair)}
   .sechead{display:flex;align-items:baseline;justify-content:space-between;gap:16px;
     padding-bottom:14px;border-bottom:1px solid var(--hair);margin-bottom:20px}
   .sechead h2{font-size:19px;font-weight:660;letter-spacing:-.02em}
@@ -77,7 +98,6 @@
   .plat{display:flex;gap:6px;flex-wrap:wrap}
   .plat span{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;color:var(--t3);
     border:1px solid var(--hair);border-radius:3px;padding:2px 7px}
-  .plat span.note{color:var(--t2);border-color:var(--hair2)}
   .appcard .tag{font-size:16px;font-weight:600;letter-spacing:-.01em;margin-bottom:7px}
   .appcard .desc{color:var(--t2);font-size:14px;flex:1;margin-bottom:18px}
   .links{display:flex;gap:8px;flex-wrap:wrap}
@@ -86,24 +106,30 @@
   .lk:hover{background:var(--wash)}
   .lk.primary{background:var(--t1);color:var(--ground);border-color:var(--t1)}
   .lk.primary:hover{opacity:.85}
-  .lk.soon{color:var(--t3);border-style:dashed;pointer-events:none}
   .lk .arw{opacity:.5;margin-left:4px}
 
-  .soonc{background:transparent;border:1px dashed var(--hair2);box-shadow:none;
-    align-items:center;justify-content:center;text-align:center;min-height:200px;color:var(--t3)}
-  .soonc:hover{transform:none}
-  .soonc .plus{font-size:30px;font-weight:300;margin-bottom:6px;color:var(--t3)}
+  /* ── about ── */
+  .about{display:grid;grid-template-columns:1.4fr 1fr;gap:28px;padding-bottom:36px}
+  @media(max-width:720px){.about{grid-template-columns:1fr}}
+  .about p{color:var(--t2);font-size:15px;margin-bottom:12px;max-width:54ch;text-wrap:pretty}
+  .about p strong{color:var(--t1);font-weight:640}
+  .kv{background:var(--card);border:1px solid var(--hair2);border-radius:14px;padding:18px 20px;align-self:start}
+  .kv .r{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--hair);font-size:13.5px}
+  .kv .r:last-child{border-bottom:0}
+  .kv .r span:first-child{color:var(--t3)}
+  .kv .r a{border-bottom:1px solid var(--hair2)}
+  .kv .r a:hover{border-color:var(--t1)}
 
   /* ── sitemap ── */
-  .sitemap{margin-top:52px;border:1px solid var(--hair);border-radius:12px;overflow:hidden}
-  .sitemap .row{display:grid;grid-template-columns:200px 1fr;gap:16px;padding:12px 18px;border-top:1px solid var(--hair);font-size:13.5px}
+  .sitemap{margin-top:36px;border:1px solid var(--hair);border-radius:12px;overflow:hidden}
+  .sitemap .row{display:grid;grid-template-columns:220px 1fr;gap:16px;padding:12px 18px;border-top:1px solid var(--hair);font-size:13.5px}
   .sitemap .row:first-child{border-top:0;background:var(--wash);color:var(--t3);font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase}
   .sitemap .row a{font-family:var(--mono);font-size:13px;color:var(--t1);border-bottom:1px solid var(--hair2)}
   .sitemap .row a:hover{border-color:var(--t1)}
   .sitemap .row span{color:var(--t2)}
   @media(max-width:560px){.sitemap .row{grid-template-columns:1fr;gap:4px}}
 
-  footer{text-align:center;color:var(--t3);font-size:13px;padding:40px 0 60px;border-top:1px solid var(--hair);margin-top:44px}
+  footer{text-align:center;color:var(--t3);font-size:13px;padding:40px 0 calc(48px + env(safe-area-inset-bottom));border-top:1px solid var(--hair);margin-top:44px}
   footer a{color:var(--t2);border-bottom:1px solid transparent}
   footer a:hover{border-color:var(--t3)}
   footer .row{margin-top:8px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
@@ -117,15 +143,21 @@
     <nav class="topnav">
       <a href="#apps">온디바이스 앱</a>
       <a href="#church">교회·공동체 도구</a>
-      <a href="#map">사이트맵</a>
+      <a href="#content">콘텐츠</a>
+      <a href="#about">소개</a>
       <a href="mailto:paeyoung.park@gmail.com">문의</a>
     </nav>
   </div>
 
-  <header>
-    <h1>기기 안에서 끝나는 앱, 공동체를 돕는 도구.</h1>
-    <p class="lede">파일을 찾고 회의를 기록하는 일은 내 Mac·iPhone 안에서만. 찬양팀 모니터링과 주간 성경공부 관리는 교회가 바로 쓸 수 있는 웹으로.</p>
-    <p class="en">On-device apps for Apple platforms · Web tools for church &amp; community</p>
+  <!-- 첫 화면: 아이콘 런처 -->
+  <header class="launcher">
+    <div class="intro">
+      <h1>박배영이 만드는 것들</h1>
+      <p>apps · tools · content — tap to open</p>
+    </div>
+    <nav class="icons" id="icons" aria-label="프로젝트 바로가기"></nav>
+    <a class="cue" href="#apps">자세히 보기
+      <svg viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
   </header>
 
   <section id="apps">
@@ -148,19 +180,49 @@
     </div>
     <div class="meta">
       <span class="tagpill">브라우저에서 바로</span>
-      <span class="tagpill">팀·관리자 전용 접근</span>
+      <span class="tagpill">다른 교회 도입 가능</span>
     </div>
     <div class="grid" data-group="church"></div>
+  </section>
+
+  <section id="content">
+    <div class="sechead">
+      <h2><span class="idx">03</span>콘텐츠</h2>
+      <span class="sub">YouTube</span>
+    </div>
+    <div class="grid" data-group="content"></div>
+  </section>
+
+  <section id="about">
+    <div class="sechead">
+      <h2><span class="idx">04</span>소개</h2>
+      <span class="sub">Paeyoung Park</span>
+    </div>
+    <div class="about">
+      <div>
+        <p><strong>만드는 사람, 박배영입니다.</strong> 오래 걸리는 문제를 작은 도구로 덜어 주는 일을 좋아합니다. 검색이 답답하면 검색기를, 기록이 흩어지면 노트를, 찬양팀이 자기 소리를 못 들으면 모니터를, 출석부가 손으로 채워지면 자동 기록기를 만드는 식으로요.</p>
+        <p>개인 앱은 모든 처리가 기기 안에서 끝나는 걸 원칙으로 두고, 교회·공동체 도구는 실제로 매주 쓰면서 다듬습니다. AI는 도구로 쓰되 결과는 사람에게 오래 남는 쪽을 목표로 합니다.</p>
+        <p>새 프로젝트나 협업, 도구 도입 문의는 언제든 환영합니다.</p>
+      </div>
+      <div class="kv">
+        <div class="r"><span>개인</span><a href="https://lupa.kr">lupa.kr</a></div>
+        <div class="r"><span>법인</span><a href="https://rothemsystem.com">rothemsystem.com</a></div>
+        <div class="r"><span>이메일</span><a href="mailto:paeyoung.park@gmail.com">paeyoung.park@gmail.com</a></div>
+        <div class="r"><span>YouTube</span><a href="https://www.youtube.com/@lupa-app">@lupa-app</a></div>
+        <div class="r"><span>분야</span><span>Apps · AI · 교회 도구 · 콘텐츠</span></div>
+      </div>
+    </div>
   </section>
 
   <div class="sitemap" id="map">
     <div class="row"><div>주소</div><div>내용</div></div>
     <div class="row"><a href="https://lupa.kr">lupa.kr</a><span>Lupa — macOS 파일·한글(HWP) 내용 검색 앱 제품 페이지</span></div>
-    <div class="row"><a href="https://apps.lupa.kr">apps.lupa.kr</a><span>이 페이지. 모든 앱·도구의 입구</span></div>
+    <div class="row"><a href="https://apps.lupa.kr">apps.lupa.kr</a><span>이 페이지. 포트폴리오 · 모든 앱·도구의 입구</span></div>
     <div class="row"><a href="https://verbanote.lupa.kr">verbanote.lupa.kr</a><span>VerbaNote — 온디바이스 AI 회의록 앱 제품 페이지</span></div>
     <div class="row"><a href="https://henotes.lupa.kr">henotes.lupa.kr</a><span>헤노테스 — 찬양팀 실황 멀티트랙 모니터 소개 · 앱 입장</span></div>
     <div class="row"><a href="https://bible.lupa.kr">bible.lupa.kr</a><span>주간 성경퀴즈 — 답안지 제출 관리 소개 · 교회 도입 문의</span></div>
     <div class="row"><a href="https://euncheon-bible.lupa.kr">euncheon-bible.lupa.kr</a><span>주간 성경퀴즈 — 은천교회 관리자 페이지 (도입 교회는 ○○-bible.lupa.kr)</span></div>
+    <div class="row"><a href="https://www.youtube.com/@온고오늘">youtube.com/@온고오늘</a><span>온고,오늘 — 세계 명언·어록 오디오북 채널</span></div>
   </div>
 
   <footer>
@@ -175,7 +237,19 @@
 </div>
 
 <script>
-  // ── 앱 목록: 새 앱 추가 = 해당 그룹 배열에 객체 하나 추가하면 끝 ──────────────
+  // ── 런처 아이콘: 첫 화면. 순서 = 화면 순서. 추가 = 객체 하나 ─────────────
+  const ICONS = [
+    {name:"Lupa",        sub:"파일 검색",     icon:"assets/lupa.png",      url:"https://lupa.kr"},
+    {name:"VerbaNote",   sub:"AI 회의록",     icon:"assets/verbanote.png", url:"https://verbanote.lupa.kr"},
+    {name:"헤노테스",     sub:"찬양 모니터",   icon:"assets/henotes.svg",   url:"https://henotes.lupa.kr"},
+    {name:"주간 성경퀴즈", sub:"답안지 관리",   icon:"assets/bible.svg",     url:"https://bible.lupa.kr"},
+    {name:"온고,오늘",    sub:"명언 오디오북", icon:"assets/ongo.svg",      url:"https://www.youtube.com/@온고오늘"},
+    {name:"Lupa 채널",    sub:"YouTube",      icon:"assets/youtube.svg",   url:"https://www.youtube.com/@lupa-app"},
+    {name:"RothemSystem", sub:"법인",         icon:"assets/rothem.svg",    url:"https://rothemsystem.com"},
+    {name:"이메일",       sub:"문의·협업",     icon:"assets/mail.svg",      url:"mailto:paeyoung.park@gmail.com"},
+  ];
+
+  // ── 상세 카드: 그룹별. 추가 = 해당 배열에 객체 하나 ──────────────────────
   const GROUPS = {
     apps: [
       {
@@ -223,9 +297,34 @@
         ]
       },
     ],
+    content: [
+      {
+        name:"온고,오늘", sub:"YouTube", icon:"assets/ongo.svg", accent:"#C8A46E",
+        platforms:["YouTube","오디오북"],
+        tag:"옛 말을 오늘의 목소리로",
+        desc:"동서양의 명언·어록·격언을 낭독하는 오디오북 채널. 짧게는 쇼츠로, 길게는 재생목록으로.",
+        links:[
+          {t:"채널 열기", u:"https://www.youtube.com/@온고오늘", primary:true},
+          {t:"쇼츠", u:"https://www.youtube.com/@온고오늘/shorts"},
+        ]
+      },
+    ],
   };
 
   const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+  // launcher
+  const iconsEl = document.getElementById('icons');
+  ICONS.forEach(a => {
+    const el = document.createElement('a');
+    el.className = 'app' + (a.ghost ? ' ghost' : '');
+    el.href = a.url;
+    if (/^https?:/.test(a.url) && !a.url.includes('lupa.kr')) { el.target = '_blank'; el.rel = 'noopener'; }
+    el.innerHTML = `<img src="${esc(a.icon)}" alt="" width="72" height="72"><span class="nm">${esc(a.name)}</span><span class="sub">${esc(a.sub||'')}</span>`;
+    iconsEl.appendChild(el);
+  });
+
+  // detail cards
   function render(a){
     const card = document.createElement('a');
     card.className = 'appcard';
@@ -243,9 +342,8 @@
        <div class="tag">${esc(a.tag)}</div>
        <div class="desc">${esc(a.desc)}</div>
        <div class="links">${a.links.map(l =>
-         `<span class="lk ${l.primary?'primary':''}${l.soon?' soon':''}"${l.primary?'':' data-u="'+esc(l.u)+'"'}>${esc(l.t)}${l.primary?'<span class="arw">→</span>':''}</span>`
+         `<span class="lk ${l.primary?'primary':''}"${l.primary?'':' data-u="'+esc(l.u)+'"'}>${esc(l.t)}${l.primary?'<span class="arw">→</span>':''}</span>`
        ).join('')}</div>`;
-    // 카드 전체 = 첫 링크로, 개별 버튼은 각자 링크로
     card.querySelectorAll('.lk[data-u]').forEach(el=>{
       el.addEventListener('click', e=>{ e.preventDefault(); e.stopPropagation(); window.open(el.dataset.u,'_blank'); });
     });
@@ -254,12 +352,6 @@
   document.querySelectorAll('.grid[data-group]').forEach(grid=>{
     (GROUPS[grid.dataset.group]||[]).forEach(a=>grid.appendChild(render(a)));
   });
-
-  // Coming soon 자리 (온디바이스 앱 그룹)
-  const soon = document.createElement('div');
-  soon.className = 'appcard soonc';
-  soon.innerHTML = `<div class="plus">+</div><div>다음 앱 준비 중</div>`;
-  document.querySelector('.grid[data-group="apps"]').appendChild(soon);
 </script>
 </body>
 </html>

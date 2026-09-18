@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <rect width="120" height="120" rx="26" fill="#1e2a3a"/>
+  <rect x="0.5" y="0.5" width="119" height="119" rx="25.5" fill="none" stroke="#2c3b50"/>
+  <text x="60" y="82" text-anchor="middle" font-family="-apple-system, 'Helvetica Neue', Arial, sans-serif" font-size="62" font-weight="700" fill="#e8eef7">R</text>
+  <rect x="34" y="92" width="52" height="4" rx="2" fill="#4f8ef7"/>
+</svg>
