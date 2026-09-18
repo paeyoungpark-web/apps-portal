@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Lupe — 박배영 포트폴리오 · 앱과 도구</title>
-<meta name="description" content="만드는 사람 박배영의 포트폴리오. 온디바이스 앱(Lupa, VerbaNote), 교회·공동체 도구(헤노테스 찬양 모니터, 주간 성경퀴즈), 콘텐츠(온고,오늘)까지 한 화면에서.">
+<meta name="description" content="만드는 사람 박배영의 포트폴리오. 온디바이스 앱(Lupa, VerbaNote), 교회·공동체 도구(헤노테스 찬양 모니터, 주간 성경퀴즈), 채널과 글(온고,오늘 · 로듬아래 · 네이버 블로그 · Blogger)까지 한 화면에서.">
 <meta property="og:title" content="Lupe — 박배영 포트폴리오">
-<meta property="og:description" content="Lupa · VerbaNote · 헤노테스 · 주간 성경퀴즈 · 온고,오늘">
+<meta property="og:description" content="Lupa · VerbaNote · 헤노테스 · 주간 성경퀴즈 · 온고,오늘 · 로듬아래 · 블로그">
 <meta name="theme-color" content="#0C0D10" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#F4F5F6" media="(prefers-color-scheme: light)">
 <link rel="icon" href="assets/lupa.png">
@@ -53,16 +53,17 @@
   .intro{text-align:center}
   .intro h1{font-size:clamp(21px,4.4vw,32px);font-weight:660;letter-spacing:-.03em;line-height:1.2;text-wrap:balance}
   .intro p{color:var(--t3);font-size:13px;margin-top:8px;font-family:var(--mono);letter-spacing:.01em}
-  .icons{display:grid;grid-template-columns:repeat(4,1fr);gap:22px 12px;margin:30px auto 0;max-width:640px}
-  @media(max-width:560px){.icons{grid-template-columns:repeat(3,1fr);gap:18px 8px;margin-top:24px}}
+  .icons{display:grid;grid-template-columns:repeat(6,1fr);gap:22px 12px;margin:30px auto 0;max-width:760px}
+  @media(max-width:720px){.icons{grid-template-columns:repeat(4,1fr);gap:16px 6px;margin-top:22px}}
   .app{display:flex;flex-direction:column;align-items:center;gap:9px;text-align:center;
     -webkit-tap-highlight-color:transparent;transition:transform .14s ease}
   .app:hover{transform:translateY(-3px)}
   .app:active{transform:scale(.94)}
-  .app img{width:72px;height:72px;border-radius:18px;box-shadow:var(--icon-shadow);display:block}
-  @media(max-width:560px){.app img{width:64px;height:64px;border-radius:16px}}
+  .app img{width:72px;height:72px;border-radius:18px;box-shadow:var(--icon-shadow);display:block;object-fit:cover}
+  @media(max-width:720px){.app img{width:58px;height:58px;border-radius:15px}}
   .app .nm{font-size:13px;font-weight:600;letter-spacing:-.01em;line-height:1.25}
   .app .sub{font-size:11px;color:var(--t3);line-height:1.25;margin-top:-4px}
+  @media(max-width:720px){.app{gap:7px}.app .nm{font-size:11.5px}.app .sub{font-size:10px;margin-top:-3px}}
   .app.ghost img{opacity:.35;box-shadow:none;border:1px dashed var(--hair2)}
   .app.ghost .nm{color:var(--t3)}
   .cue{display:flex;justify-content:center;margin-top:30px;color:var(--t3);font-size:12px;gap:6px;align-items:center}
@@ -143,7 +144,7 @@
     <nav class="topnav">
       <a href="#apps">온디바이스 앱</a>
       <a href="#church">교회·공동체 도구</a>
-      <a href="#content">콘텐츠</a>
+      <a href="#content">채널·글</a>
       <a href="#about">소개</a>
       <a href="mailto:paeyoung.park@gmail.com">문의</a>
     </nav>
@@ -187,8 +188,8 @@
 
   <section id="content">
     <div class="sechead">
-      <h2><span class="idx">03</span>콘텐츠</h2>
-      <span class="sub">YouTube</span>
+      <h2><span class="idx">03</span>채널·글</h2>
+      <span class="sub">YouTube · Blogger · 네이버 블로그</span>
     </div>
     <div class="grid" data-group="content"></div>
   </section>
@@ -208,8 +209,9 @@
         <div class="r"><span>개인</span><a href="https://lupa.kr">lupa.kr</a></div>
         <div class="r"><span>법인</span><a href="https://rothemsystem.com">rothemsystem.com</a></div>
         <div class="r"><span>이메일</span><a href="mailto:paeyoung.park@gmail.com">paeyoung.park@gmail.com</a></div>
-        <div class="r"><span>YouTube</span><a href="https://www.youtube.com/@lupa-app">@lupa-app</a></div>
-        <div class="r"><span>분야</span><span>Apps · AI · 교회 도구 · 콘텐츠</span></div>
+        <div class="r"><span>YouTube</span><span><a href="https://www.youtube.com/@revival_of_rotem">@revival_of_rotem</a> · <a href="https://www.youtube.com/@온고오늘">@온고오늘</a> · <a href="https://www.youtube.com/@lupa-app">@lupa-app</a></span></div>
+        <div class="r"><span>블로그</span><span><a href="https://blog.naver.com/udrodem">네이버</a> · <a href="https://ongotoday.blogspot.com">온고,오늘</a></span></div>
+        <div class="r"><span>분야</span><span>Apps · AI · 교회 도구 · 찬양·명언 콘텐츠</span></div>
       </div>
     </div>
   </section>
@@ -223,6 +225,10 @@
     <div class="row"><a href="https://bible.lupa.kr">bible.lupa.kr</a><span>주간 성경퀴즈 — 답안지 제출 관리 소개 · 교회 도입 문의</span></div>
     <div class="row"><a href="https://euncheon-bible.lupa.kr">euncheon-bible.lupa.kr</a><span>주간 성경퀴즈 — 은천교회 관리자 페이지 (도입 교회는 ○○-bible.lupa.kr)</span></div>
     <div class="row"><a href="https://www.youtube.com/@온고오늘">youtube.com/@온고오늘</a><span>온고,오늘 — 세계 명언·어록 오디오북 채널</span></div>
+    <div class="row"><a href="https://ongotoday.blogspot.com">ongotoday.blogspot.com</a><span>온고(溫故),오늘 — 영상 속 명언을 글로 풀어 쓰는 Blogger</span></div>
+    <div class="row"><a href="https://www.youtube.com/@revival_of_rotem">youtube.com/@revival_of_rotem</a><span>로듬아래(The Revival of Rotem) — 한글 가사 + 영어 번역 자막 찬양 채널</span></div>
+    <div class="row"><a href="https://blog.naver.com/udrodem">blog.naver.com/udrodem</a><span>로듬아래의 블로그 — 명언 해설 · Lupa 사용기 · ISO 27001·IT 실무 메모</span></div>
+    <div class="row"><a href="https://lupa-app.blogspot.com">lupa-app.blogspot.com</a><span>개발자 - lupa — Lupa 개발·사용 글 (Blogger)</span></div>
   </div>
 
   <footer>
@@ -239,14 +245,21 @@
 <script>
   // ── 런처 아이콘: 첫 화면. 순서 = 화면 순서. 추가 = 객체 하나 ─────────────
   const ICONS = [
-    {name:"Lupa",        sub:"파일 검색",     icon:"assets/lupa.png",      url:"https://lupa.kr"},
-    {name:"VerbaNote",   sub:"AI 회의록",     icon:"assets/verbanote.png", url:"https://verbanote.lupa.kr"},
-    {name:"헤노테스",     sub:"찬양 모니터",   icon:"assets/henotes.svg",   url:"https://henotes.lupa.kr"},
-    {name:"주간 성경퀴즈", sub:"답안지 관리",   icon:"assets/bible.svg",     url:"https://bible.lupa.kr"},
-    {name:"온고,오늘",    sub:"명언 오디오북", icon:"assets/ongo.svg",      url:"https://www.youtube.com/@온고오늘"},
-    {name:"Lupa 채널",    sub:"YouTube",      icon:"assets/youtube.svg",   url:"https://www.youtube.com/@lupa-app"},
-    {name:"RothemSystem", sub:"법인",         icon:"assets/rothem.svg",    url:"https://rothemsystem.com"},
-    {name:"이메일",       sub:"문의·협업",     icon:"assets/mail.svg",      url:"mailto:paeyoung.park@gmail.com"},
+    // 1행: 앱·도구
+    {name:"Lupa",        sub:"파일 검색",     icon:"assets/lupa.png",       url:"https://lupa.kr"},
+    {name:"VerbaNote",   sub:"AI 회의록",     icon:"assets/verbanote.png",  url:"https://verbanote.lupa.kr"},
+    {name:"헤노테스",     sub:"찬양 모니터",   icon:"assets/henotes.svg",    url:"https://henotes.lupa.kr"},
+    {name:"주간 성경퀴즈", sub:"답안지 관리",   icon:"assets/bible.svg",      url:"https://bible.lupa.kr"},
+    // 2행: 채널
+    {name:"온고,오늘",    sub:"명언 오디오북", icon:"assets/ongo-yt.jpg",    url:"https://www.youtube.com/@온고오늘"},
+    {name:"로듬아래",     sub:"찬양 · 가사번역", icon:"assets/rotem-yt.jpg",   url:"https://www.youtube.com/@revival_of_rotem"},
+    {name:"Lupa 채널",    sub:"YouTube",      icon:"assets/youtube.svg",    url:"https://www.youtube.com/@lupa-app"},
+    {name:"온고 블로그",   sub:"Blogger",      icon:"assets/blogger.svg",    url:"https://ongotoday.blogspot.com"},
+    // 3행: 글·회사·연락
+    {name:"네이버 블로그",  sub:"로듬아래의 블로그", icon:"assets/naver-blog.svg", url:"https://blog.naver.com/udrodem"},
+    {name:"Lupa 블로그",   sub:"Blogger",      icon:"assets/blogger-lupa.svg",    url:"https://lupa-app.blogspot.com"},
+    {name:"RothemSystem", sub:"법인",         icon:"assets/rothem.svg",     url:"https://rothemsystem.com"},
+    {name:"이메일",       sub:"문의·협업",     icon:"assets/mail.svg",       url:"mailto:paeyoung.park@gmail.com"},
   ];
 
   // ── 상세 카드: 그룹별. 추가 = 해당 배열에 객체 하나 ──────────────────────
@@ -299,13 +312,35 @@
     ],
     content: [
       {
-        name:"온고,오늘", sub:"YouTube", icon:"assets/ongo.svg", accent:"#C8A46E",
-        platforms:["YouTube","오디오북"],
+        name:"온고,오늘", sub:"溫故", icon:"assets/ongo-yt.jpg", accent:"#C8A46E",
+        platforms:["YouTube","Blogger"],
         tag:"옛 말을 오늘의 목소리로",
-        desc:"동서양의 명언·어록·격언을 낭독하는 오디오북 채널. 짧게는 쇼츠로, 길게는 재생목록으로.",
+        desc:"동서양의 명언·어록·격언을 낭독하는 오디오북 채널. 영상에 담은 명언 가운데 다섯을 골라 인물·시대 배경과 오늘의 적용까지 글로 풀어 쓰는 블로그를 함께 운영합니다.",
         links:[
-          {t:"채널 열기", u:"https://www.youtube.com/@온고오늘", primary:true},
+          {t:"YouTube", u:"https://www.youtube.com/@온고오늘", primary:true},
+          {t:"블로그", u:"https://ongotoday.blogspot.com"},
           {t:"쇼츠", u:"https://www.youtube.com/@온고오늘/shorts"},
+        ]
+      },
+      {
+        name:"로듬아래", sub:"The Revival of Rotem", icon:"assets/rotem-yt.jpg", accent:"#7FB3D5",
+        platforms:["YouTube","찬양"],
+        tag:"한국의 찬양을 온 세계와, 한글 가사와 영어 번역을 한 화면에",
+        desc:"엘리야가 로듬나무 아래서 새 힘을 얻었듯(열왕기상 19장), 지친 사람이 잠시 쉬어 가는 찬양 채널. 2012년부터 영상 4,000편 이상, 로마자 발음·100개 언어 자동 번역 자막. 헤노테스 찬양 실황도 이곳에.",
+        links:[
+          {t:"채널 열기", u:"https://www.youtube.com/@revival_of_rotem", primary:true},
+          {t:"재생목록", u:"https://www.youtube.com/@revival_of_rotem/playlists"},
+          {t:"쇼츠", u:"https://www.youtube.com/@revival_of_rotem/shorts"},
+        ]
+      },
+      {
+        name:"로듬아래의 블로그", sub:"네이버", icon:"assets/naver-blog.svg", accent:"#03C75A",
+        platforms:["Naver Blog","교육·학문"],
+        tag:"명언 해설부터 Lupa 사용기, ISO 27001까지",
+        desc:"동서양 명언을 한자와 인물 일화로 풀어 쓰는 글, Lupa·맥 작업 환경 사용기, ISO/IEC 27001·네트워크 실무 메모까지. 누적 방문 8만 이상.",
+        links:[
+          {t:"블로그 열기", u:"https://blog.naver.com/udrodem", primary:true},
+          {t:"Lupa 개발 블로그", u:"https://lupa-app.blogspot.com"},
         ]
       },
     ],
