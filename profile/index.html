@@ -49,6 +49,7 @@
   .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
   header h1{font-size:clamp(34px,6vw,52px);font-weight:700;letter-spacing:-.035em;line-height:1.1;margin-top:14px}
   header h1 small{display:block;font-size:clamp(15px,2.4vw,18px);font-weight:600;color:var(--t2);letter-spacing:-.01em;margin-top:12px;line-height:1.45}
+  header .lede strong{color:var(--t1);font-weight:640}
   header .lede{color:var(--t2);font-size:16px;margin-top:18px;max-width:58ch;text-wrap:pretty}
 
   .stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--hair);border-radius:14px;overflow:hidden;margin-top:30px;background:var(--surface)}
@@ -104,6 +105,18 @@
   .hlc p{color:var(--t2);font-size:13.5px;margin-top:5px;text-wrap:pretty}
   @media(max-width:560px){.hlc{grid-template-columns:1fr}}
 
+  /* 지도·평가 카드 */
+  .adv{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:720px){.adv{grid-template-columns:1fr}}
+  .advc{background:var(--card);border:1px solid var(--hair2);border-radius:14px;padding:20px 22px;box-shadow:var(--shadow)}
+  .advc .n{font-family:var(--mono);font-size:22px;font-weight:600;letter-spacing:-.02em;color:var(--teal)}
+  .advc .n small{font-size:12px;color:var(--t3);margin-left:6px;letter-spacing:.04em}
+  .advc h3{font-size:16px;font-weight:660;letter-spacing:-.015em;margin-top:6px}
+  .advc p{color:var(--t2);font-size:13.5px;margin-top:6px;text-wrap:pretty}
+  .advc .role-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+  .advc .role-tags span{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;color:var(--t3);
+    border:1px solid var(--hair);border-radius:4px;padding:3px 8px}
+
   /* 태그 */
   .tags{display:flex;flex-wrap:wrap;gap:7px}
   .tag{font-size:12.5px;color:var(--t2);border:1px solid var(--hair2);border-radius:6px;padding:6px 11px;background:var(--surface)}
@@ -139,6 +152,7 @@
     <a class="brandwrap" href="/"><span class="mark"></span><span class="brand">Lupe<small>박배영 프로필</small></span></a>
     <nav class="topnav">
       <a class="hide-m" href="#audit">심사</a>
+      <a class="hide-m" href="#advisory">지도·평가</a>
       <a class="hide-m" href="#lecture">강의</a>
       <a class="hide-m" href="#cert">자격</a>
       <a href="/">만든 것들</a>
@@ -148,12 +162,12 @@
   <header class="hero">
     <div class="eyebrow">ISO 심사원 · AI 보안 전문가</div>
     <h1>박배영<small>정보보호·인공지능 경영시스템 인증심사원 / 심사원 양성과정 강사<br>(주)로뎀시스템 대표</small></h1>
-    <p class="lede">법학에서 출발해 네트워크 보안 강의를 거쳐, 지금은 기업의 정보보호와 인공지능 경영시스템을 심사하고 심사원을 길러 냅니다. AI가 실제로 쓰이기 시작한 현장에서 "이 시스템을 신뢰할 수 있는가"를 표준으로 검증하는 일을 합니다.</p>
+    <p class="lede" style="max-width:62ch">법학에서 출발해 네트워크 보안 강의를 거쳐, 지금은 세 가지 일을 합니다. 기업의 정보보호·인공지능 경영시스템을 <strong>심사</strong>하고, 심사원을 <strong>양성</strong>하고, 제조 현장의 스마트공장 수준을 <strong>확인·지도</strong>합니다. AI가 실제로 쓰이기 시작한 현장에서 "이 시스템을 신뢰할 수 있는가"를 표준으로 검증하는 일입니다.</p>
 
     <div class="stats">
-      <div class="c"><div class="n"><em>144</em>건</div><div class="k">인증심사 수행</div><div class="s">2023.2 – 2026.1</div></div>
-      <div class="c"><div class="n"><em>196.6</em> MD</div><div class="k">심사 투입일수</div><div class="s">58개사</div></div>
+      <div class="c"><div class="n"><em>144</em>건</div><div class="k">인증심사 수행</div><div class="s">196.6 MD · 58개사</div></div>
       <div class="c"><div class="n"><em>392</em>h</div><div class="k">심사원 양성 강의</div><div class="s">18개 과정</div></div>
+      <div class="c"><div class="n"><em>200</em>+</div><div class="k">스마트공장 지도·평가</div><div class="s">수준확인 · DX코칭</div></div>
       <div class="c"><div class="n"><em>11</em>종</div><div class="k">심사 수행 표준</div><div class="s">ISO / KS</div></div>
     </div>
   </header>
@@ -185,20 +199,26 @@
     <p class="note">고객사는 기밀 유지를 위해 실명 대신 산업군으로만 표기합니다. 필요한 경우 심사 경력 증빙(인증기관 발행)을 별도로 제공합니다.</p>
   </section>
 
+  <section id="advisory">
+    <div class="sechead"><h2><span class="idx">03</span>지도 · 평가 · 컨설팅</h2><span class="sub">수준확인 · 기술보호 · 인증 구축</span></div>
+    <div class="adv" id="adv"></div>
+    <p class="note" style="margin-top:22px">지도·평가 수행 기업은 제조 중심으로 누적 230개사 이상. 심사와 마찬가지로 기업명은 공개하지 않습니다.</p>
+  </section>
+
   <section id="highlight">
-    <div class="sechead"><h2><span class="idx">03</span>대표 이력</h2><span class="sub">ISO/IEC 42001 · 인공지능</span></div>
+    <div class="sechead"><h2><span class="idx">04</span>대표 이력</h2><span class="sub">ISO/IEC 42001 · 인공지능</span></div>
     <div class="hl" id="hl"></div>
   </section>
 
   <section id="lecture">
-    <div class="sechead"><h2><span class="idx">04</span>강의</h2><span class="sub">2023.2 – 2025.8 · 392시간</span></div>
+    <div class="sechead"><h2><span class="idx">05</span>강의</h2><span class="sub">2023.2 – 2025.8 · 392시간</span></div>
     <div class="minihead">과정별 강의 시간 (한국경영인증원)</div>
     <div class="chart" id="ch-lec"></div>
     <div class="roles" id="teach"></div>
   </section>
 
   <section id="cert">
-    <div class="sechead"><h2><span class="idx">05</span>자격</h2><span class="sub">심사원 자격 · 전문강사</span></div>
+    <div class="sechead"><h2><span class="idx">06</span>자격</h2><span class="sub">심사원 자격 · 전문강사</span></div>
     <div class="minihead">심사원 자격</div>
     <div class="tags" id="certs" style="margin-bottom:22px"></div>
     <div class="minihead">전문강사 자격 · 기타</div>
@@ -206,12 +226,12 @@
   </section>
 
   <section id="edu">
-    <div class="sechead"><h2><span class="idx">06</span>학력 · 저서</h2><span class="sub">AI·빅데이터</span></div>
+    <div class="sechead"><h2><span class="idx">07</span>학력 · 저서</h2><span class="sub">AI·빅데이터</span></div>
     <div class="tl" id="edu-list"></div>
   </section>
 
   <section id="contact" style="border-bottom:0">
-    <div class="sechead"><h2><span class="idx">07</span>연락</h2><span class="sub">심사 · 강의 · 컨설팅</span></div>
+    <div class="sechead"><h2><span class="idx">08</span>연락</h2><span class="sub">심사 · 강의 · 컨설팅</span></div>
     <div class="cta">
       <div>
         <h3>심사·강의·자문 문의</h3>
@@ -304,6 +324,28 @@
     {k:"ISO 27001 & 27701",  s:"통합 심사원 양성 · 1개 과정",     v:24},
     {k:"기반시설 자체평가",   s:"1개 과정",                       v:8},
   ], "h", "t");
+
+  // ── 지도·평가·컨설팅 ──────────────────────────────────
+  const ADV = [
+    {n:"200", unit:"개사 이상", h:"스마트공장 수준확인 · DX코칭",
+     p:"제조 현장의 스마트공장 수준확인 평가와 DX 코칭·멘토링. 공정·설비 데이터화 수준을 진단하고 다음 단계 구축 방향을 지도합니다.",
+     tags:["수준확인 평가위원","DX코칭 멘토","수준진단 위원"]},
+    {n:"30", unit:"개사 이상", h:"대·중소기업·농어업협력재단 기술보호",
+     p:"중소기업 기술보호 수준 진단과 지도·심사. 기술자료 임치, 보안 체계 수립, 유출 방지 대책 점검.",
+     tags:["기술보호위원","지도·심사"]},
+    {n:"4", unit:"개 표준", h:"정보보호·AI 인증 구축 컨설팅",
+     p:"ISO/IEC 27001·27701·42001과 자동차 산업 TISAX 인증 구축 지도. 공공기관·제조·IT 기업 대상.",
+     tags:["ISO/IEC 27001","27701","42001","TISAX"]},
+    {n:"—", unit:"", h:"중소벤처기업부 기술정보진흥원 평가위원",
+     p:"정부 지원사업 과제 평가. 기술성·보안성 관점의 심의.",
+     tags:["과제 평가"]},
+  ];
+  document.getElementById('adv').innerHTML = ADV.map(a =>
+    `<div class="advc">
+       <div class="n">${esc(a.n)}${a.unit?`<small>${esc(a.unit)}</small>`:''}</div>
+       <h3>${esc(a.h)}</h3><p>${esc(a.p)}</p>
+       <div class="role-tags">${a.tags.map(t=>`<span>${esc(t)}</span>`).join('')}</div>
+     </div>`).join('');
 
   // ── 대표 이력 ─────────────────────────────────────────
   const HL = [
