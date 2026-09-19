@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>박배영 — 골프 프로필 · 골프지도자(세미)</title>
+<meta name="description" content="한국프로골프산업지도자협회(KPGMA) 골프지도자(세미) 자격 보유. 스코어카드를 AI가 읽어 자동 정산하는 골프 앱을 직접 만듭니다.">
+<meta property="og:title" content="박배영 — 골프 프로필">
+<meta property="og:description" content="골프지도자(세미) · AI 스코어카드 자동 정산 앱 개발">
+<meta name="theme-color" content="#0B0F0C" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F2F4F2" media="(prefers-color-scheme: light)">
+<link rel="icon" href="../assets/lupa.png">
+<link rel="canonical" href="https://apps.lupa.kr/golf/">
+<style>
+  :root{
+    --ground:#0B0F0C; --surface:#131A15; --card:#121911;
+    --t1:#F0F3F0; --t2:rgba(240,243,240,.62); --t3:rgba(240,243,240,.40);
+    --hair:rgba(240,243,240,.13); --hair2:rgba(240,243,240,.24); --wash:rgba(240,243,240,.06);
+    --green:#4ADE80; --green-d:#22A35A; --fair:#1E4D2B; --gold:#D3A45E;
+    --shadow:0 24px 70px rgba(0,0,0,.55), 0 2px 8px rgba(0,0,0,.4);
+    --sans:-apple-system,BlinkMacSystemFont,"SF Pro Text","Apple SD Gothic Neo","Pretendard",system-ui,sans-serif;
+    --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,monospace;
+  }
+  @media (prefers-color-scheme: light){:root:not([data-theme="dark"]){
+    --ground:#F2F4F2; --surface:#FFFFFF; --card:#FFFFFF;
+    --t1:#0B0F0C; --t2:rgba(11,15,12,.62); --t3:rgba(11,15,12,.42);
+    --hair:rgba(11,15,12,.12); --hair2:rgba(11,15,12,.22); --wash:rgba(11,15,12,.05);
+    --green:#15803D; --green-d:#166534; --fair:#DCFCE7;
+    --shadow:0 24px 70px rgba(11,15,12,.14), 0 2px 8px rgba(11,15,12,.08);
+  }}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--ground);color:var(--t1);font-family:var(--sans);line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:860px;margin:0 auto;padding:0 24px}
+
+  .top{display:flex;align-items:center;justify-content:space-between;height:56px}
+  .brandwrap{display:flex;align-items:center}
+  .mark{width:16px;height:16px;border:2px solid var(--t1);border-radius:50%;display:inline-block;position:relative;vertical-align:-2px;margin-right:9px}
+  .mark::after{content:"";position:absolute;width:2px;height:7px;background:var(--t1);right:-3px;bottom:-5px;transform:rotate(-45deg);border-radius:1px}
+  .brand{font-size:17px;font-weight:680;letter-spacing:-.01em}
+  .brand small{font-weight:500;color:var(--t3);margin-left:8px;font-size:13px}
+  .topnav{display:flex;gap:18px;font-size:13.5px;color:var(--t2)}
+  .topnav a:hover{color:var(--t1)}
+
+  header.hero{padding:56px 0 40px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--green)}
+  header h1{font-size:clamp(30px,5.4vw,46px);font-weight:700;letter-spacing:-.035em;line-height:1.14;margin-top:14px;text-wrap:balance}
+  header h1 em{font-style:normal;color:var(--green)}
+  header .lede{color:var(--t2);font-size:16px;margin-top:18px;max-width:58ch;text-wrap:pretty}
+
+  section{padding:42px 0 8px;border-top:1px solid var(--hair);margin-top:32px}
+  .sechead{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding-bottom:14px;border-bottom:1px solid var(--hair);margin-bottom:22px}
+  .sechead h2{font-size:19px;font-weight:660;letter-spacing:-.02em}
+  .sechead h2 .idx{font-family:var(--mono);font-size:11px;color:var(--t3);margin-right:10px;letter-spacing:.08em}
+  .sechead .sub{color:var(--t3);font-size:12.5px;font-family:var(--mono)}
+
+  /* 자격 카드 */
+  .cert{background:linear-gradient(160deg,var(--card),var(--surface));border:1px solid var(--hair2);border-radius:18px;
+    padding:30px 32px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+  .cert::before{content:"";position:absolute;inset:0;background:radial-gradient(520px 240px at 88% -12%,var(--green),transparent 70%);opacity:.12;pointer-events:none}
+  .cert .seal{position:absolute;right:28px;top:28px;width:66px;height:66px;border:2px solid var(--green);border-radius:50%;
+    display:grid;place-items:center;font-family:var(--mono);font-size:10px;letter-spacing:.08em;color:var(--green);text-align:center;line-height:1.3;opacity:.85}
+  @media(max-width:560px){.cert .seal{display:none}}
+  .cert .k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--green)}
+  .cert h3{font-size:clamp(26px,4.4vw,34px);font-weight:700;letter-spacing:-.03em;margin-top:10px}
+  .cert .org{color:var(--t2);font-size:15px;margin-top:8px}
+  .cert dl{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:26px;padding-top:22px;border-top:1px solid var(--hair)}
+  @media(max-width:600px){.cert dl{grid-template-columns:1fr 1fr;gap:14px}}
+  .cert dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--t3)}
+  .cert dd{font-size:15px;font-weight:600;margin-top:5px;letter-spacing:-.01em}
+  .cert dd small{display:block;font-weight:400;font-size:12.5px;color:var(--t2);margin-top:2px;letter-spacing:0}
+
+  /* 앱 카드 */
+  .apps{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:720px){.apps{grid-template-columns:1fr}}
+  .app{background:var(--card);border:1px solid var(--hair2);border-radius:16px;padding:22px 24px;box-shadow:var(--shadow);
+    display:flex;flex-direction:column;transition:transform .16s ease,border-color .16s ease}
+  .app:hover{transform:translateY(-3px);border-color:var(--hair)}
+  .app .ic{width:38px;height:38px;border-radius:10px;background:var(--fair);display:grid;place-items:center;margin-bottom:14px}
+  .app .ic svg{width:19px;height:19px;stroke:var(--green);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+  .app h3{font-size:17px;font-weight:660;letter-spacing:-.02em}
+  .app .tag{color:var(--green);font-size:12.5px;font-family:var(--mono);margin-top:4px}
+  .app p{color:var(--t2);font-size:14px;margin-top:9px;flex:1;text-wrap:pretty}
+  .app .stack{display:flex;gap:6px;flex-wrap:wrap;margin-top:14px}
+  .app .stack span{font-family:var(--mono);font-size:10px;letter-spacing:.05em;color:var(--t3);border:1px solid var(--hair);border-radius:4px;padding:3px 7px}
+
+  .why{background:var(--surface);border:1px solid var(--hair);border-radius:16px;padding:26px 28px;margin-top:22px}
+  .why h3{font-size:17px;font-weight:660;letter-spacing:-.02em}
+  .why p{color:var(--t2);font-size:14.5px;margin-top:8px;max-width:64ch;text-wrap:pretty}
+  .why p strong{color:var(--t1);font-weight:640}
+
+  .cta{background:var(--surface);border:1px solid var(--hair2);border-radius:16px;padding:26px;margin:22px 0 8px;
+    display:flex;justify-content:space-between;gap:18px;align-items:center;flex-wrap:wrap}
+  .cta h3{font-size:17px;font-weight:660;letter-spacing:-.02em}
+  .cta p{color:var(--t2);font-size:13.5px;margin-top:4px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:8px;font-size:14px;font-weight:600;
+    background:var(--green);color:var(--ground);border:1px solid var(--green)}
+  .btn:hover{opacity:.88}
+  .btn.ghost{background:transparent;color:var(--t1);border-color:var(--hair2)}
+  .btn.ghost:hover{background:var(--wash);opacity:1}
+  .btn svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+
+  footer{text-align:center;color:var(--t3);font-size:13px;padding:34px 0 calc(48px + env(safe-area-inset-bottom));border-top:1px solid var(--hair);margin-top:38px}
+  footer a{color:var(--t2);border-bottom:1px solid transparent}
+  footer a:hover{border-color:var(--t3)}
+  footer .row{margin-top:8px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a class="brandwrap" href="/"><span class="mark"></span><span class="brand">Lupe<small>골프 프로필</small></span></a>
+    <nav class="topnav">
+      <a href="#cert">자격</a>
+      <a href="#apps">만든 것</a>
+      <a href="/profile/">심사·강의 프로필</a>
+    </nav>
+  </div>
+
+  <header class="hero">
+    <div class="eyebrow">Golf · KPGMA</div>
+    <h1>치는 사람이 만든<br><em>골프 도구</em>.</h1>
+    <p class="lede">한국프로골프산업지도자협회(KPGMA) 골프지도자(세미) 자격을 가지고 있습니다. 라운드가 끝나면 늘 반복되던 스코어 정리와 정산을, 사진 한 장으로 끝내는 도구로 직접 만들었습니다.</p>
+  </header>
+
+  <section id="cert" style="border-top:0;margin-top:0;padding-top:0">
+    <div class="sechead"><h2><span class="idx">01</span>자격</h2><span class="sub">문화체육관광부 등록 민간자격</span></div>
+    <div class="cert">
+      <div class="seal">KPGMA<br>CERTIFIED</div>
+      <div class="k">자격인증서</div>
+      <h3>골프지도자 <span style="color:var(--green)">(세미)</span></h3>
+      <div class="org">한국프로골프산업지도자협회 · Korea Professional Golf Management Association</div>
+      <dl>
+        <div><dt>취득</dt><dd>2024. 03. 27<small>교육·검정과정 합격</small></dd></div>
+        <div><dt>등록번호</dt><dd>2022-001794<small>문화체육관광부</small></dd></div>
+        <div><dt>구분</dt><dd>세미프로<small>골프지도자</small></dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="apps">
+    <div class="sechead"><h2><span class="idx">02</span>만든 것</h2><span class="sub">AI 스코어카드 · 자동 정산</span></div>
+    <div class="apps" id="apps-grid"></div>
+
+    <div class="why">
+      <h3>왜 만들었나</h3>
+      <p>라운드가 끝나면 항상 같은 장면이 반복됩니다. 스코어카드를 놓고 <strong>누가 몇 타를 쳤는지 세고, 배판을 따지고, 축하금과 니어리스트를 계산하느라</strong> 식사 시간이 반쯤 날아갑니다. 손으로 적은 카드는 읽기 어렵고, 계산은 매번 누군가 총대를 멥니다.</p>
+      <p>그래서 <strong>스코어카드를 사진으로 찍으면 AI가 읽고, 정산까지 끝내는</strong> 웹앱을 만들었습니다. 직접 치는 사람이 만들었으니 타당·배판·축하금 같은 실제 규칙이 그대로 들어가 있습니다.</p>
+    </div>
+  </section>
+
+  <section id="contact" style="border-bottom:0">
+    <div class="sechead"><h2><span class="idx">03</span>연락</h2><span class="sub">라운드 · 레슨 · 앱 문의</span></div>
+    <div class="cta">
+      <div>
+        <h3>같이 치거나, 도구가 필요하시면</h3>
+        <p>골프 앱 관련 문의나 동반 라운드 제안 모두 환영합니다.</p>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn" href="mailto:paeyoung.park@gmail.com?subject=%5B%EA%B3%A8%ED%94%84%5D%20%EB%AC%B8%EC%9D%98">이메일 문의
+          <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="m4 7 8 6 8-6"/></svg></a>
+        <a class="btn ghost" href="/profile/">심사·강의 프로필</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div>© 2026 Paeyoung Park</div>
+    <div class="row">
+      <a href="/">만든 것들 (포트폴리오)</a>
+      <a href="/profile/">심사·강의 프로필</a>
+      <a href="/church/">교회를 위한 Lupa</a>
+      <a href="mailto:paeyoung.park@gmail.com">이메일</a>
+    </div>
+  </footer>
+</div>
+
+<script>
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const APPS = [
+    {
+      icon:'<path d="M3 7h18v13H3z"/><path d="M3 7l3-4h12l3 4"/><circle cx="12" cy="13.5" r="3.2"/>',
+      name:"Golf Score", tag:"AI 자동 정산",
+      desc:"스코어카드를 사진으로 찍으면 GPT-4o Vision이 읽어 타수를 인식하고, 타당 계산·배판·축하금·니어리스트를 자동으로 정산합니다.",
+      stack:["GPT-4o Vision","Hono","Cloudflare Pages","Canvas API"]
+    },
+    {
+      icon:'<path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h8M8 17h5"/>',
+      name:"Scorecard OCR", tag:"보안형 구성",
+      desc:"손글씨 스코어카드 인식 엔진. API 키가 브라우저에 노출되지 않도록 OpenAI 호출을 서버에서만 수행하고, 요청 제한과 보안 헤더를 걸었습니다.",
+      stack:["Express","helmet","rate-limit","OpenAI API"]
+    },
+    {
+      icon:'<path d="M12 2v20M5 7h14M5 17h14"/><circle cx="12" cy="12" r="2"/>',
+      name:"골프 정산 마스터", tag:"Settlement Pro",
+      desc:"라운드별 참가자·베팅 규칙을 넣으면 정산표가 나오는 도구. 누가 누구에게 얼마를 보내야 하는지까지 정리합니다.",
+      stack:["Opal","웹앱"]
+    },
+    {
+      icon:'<path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/>',
+      name:"스코어 대시보드", tag:"기록 분석",
+      desc:"누적 라운드 기록을 모아 코스별·홀별 성적과 추이를 보는 대시보드. 데이터 분석 과제로 설계했습니다.",
+      stack:["데이터 시각화","aSSIST 과제"]
+    },
+  ];
+  document.getElementById('apps-grid').innerHTML = APPS.map(a =>
+    `<div class="app">
+       <div class="ic"><svg viewBox="0 0 24 24">${a.icon}</svg></div>
+       <h3>${esc(a.name)}</h3>
+       <div class="tag">${esc(a.tag)}</div>
+       <p>${esc(a.desc)}</p>
+       <div class="stack">${a.stack.map(s=>`<span>${esc(s)}</span>`).join('')}</div>
+     </div>`).join('');
+</script>
+</body>
+</html>
