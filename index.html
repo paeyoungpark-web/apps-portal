@@ -100,6 +100,18 @@
   .plat span{font-family:var(--mono);font-size:9.5px;letter-spacing:.06em;color:var(--t3);
     border:1px solid var(--hair);border-radius:3px;padding:2px 7px}
   .appcard .tag{font-size:16px;font-weight:600;letter-spacing:-.01em;margin-bottom:7px}
+  .appcard .motto{font-size:12.5px;color:var(--t2);margin:-2px 0 10px;padding-left:10px;border-left:2px solid #D3A45E}
+  .appcard .motto .ref{font-family:var(--mono);font-size:10.5px;color:var(--t3);margin-left:6px;letter-spacing:.04em}
+
+  /* 교회 도구 의미 블록 */
+  .meaning{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;background:var(--surface);
+    border:1px solid var(--hair);border-radius:14px;padding:18px 20px;margin:-6px 0 20px}
+  @media(max-width:640px){.meaning{grid-template-columns:1fr}}
+  .meaning .t{font-size:15px;font-weight:620;letter-spacing:-.01em}
+  .meaning .t em{font-style:normal;color:#D3A45E}
+  .meaning p{color:var(--t2);font-size:13.5px;margin-top:5px;max-width:62ch;text-wrap:pretty}
+  .meaning a.more{white-space:nowrap;font-size:13px;color:var(--t1);border:1px solid var(--hair2);border-radius:6px;padding:9px 14px}
+  .meaning a.more:hover{background:var(--wash)}
   .appcard .desc{color:var(--t2);font-size:14px;flex:1;margin-bottom:18px}
   .links{display:flex;gap:8px;flex-wrap:wrap}
   .lk{display:inline-block;padding:9px 16px;border-radius:6px;font-size:13.5px;font-weight:560;
@@ -143,7 +155,7 @@
     <a class="brandwrap" href="/"><span class="mark"></span><span class="brand">Lupe</span></a>
     <nav class="topnav">
       <a href="#apps">온디바이스 앱</a>
-      <a href="#church">교회·공동체 도구</a>
+      <a href="#church">교회를 위한 Lupa</a>
       <a href="#content">채널·글</a>
       <a href="#about">소개</a>
       <a href="mailto:paeyoung.park@gmail.com">문의</a>
@@ -176,12 +188,15 @@
 
   <section id="church">
     <div class="sechead">
-      <h2><span class="idx">02</span>교회·공동체 도구</h2>
-      <span class="sub">Web · 은천교회에서 실제 운영 중</span>
+      <h2><span class="idx">02</span>교회를 위한 Lupa</h2>
+      <span class="sub">은천교회에서 매주 쓰는 것들 · 다른 교회 도입 가능</span>
     </div>
-    <div class="meta">
-      <span class="tagpill">브라우저에서 바로</span>
-      <span class="tagpill">다른 교회 도입 가능</span>
+    <div class="meaning">
+      <div>
+        <div class="t">Lupa는 돋보기입니다. <em>작은 하나를 찾아내기까지.</em></div>
+        <p>작은 것을 크게 보이게 하고, 흩어진 빛을 한 점에 모으는 것. 아흔아홉을 두고 하나를 찾으시는 시선(눅 15:8)을 교회에 가져간 도구들입니다. 한 장에서 한 이름을, 한 트랙에서 한 목소리를, 한 곡에서 한 사람의 쉼을.</p>
+      </div>
+      <a class="more" href="church/">이름의 뜻 →</a>
     </div>
     <div class="grid" data-group="church"></div>
   </section>
@@ -220,6 +235,7 @@
     <div class="row"><div>주소</div><div>내용</div></div>
     <div class="row"><a href="https://lupa.kr">lupa.kr</a><span>Lupa — macOS 파일·한글(HWP) 내용 검색 앱 제품 페이지</span></div>
     <div class="row"><a href="https://apps.lupa.kr">apps.lupa.kr</a><span>이 페이지. 포트폴리오 · 모든 앱·도구의 입구</span></div>
+    <div class="row"><a href="https://apps.lupa.kr/church/">apps.lupa.kr/church</a><span>교회를 위한 Lupa — 이름의 뜻(돋보기·눅 15:8)과 교회 도구 전체</span></div>
     <div class="row"><a href="https://verbanote.lupa.kr">verbanote.lupa.kr</a><span>VerbaNote — 온디바이스 AI 회의록 앱 제품 페이지</span></div>
     <div class="row"><a href="https://henotes.lupa.kr">henotes.lupa.kr</a><span>헤노테스 — 찬양팀 실황 멀티트랙 모니터 소개 · 앱 입장</span></div>
     <div class="row"><a href="https://bible.lupa.kr">bible.lupa.kr</a><span>주간 성경퀴즈 — 답안지 제출 관리 소개 · 교회 도입 문의</span></div>
@@ -290,8 +306,9 @@
     ],
     church: [
       {
-        name:"헤노테스", sub:"Henotes", icon:"assets/henotes.svg", accent:"#FF8C1A",
+        name:"헤노테스", sub:"Henotes · ἑνότης", icon:"assets/henotes.svg", accent:"#FF8C1A",
         platforms:["Web","찬양팀"],
+        motto:"한 트랙에서 한 지체의 소리를", ref:"고전 12:12 · 엡 4:3",
         tag:"따로 녹음된 각자의 소리. 다시, 하나의 예배가 됩니다",
         desc:"주일 실황 멀티트랙을 단원 각자가 자기 귀로 다시 듣는 모니터. 내 파트만 솔로, A–B 구간 반복, 페이더 값을 숫자로 남기는 피드백까지.",
         links:[
@@ -300,13 +317,26 @@
         ]
       },
       {
-        name:"주간 성경퀴즈", sub:"Weekly Bible", icon:"assets/bible.svg", accent:"#D3A45E",
+        name:"주간 성경퀴즈", sub:"은천성경", icon:"assets/bible.svg", accent:"#D3A45E",
         platforms:["Web","교회 무료·실비"],
+        motto:"한 장의 답안지에서 한 사람의 이름을", ref:"눅 10:20 · 마 10:30",
         tag:"손글씨 답안지, 사진만 올리면 출석부가 채워집니다",
         desc:"성도가 제출한 주간 성경퀴즈 답안지 사진을 AI가 읽어 이름·회차를 인식하고 교회 Google Sheets 출석부에 바로 기록합니다. 은천교회에서 매주 운영 중, 다른 교회에 무료 또는 실비로 제공합니다.",
         links:[
           {t:"소개·도입 문의", u:"https://bible.lupa.kr", primary:true},
           {t:"은천교회 관리자", u:"https://euncheon-bible.lupa.kr"},
+        ]
+      },
+      {
+        name:"로뎀아래", sub:"The Revival of Rotem", icon:"assets/rotem-yt.jpg", accent:"#7FB3D5",
+        platforms:["YouTube","찬양"],
+        motto:"한 곡의 찬양에서 한 사람의 쉼을", ref:"왕상 19:5 · 시 96:3",
+        tag:"한국의 찬양을 온 세계와, 한글 가사와 영어 번역을 한 화면에",
+        desc:"엘리야가 로뎀나무 아래서 새 힘을 얻었듯(열왕기상 19장), 지친 사람이 잠시 쉬어 가는 찬양 채널. 2012년부터 영상 4,000편 이상, 로마자 발음·100개 언어 자동 번역 자막. 헤노테스 찬양 실황도 이곳에.",
+        links:[
+          {t:"채널 열기", u:"https://www.youtube.com/@revival_of_rotem", primary:true},
+          {t:"재생목록", u:"https://www.youtube.com/@revival_of_rotem/playlists"},
+          {t:"쇼츠", u:"https://www.youtube.com/@revival_of_rotem/shorts"},
         ]
       },
     ],
@@ -320,17 +350,6 @@
           {t:"YouTube", u:"https://www.youtube.com/@온고오늘", primary:true},
           {t:"블로그", u:"https://ongotoday.blogspot.com"},
           {t:"쇼츠", u:"https://www.youtube.com/@온고오늘/shorts"},
-        ]
-      },
-      {
-        name:"로뎀아래", sub:"The Revival of Rotem", icon:"assets/rotem-yt.jpg", accent:"#7FB3D5",
-        platforms:["YouTube","찬양"],
-        tag:"한국의 찬양을 온 세계와, 한글 가사와 영어 번역을 한 화면에",
-        desc:"엘리야가 로뎀나무 아래서 새 힘을 얻었듯(열왕기상 19장), 지친 사람이 잠시 쉬어 가는 찬양 채널. 2012년부터 영상 4,000편 이상, 로마자 발음·100개 언어 자동 번역 자막. 헤노테스 찬양 실황도 이곳에.",
-        links:[
-          {t:"채널 열기", u:"https://www.youtube.com/@revival_of_rotem", primary:true},
-          {t:"재생목록", u:"https://www.youtube.com/@revival_of_rotem/playlists"},
-          {t:"쇼츠", u:"https://www.youtube.com/@revival_of_rotem/shorts"},
         ]
       },
       {
@@ -375,6 +394,7 @@
          </div>
        </div>
        <div class="tag">${esc(a.tag)}</div>
+       ${a.motto?`<div class="motto">${esc(a.motto)}<span class="ref">${esc(a.ref||'')}</span></div>`:''}
        <div class="desc">${esc(a.desc)}</div>
        <div class="links">${a.links.map(l =>
          `<span class="lk ${l.primary?'primary':''}"${l.primary?'':' data-u="'+esc(l.u)+'"'}>${esc(l.t)}${l.primary?'<span class="arw">→</span>':''}</span>`
