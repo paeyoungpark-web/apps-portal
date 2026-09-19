@@ -196,7 +196,7 @@
         <div class="chart" id="ch-ind"></div>
       </div>
     </div>
-    <p class="note">고객사는 기밀 유지를 위해 실명 대신 산업군으로만 표기합니다. 필요한 경우 심사 경력 증빙(인증기관 발행)을 별도로 제공합니다.</p>
+    <p class="note">위 144건은 한국경영인증원(KMR) 발행 심사경력 총괄표 기준입니다. 타 인증기관 수행 건을 포함한 누적 심사는 250건 이상입니다. 고객사는 기밀 유지를 위해 실명 대신 산업군으로만 표기하며, 필요한 경우 인증기관 발행 경력 증빙을 별도로 제공합니다.</p>
   </section>
 
   <section id="advisory">
@@ -211,10 +211,16 @@
   </section>
 
   <section id="lecture">
-    <div class="sechead"><h2><span class="idx">05</span>강의</h2><span class="sub">2023.2 – 2025.8 · 392시간</span></div>
-    <div class="minihead">과정별 강의 시간 (한국경영인증원)</div>
+    <div class="sechead"><h2><span class="idx">05</span>강의 · 세미나</h2><span class="sub">심사원 양성 392h · 세미나 · 출강 · OJT</span></div>
+    <div class="minihead">심사원 양성과정 — 과정별 강의 시간 (한국경영인증원, 2023.2–2025.8)</div>
     <div class="chart" id="ch-lec"></div>
-    <div class="roles" id="teach"></div>
+    <div class="roles" id="teach" style="margin-bottom:28px"></div>
+
+    <div class="minihead">공개과정 외 활동</div>
+    <div class="adv" id="adv2" style="margin-bottom:26px"></div>
+
+    <div class="minihead">주요 세미나 발표</div>
+    <div class="tl" id="semi"></div>
   </section>
 
   <section id="cert">
@@ -262,14 +268,14 @@
   // ── 현직 ──────────────────────────────────────────────
   const ROLES = [
     {w:"현",   b:"(주)로뎀시스템 대표", d:"정보보호·AI 경영시스템 컨설팅 및 심사"},
+    {w:"현",   b:"TTA 한국정보통신기술협회 외부교수 (인공지능)", d:"2024.10 위촉 · 2026 재위촉 · ISO/IEC 42001 과정 운영"},
     {w:"현",   b:"대·중소기업·농어업협력재단 기술보호위원", d:"중소기업 기술보호 지도·심사"},
     {w:"현",   b:"중소벤처기업부 기술정보진흥원 평가위원", d:""},
     {w:"현",   b:"스마트공장 DX코칭 멘토 · 수준진단 위원", d:"제조 현장 디지털 전환 지도 200개사 이상"},
   ];
   const APPTS = [
     {w:"2025~",          b:"AI 신뢰성 얼라이언스 인증·교육 분과위원", d:""},
-    {w:"2024.10–2025.12",b:"TTA 한국정보통신기술협회 외부교수 (인공지능)", d:"제2024-051호"},
-    {w:"전",             b:"대구과학대학교 겸임교수", d:"경찰사이버보안과 — 네트워크 보안", past:true},
+    {w:"2005.3–2011.2",  b:"대구과학대학교 겸임전임강사 (6년)", d:"경찰사이버보안과 · 반도체전자과 — 네트워크보안실습, 정보보호개론, 리눅스·데이터베이스 보안실습 등", past:true},
   ];
   const roleHtml = r => `<div class="role"><div class="w ${r.past?'past':''}">${esc(r.w)}</div>
      <div><div class="b">${esc(r.b)}</div>${r.d?`<div class="d">${esc(r.d)}</div>`:''}</div></div>`;
@@ -366,12 +372,42 @@
   const TEACH = [
     {w:"2023~",  b:"한국경영인증원(KMR) 전문강사 — ISO 27001 · 27701", d:"정보보안·개인정보보호 인증심사원 양성과정"},
     {w:"2024~",  b:"한국경영인증원(KMR) 전문강사 — ISO/IEC 42001", d:"인공지능 인증심사원 양성과정"},
-    {w:"2024.10–2025.12",b:"TTA 한국정보통신기술협회 외부교수 (인공지능)", d:"제2024-051호 · 위촉 기간"},
+    {w:"2024.10~",b:"TTA 한국정보통신기술협회 외부교수 (인공지능)", d:"제2024-051호 · 2026년 재위촉"},
     {w:"~2025.8",b:"강의 실적 392시간 / 18개 과정", d:"한국경영인증원 발행 강의확인증명서 기준 (2023.2.18 – 2025.8.3)"},
   ];
   document.getElementById('teach').innerHTML = TEACH.map(r =>
     `<div class="role"><div class="w">${esc(r.w)}</div>
      <div><div class="b">${esc(r.b)}</div><div class="d">${esc(r.d)}</div></div></div>`).join('');
+
+  // ── 공개과정 외 활동 ──────────────────────────────────
+  const ADV2 = [
+    {n:"11", unit:"회", h:"세미나 발표", p:"인증기관·표준화기관 주최 고객 세미나에서 표준 전환과 신규 표준을 발표. ISO/IEC 27701 표준전환, ISO/IEC 42001, 심사원 세미나 등.", tags:["KMR","TTA","DQS"]},
+    {n:"9", unit:"개사", h:"기업·기관 출강", p:"제조·반도체·IT 대기업과 공공기관 사내 교육. ISO 27001·42001 실무 교육과 임직원 보안 교육 (2013~2025, 15일).", tags:["사내 교육","보안 교육"]},
+    {n:"3", unit:"회", h:"인증관리자 OJT", p:"인증 취득 기업의 관리자를 대상으로 한 ISO 27001·27701 실무 OJT. 교안을 직접 제작해 운영합니다.", tags:["ISO/IATF 인증관리자","교안 제작"]},
+  ];
+  document.getElementById('adv2').innerHTML = ADV2.map(a =>
+    `<div class="advc">
+       <div class="n">${esc(a.n)}<small>${esc(a.unit)}</small></div>
+       <h3>${esc(a.h)}</h3><p>${esc(a.p)}</p>
+       <div class="role-tags">${a.tags.map(t=>`<span>${esc(t)}</span>`).join('')}</div>
+     </div>`).join('');
+
+  // ── 세미나 연표 ───────────────────────────────────────
+  const SEMI = [
+    {y:"2026.10", t:"ISO 27001 · 27701 인증관리자 OJT", s:"한국경영인증원 · 예정"},
+    {y:"2026.8",  t:"ISO/IEC 27701 표준전환 세미나", s:"한국경영인증원 · 발표"},
+    {y:"2026.7",  t:"ISO/IEC 27701 표준전환 세미나 (온라인 2회)", s:"한국경영인증원 · 발표"},
+    {y:"2026.5",  t:"ISO/IATF 인증관리자 OJT — ISO 27001 · 27701", s:"한국경영인증원 · 교안 제작 및 진행"},
+    {y:"2026.2",  t:"심사원 세미나", s:"한국경영인증원"},
+    {y:"2025.7",  t:"ISO/IEC 42001 세미나 (온라인)", s:"한국경영인증원"},
+    {y:"2025.5",  t:"인증 세미나 — 왜 인증을 받아야 하는가 · AI 용어 지침", s:"TTA 한국정보통신기술협회"},
+    {y:"2025.2",  t:"심사원 세미나", s:"한국경영인증원 · 서울스퀘어"},
+    {y:"2024.12", t:"ISO/IEC 42001 세미나", s:"한국경영인증원"},
+    {y:"2024.5",  t:"경남 세미나", s:"DQS"},
+    {y:"2023.11", t:"세미나", s:"DQS"},
+  ];
+  document.getElementById('semi').innerHTML = SEMI.map(e =>
+    `<div class="r"><div class="y">${esc(e.y)}</div><div class="t">${esc(e.t)}<small>${esc(e.s)}</small></div></div>`).join('');
 
   // ── 자격 ──────────────────────────────────────────────
   const CERTS = [
