@@ -182,8 +182,9 @@
     {
       icon:'<path d="M3 7h18v13H3z"/><path d="M3 7l3-4h12l3 4"/><circle cx="12" cy="13.5" r="3.2"/>',
       name:"Golf Score", tag:"AI 자동 정산",
-      desc:"스코어카드를 사진으로 찍으면 GPT-4o Vision이 읽어 타수를 인식하고, 타당 계산·배판·축하금·니어리스트를 자동으로 정산합니다.",
-      stack:["GPT-4o Vision","Hono","Cloudflare Pages","Canvas API"]
+      desc:"스코어카드를 사진으로 찍으면 AI(Claude Vision)가 읽어 타수를 인식하고, 타당 계산·배판·축하금·니어리스트를 자동으로 정산합니다.",
+      url:"https://golf-score-7xp.pages.dev/",
+      stack:["Claude Vision","Hono","Cloudflare Pages","Canvas API"]
     },
     {
       icon:'<path d="M4 4h16v16H4z"/><path d="M8 9h8M8 13h8M8 17h5"/>',
@@ -210,6 +211,7 @@
        <h3>${esc(a.name)}</h3>
        <div class="tag">${esc(a.tag)}</div>
        <p>${esc(a.desc)}</p>
+       ${a.url?`<a href="${esc(a.url)}" target="_blank" style="display:inline-block;margin-top:14px;padding:9px 16px;border-radius:6px;font-size:13px;font-weight:600;background:var(--green);color:var(--ground);text-decoration:none">앱 열기 →</a>`:''}
        <div class="stack">${a.stack.map(s=>`<span>${esc(s)}</span>`).join('')}</div>
      </div>`).join('');
 </script>
