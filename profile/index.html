@@ -166,10 +166,10 @@
     <p class="lede" style="max-width:62ch">법학에서 출발해 네트워크 보안 강의를 거쳐, 지금은 세 가지 일을 합니다. 기업의 정보보호·인공지능 경영시스템을 <strong>심사</strong>하고, 심사원을 <strong>양성</strong>하고, 제조 현장의 스마트공장 수준을 <strong>확인·지도</strong>합니다. AI가 실제로 쓰이기 시작한 현장에서 "이 시스템을 신뢰할 수 있는가"를 표준으로 검증하는 일입니다.</p>
 
     <div class="stats">
-      <div class="c"><div class="n"><em>144</em>건</div><div class="k">인증심사 수행</div><div class="s">196.6 MD · 58개사</div></div>
+      <div class="c"><div class="n"><em>227</em>건</div><div class="k">인증심사 수행</div><div class="s">321.5 MD · 78개사</div></div>
+      <div class="c"><div class="n"><em>156</em>건</div><div class="k">심사팀장 수행</div><div class="s">전체의 68.7%</div></div>
       <div class="c"><div class="n"><em>392</em>h</div><div class="k">심사원 양성 강의</div><div class="s">18개 과정</div></div>
       <div class="c"><div class="n"><em>200</em>+</div><div class="k">스마트공장 지도·평가</div><div class="s">수준확인 · DX코칭</div></div>
-      <div class="c"><div class="n"><em>11</em>종</div><div class="k">심사 수행 표준</div><div class="s">ISO / KS</div></div>
     </div>
   </header>
 
@@ -181,11 +181,15 @@
   </section>
 
   <section id="audit">
-    <div class="sechead"><h2><span class="idx">02</span>인증심사 실적</h2><span class="sub">2023.2 – 2026.1 · 144건 · 196.6 MD</span></div>
+    <div class="sechead"><h2><span class="idx">02</span>인증심사 실적</h2><span class="sub">2021.12 – 현재 · 227건 · 321.5 MD</span></div>
+
+    <div class="minihead">역할</div>
+    <div class="chart" id="ch-role"></div>
+    <p class="note">전체 227건 중 <b style="color:var(--t1)">156건(68.7%)을 심사팀장</b>으로 수행했습니다. 심사팀장 수행 일수는 222.5 MD입니다.</p>
 
     <div class="minihead">표준별 심사 건수</div>
     <div class="chart" id="ch-std"></div>
-    <p class="note">ISMS·PIMS·AIMS가 전체의 70%. 최근 2년은 AI 경영시스템(AIMS) 비중이 빠르게 올라가는 중입니다.</p>
+    <p class="note">정보보호(27001)·개인정보(27701)·인공지능(42001)이 전체의 79%. 특히 <b style="color:var(--t1)">ISO/IEC 42001이 54건</b>으로, 국내에서 AI 경영시스템 심사를 가장 많이 수행한 축에 듭니다.</p>
 
     <div class="split">
       <div>
@@ -193,11 +197,11 @@
         <div class="chart" id="ch-year"></div>
       </div>
       <div>
-        <div class="minihead">산업군 분포 (심사 건수)</div>
+        <div class="minihead">산업군 분포 (IAF 코드 기준)</div>
         <div class="chart" id="ch-ind"></div>
       </div>
     </div>
-    <p class="note">위 144건은 한국경영인증원(KMR) 발행 심사경력 총괄표 기준입니다. 타 인증기관 수행 건을 포함한 누적 심사는 250건 이상입니다. 고객사는 기밀 유지를 위해 실명 대신 산업군으로만 표기하며, 필요한 경우 인증기관 발행 경력 증빙을 별도로 제공합니다.</p>
+    <p class="note">위 227건은 한국경영인증원(KMR) 단일 인증기관 기준이며, 심사수행확인서로 증빙 가능합니다. 타 인증기관 수행 건은 별도입니다. 산업군은 인증심사에 쓰는 IAF 분류 코드를 따랐습니다. 고객사는 기밀 유지를 위해 실명 대신 산업군으로만 표기하며, 필요한 경우 인증기관 발행 경력 증빙을 별도로 제공합니다.</p>
   </section>
 
   <section id="advisory">
@@ -295,65 +299,46 @@
        </div>`).join('');
   }
 
+  // 역할별
+  chart('ch-role', [
+    {k:"심사팀장", s:"Lead Auditor · 222.5 MD", v:156},
+    {k:"심사원",   s:"Auditor · 99.0 MD",       v:67},
+  ], "건");
+
   // 표준별 (건수 / MD)
   chart('ch-std', [
-    {k:"ISMS",    s:"ISO/IEC 27001 정보보호",      v:66, md:109.0},
-    {k:"AIMS",    s:"ISO/IEC 42001 인공지능",      v:19, md:28.0},
-    {k:"PIMS",    s:"ISO/IEC 27701 개인정보",      v:16, md:15.9},
-    {k:"EMS",     s:"ISO 14001 환경",              v:13, md:11.0},
-    {k:"QMS",     s:"ISO 9001 품질",               v:13, md:10.5},
-    {k:"K-OHSMS", s:"안전보건 (45001 계열)",        v:6,  md:10.8},
-    {k:"ABMS",    s:"ISO 37001 부패방지",          v:4,  md:6.5},
-    {k:"PIIMS",   s:"클라우드 개인정보",            v:2,  md:0.2},
-    {k:"ISCMS",   s:"클라우드 정보보안",            v:2,  md:0.2},
-    {k:"CM",      s:"ISO 37301 준법경영",          v:2,  md:2.5},
-    {k:"SCSMS",   s:"ISO 28000 공급망보안",        v:1,  md:2.0},
+    {k:"ISO/IEC 27001", s:"정보보호 ISMS",        v:99, md:170.5},
+    {k:"ISO/IEC 42001", s:"인공지능 AIMS",        v:54, md:75.6},
+    {k:"ISO/IEC 27701", s:"개인정보 PIMS",        v:26, md:27.7},
+    {k:"ISO 14001",     s:"환경 EMS",             v:15, md:13.2},
+    {k:"ISO 9001",      s:"품질 QMS",             v:13, md:10.5},
+    {k:"K-OHSMS 18001", s:"안전보건",             v:7,  md:11.6},
+    {k:"ISO 37001",     s:"부패방지 ABMS",        v:4,  md:6.5},
+    {k:"ISO/IEC 27018", s:"클라우드 개인정보",     v:3,  md:0.7},
+    {k:"ISO/IEC 27017", s:"클라우드 보안",        v:3,  md:0.7},
+    {k:"ISO 37301",     s:"준법경영 CMS",         v:2,  md:2.5},
+    {k:"ISO 28000",     s:"공급망 보안",           v:1,  md:2.0},
   ], "건");
 
   chart('ch-year', [
+    {k:"2021", s:"2.0 MD",   v:1},
+    {k:"2022", s:"14.3 MD",  v:8},
     {k:"2023", s:"22.0 MD",  v:18},
     {k:"2024", s:"46.7 MD",  v:37},
     {k:"2025", s:"122.9 MD", v:86},
-    {k:"2026", s:"5.0 MD · 1월까지", v:3},
+    {k:"2026", s:"111.6 MD", v:76},
   ], "건", "t");
 
   chart('ch-ind', [
-    {k:"IT·보안·AI",      s:"22개사", v:47},
-    {k:"공공·공기업",      s:"10개사", v:32},
-    {k:"제조·중공업",      s:"11개사", v:25},
-    {k:"대기업·지주·금융", s:"6개사",  v:22},
-    {k:"반도체·소재",      s:"5개사",  v:12},
-    {k:"유통·물류·서비스", s:"4개사",  v:6},
+    {k:"정보기술",       s:"37개사 · 162.3 MD", v:111},
+    {k:"운송·창고·통신", s:"4개사",  v:23},
+    {k:"기계·장비",      s:"6개사",  v:14},
+    {k:"금융·부동산",    s:"4개사",  v:13},
+    {k:"전문서비스",     s:"4개사",  v:13},
+    {k:"전기·광학장비",  s:"5개사",  v:12},
+    {k:"금속·화학·건설", s:"8개사",  v:17},
+    {k:"기타",           s:"10개사", v:24},
   ], "건", "g");
-
-  chart('ch-lec', [
-    {k:"ISO/IEC 27001",      s:"정보보안 심사원 양성 · 9개 과정", v:192},
-    {k:"ISO/IEC 42001",      s:"인공지능 심사원 양성 · 7개 과정", v:168},
-    {k:"ISO 27001 & 27701",  s:"통합 심사원 양성 · 1개 과정",     v:24},
-    {k:"기반시설 자체평가",   s:"1개 과정",                       v:8},
-  ], "h", "t");
-
-  // ── 지도·평가·컨설팅 ──────────────────────────────────
-  const ADV = [
-    {n:"200", unit:"개사 이상", h:"스마트공장 수준확인 · DX코칭",
-     p:"제조 현장의 스마트공장 수준확인 평가와 DX 코칭·멘토링. 공정·설비 데이터화 수준을 진단하고 다음 단계 구축 방향을 지도합니다.",
-     tags:["수준확인 평가위원","DX코칭 멘토","수준진단 위원"]},
-    {n:"30", unit:"개사 이상", h:"대·중소기업·농어업협력재단 기술보호",
-     p:"중소기업 기술보호 수준 진단과 지도·심사. 기술자료 임치, 보안 체계 수립, 유출 방지 대책 점검.",
-     tags:["기술보호위원","지도·심사"]},
-    {n:"4", unit:"개 표준", h:"정보보호·AI 인증 구축 컨설팅",
-     p:"ISO/IEC 27001·27701·42001과 자동차 산업 TISAX 인증 구축 지도. 공공기관·제조·IT 기업 대상.",
-     tags:["ISO/IEC 27001","27701","42001","TISAX"]},
-    {n:"—", unit:"", h:"중소벤처기업부 기술정보진흥원 평가위원",
-     p:"정부 지원사업 과제 평가. 기술성·보안성 관점의 심의.",
-     tags:["과제 평가"]},
-  ];
-  document.getElementById('adv').innerHTML = ADV.map(a =>
-    `<div class="advc">
-       <div class="n">${esc(a.n)}${a.unit?`<small>${esc(a.unit)}</small>`:''}</div>
-       <h3>${esc(a.h)}</h3><p>${esc(a.p)}</p>
-       <div class="role-tags">${a.tags.map(t=>`<span>${esc(t)}</span>`).join('')}</div>
-     </div>`).join('');
 
   // ── 대표 이력 ─────────────────────────────────────────
   const HL = [
@@ -383,7 +368,7 @@
 
   // ── 공개과정 외 활동 ──────────────────────────────────
   const ADV2 = [
-    {n:"12", unit:"회", h:"세미나 발표", p:"인증기관·표준화기관 주최 고객 세미나에서 표준 전환과 신규 표준을 발표. ISO/IEC 27701 표준전환, ISO/IEC 42001, 심사원 세미나 등.", tags:["KMR","TTA","DQS"]},
+    {n:"10", unit:"회", h:"세미나 발표", p:"인증기관·표준화기관 주최 고객 세미나에서 표준 전환과 신규 표준을 발표. ISO/IEC 27701 표준전환, ISO/IEC 42001, 심사원 세미나 등.", tags:["KMR","TTA"]},
     {n:"9", unit:"개사", h:"기업·기관 출강", p:"제조·반도체·IT 대기업과 공공기관 사내 교육. ISO 27001·42001 실무 교육과 임직원 보안 교육 (2013~2025, 15일).", tags:["사내 교육","보안 교육"]},
     {n:"3", unit:"회", h:"인증관리자 OJT", p:"인증 취득 기업의 관리자를 대상으로 한 ISO 27001·27701 실무 OJT. 교안을 직접 제작해 운영합니다.", tags:["ISO/IATF 인증관리자","교안 제작"]},
   ];
@@ -406,8 +391,6 @@
     {y:"2025.5",  t:"인증 세미나 — 왜 인증을 받아야 하는가 · AI 용어 지침", s:"TTA 한국정보통신기술협회"},
     {y:"2025.2",  t:"심사원 세미나", s:"한국경영인증원 · 서울스퀘어"},
     {y:"2024.12", t:"ISO/IEC 42001 세미나", s:"한국경영인증원"},
-    {y:"2024.5",  t:"경남 세미나", s:"DQS"},
-    {y:"2023.11", t:"세미나", s:"DQS"},
   ];
   document.getElementById('semi').innerHTML = SEMI.map(e =>
     `<div class="r"><div class="y">${esc(e.y)}</div><div class="t">${esc(e.t)}<small>${esc(e.s)}</small></div></div>`).join('');

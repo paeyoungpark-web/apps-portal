@@ -72,6 +72,26 @@
   @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(3px)}}
   @media(prefers-reduced-motion:reduce){.cue svg{animation:none}}
 
+  /* ── 나에 대하여 (프로필·골프) ── */
+  .me{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:34px 0 4px}
+  @media(max-width:700px){.me{grid-template-columns:1fr;margin-top:28px}}
+  .mecard{background:var(--card);border:1px solid var(--hair2);border-radius:16px;padding:22px 24px;box-shadow:var(--shadow);
+    display:flex;flex-direction:column;gap:16px;position:relative;overflow:hidden;transition:transform .16s ease,border-color .16s ease}
+  .mecard:hover{transform:translateY(-3px);border-color:var(--hair)}
+  .mecard::before{content:"";position:absolute;inset:0;background:radial-gradient(420px 200px at 88% -14%,#8A93F9,transparent 70%);opacity:.15;pointer-events:none}
+  .mecard.golf::before{background:radial-gradient(420px 200px at 88% -14%,#4ADE80,transparent 70%)}
+  .mehead{display:flex;align-items:center;gap:13px}
+  .mehead img{width:46px;height:46px;border-radius:12px;box-shadow:0 5px 14px rgba(0,0,0,.3)}
+  .mehead .nm{font-size:18px;font-weight:680;letter-spacing:-.02em}
+  .mehead .sb{font-size:12.5px;color:var(--t2);margin-top:1px}
+  .nums{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:14px 0;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+  .nums div{display:flex;flex-direction:column}
+  .nums b{font-family:var(--mono);font-size:19px;font-weight:600;letter-spacing:-.02em}
+  .nums span{font-size:11px;color:var(--t3);margin-top:2px}
+  .go{font-size:13px;color:var(--t2);display:flex;justify-content:space-between;align-items:center}
+  .mecard:hover .go{color:var(--t1)}
+  .go span{opacity:.6}
+
   /* ── section ── */
   section{padding:44px 0 8px;border-top:1px solid var(--hair)}
   .sechead{display:flex;align-items:baseline;justify-content:space-between;gap:16px;
@@ -178,6 +198,33 @@
     <a class="cue" href="#apps">자세히 보기
       <svg viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
   </header>
+
+  <div class="me">
+    <a class="mecard" href="profile/">
+      <div class="mehead">
+        <img src="assets/profile.svg" alt="" width="46" height="46">
+        <div><div class="nm">프로필</div><div class="sb">ISO 심사원 · 강사</div></div>
+      </div>
+      <div class="nums">
+        <div><b>227</b>건<span>인증심사</span></div>
+        <div><b>156</b>건<span>심사팀장</span></div>
+        <div><b>392</b>h<span>강의</span></div>
+      </div>
+      <div class="go">심사·강의·수준확인 이력 보기 <span>→</span></div>
+    </a>
+    <a class="mecard golf" href="golf/">
+      <div class="mehead">
+        <img src="assets/golf.svg" alt="" width="46" height="46">
+        <div><div class="nm">골프</div><div class="sb">골프지도자 (세미)</div></div>
+      </div>
+      <div class="nums">
+        <div><b>KPGMA</b><span>자격</span></div>
+        <div><b>4</b>종<span>골프 앱</span></div>
+        <div><b>AI</b><span>스코어 정산</span></div>
+      </div>
+      <div class="go">자격과 만든 도구 보기 <span>→</span></div>
+    </a>
+  </div>
 
   <section id="apps">
     <div class="sechead">
@@ -287,6 +334,9 @@
     {name:"네이버 블로그",  sub:"로뎀아래의 블로그", icon:"assets/naver-blog.svg", url:"https://blog.naver.com/udrodem"},
     {name:"Lupa 블로그",   sub:"Blogger",      icon:"assets/blogger-lupa.svg",    url:"https://lupa-app.blogspot.com"},
     {name:"RothemSystem", sub:"법인",         icon:"assets/rothem.svg",     url:"https://rothemsystem.com"},
+    // 4행: 나에 대하여
+    {name:"프로필",       sub:"심사·강의",     icon:"assets/profile.svg",    url:"profile/"},
+    {name:"골프",         sub:"세미프로",      icon:"assets/golf.svg",       url:"golf/"},
     {name:"이메일",       sub:"문의·협업",     icon:"assets/mail.svg",       url:"mailto:paeyoung.park@gmail.com"},
   ];
 
