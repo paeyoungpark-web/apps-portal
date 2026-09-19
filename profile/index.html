@@ -117,6 +117,35 @@
   .advc .role-tags span{font-family:var(--mono);font-size:10.5px;letter-spacing:.04em;color:var(--t3);
     border:1px solid var(--hair);border-radius:4px;padding:3px 8px}
 
+  /* 활동 로그 */
+  .spark{display:flex;align-items:flex-end;gap:4px;height:92px;padding:8px 0 0;border-bottom:1px solid var(--hair)}
+  .spark .col{flex:1;display:flex;flex-direction:column;align-items:center;gap:5px;min-width:0}
+  .spark .bar2{width:100%;background:var(--blue);border-radius:3px 3px 0 0;opacity:.85;min-height:3px;transition:opacity .12s}
+  .spark .col:hover .bar2{opacity:1}
+  .spark .lb{font-family:var(--mono);font-size:8.5px;color:var(--t3);white-space:nowrap}
+  .spark .vv{font-family:var(--mono);font-size:9.5px;color:var(--t2)}
+  @media(max-width:640px){.spark .lb{display:none}}
+
+  .logtable{border:1px solid var(--hair);border-radius:10px;overflow:hidden;font-size:13px}
+  .logtable .lr{display:grid;grid-template-columns:76px 66px 58px 62px 52px 1fr 54px;gap:8px;padding:9px 12px;border-top:1px solid var(--hair);align-items:center}
+  .logtable .lr:first-child{border-top:0;background:var(--wash);color:var(--t3);font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase}
+  .logtable .lr span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .logtable .lr .mono2{font-family:var(--mono);font-size:12px}
+  .logtable .lr .lead{color:var(--blue);font-weight:600}
+  .logtable .lr .num{text-align:right;font-family:var(--mono);color:var(--t2)}
+  @media(max-width:720px){
+    .logtable .lr{grid-template-columns:70px 58px 1fr 48px;gap:6px;font-size:12px}
+    .logtable .lr .hide-s{display:none}
+  }
+  .logtable.lect .lr{grid-template-columns:150px 1fr 56px}
+  @media(max-width:720px){.logtable.lect .lr{grid-template-columns:104px 1fr 48px}}
+
+  .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  @media(max-width:700px){.gallery{grid-template-columns:1fr 1fr}}
+  .gallery figure{margin:0;border:1px solid var(--hair2);border-radius:12px;overflow:hidden;background:var(--card)}
+  .gallery img{width:100%;height:160px;object-fit:cover;display:block}
+  .gallery figcaption{font-size:12px;color:var(--t2);padding:9px 12px}
+
   /* 태그 */
   .tags{display:flex;flex-wrap:wrap;gap:7px}
   .tag{font-size:12.5px;color:var(--t2);border:1px solid var(--hair2);border-radius:6px;padding:6px 11px;background:var(--surface)}
@@ -154,6 +183,7 @@
       <a class="hide-m" href="#audit">심사</a>
       <a class="hide-m" href="#advisory">지도·평가</a>
       <a class="hide-m" href="#lecture">강의</a>
+      <a class="hide-m" href="#log">로그</a>
       <a class="hide-m" href="#cert">자격</a>
       <a href="/golf/">골프</a>
       <a href="/">만든 것들</a>
@@ -228,8 +258,27 @@
     <div class="tl" id="semi"></div>
   </section>
 
+  <section id="log">
+    <div class="sechead"><h2><span class="idx">06</span>활동 로그</h2><span class="sub">심사 227 · 강의 18과정 · 세미나 10 · OJT 3</span></div>
+
+    <div class="minihead">월별 심사 활동 (2025.1 – 2026.9)</div>
+    <div class="spark" id="spark"></div>
+
+    <div class="minihead" style="margin-top:26px">최근 심사 로그</div>
+    <div class="logtable" id="auditlog"></div>
+    <p class="note" style="margin-top:14px">고객사명은 기밀이므로 표기하지 않고 IAF 산업군으로 대체했습니다. 전체 227건의 상세 로그와 심사수행확인서는 요청 시 제공합니다.</p>
+
+    <div class="minihead" style="margin-top:26px">강의 로그 — 심사원 양성과정 (한국경영인증원 발행 확인서 기준)</div>
+    <div class="logtable" id="lectlog"></div>
+  </section>
+
+  <section id="photos" style="display:none">
+    <div class="sechead"><h2><span class="idx">—</span>현장</h2><span class="sub">강의 · 세미나 · 심사</span></div>
+    <div class="gallery" id="gallery"></div>
+  </section>
+
   <section id="cert">
-    <div class="sechead"><h2><span class="idx">06</span>자격</h2><span class="sub">심사원 자격 · 전문강사</span></div>
+    <div class="sechead"><h2><span class="idx">07</span>자격</h2><span class="sub">심사원 자격 · 전문강사</span></div>
     <div class="minihead">심사원 자격</div>
     <div class="tags" id="certs" style="margin-bottom:22px"></div>
     <div class="minihead">전문강사 자격 · 기타</div>
@@ -237,12 +286,12 @@
   </section>
 
   <section id="edu">
-    <div class="sechead"><h2><span class="idx">07</span>학력 · 저서</h2><span class="sub">AI·빅데이터</span></div>
+    <div class="sechead"><h2><span class="idx">08</span>학력 · 저서</h2><span class="sub">AI·빅데이터</span></div>
     <div class="tl" id="edu-list"></div>
   </section>
 
   <section id="contact" style="border-bottom:0">
-    <div class="sechead"><h2><span class="idx">08</span>연락</h2><span class="sub">심사 · 강의 · 컨설팅</span></div>
+    <div class="sechead"><h2><span class="idx">09</span>연락</h2><span class="sub">심사 · 강의 · 컨설팅</span></div>
     <div class="cta">
       <div>
         <h3>심사·강의·자문 문의</h3>
@@ -394,6 +443,71 @@
   ];
   document.getElementById('semi').innerHTML = SEMI.map(e =>
     `<div class="r"><div class="y">${esc(e.y)}</div><div class="t">${esc(e.t)}<small>${esc(e.s)}</small></div></div>`).join('');
+
+const AUDIT_LOG = [{"ym": "2026-09", "std": "27001", "kind": "1차", "stage": "2단계", "role": "팀장", "ind": "정보기술", "md": 2.0}, {"ym": "2026-09", "std": "42001", "kind": "최초", "stage": "1단계", "role": "팀장", "ind": "정보기술", "md": 1.0}, {"ym": "2026-09", "std": "27701", "kind": "최초", "stage": "1단계", "role": "팀장", "ind": "금융·부동산", "md": 1.0}, {"ym": "2026-09", "std": "27701", "kind": "최초", "stage": "2단계", "role": "팀장", "ind": "금융·부동산", "md": 2.0}, {"ym": "2026-09", "std": "42001", "kind": "최초", "stage": "2단계", "role": "팀장", "ind": "정보기술", "md": 2.0}, {"ym": "2026-09", "std": "42001", "kind": "최초", "stage": "1단계", "role": "팀장", "ind": "정보기술", "md": 1.0}, {"ym": "2026-09", "std": "42001", "kind": "최초", "stage": "1단계", "role": "팀장", "ind": "정보기술", "md": 1.0}, {"ym": "2026-09", "std": "27001", "kind": "1차", "stage": "2단계", "role": "심사원", "ind": "정보기술", "md": 1.0}, {"ym": "2026-09", "std": "42001", "kind": "최초", "stage": "1단계", "role": "팀장", "ind": "정보기술", "md": 1.0}, {"ym": "2026-09", "std": "42001", "kind": "최초", "stage": "2단계", "role": "팀장", "ind": "정보기술", "md": 1.0}, {"ym": "2026-09", "std": "42001", "kind": "최초", "stage": "2단계", "role": "팀장", "ind": "정보기술", "md": 1.0}, {"ym": "2026-08", "std": "42001", "kind": "최초", "stage": "1단계", "role": "팀장", "ind": "운송·통신", "md": 1.0}, {"ym": "2026-08", "std": "27001", "kind": "최초", "stage": "2단계", "role": "팀장", "ind": "고무·플라스틱", "md": 2.0}, {"ym": "2026-08", "std": "42001", "kind": "최초", "stage": "2단계", "role": "팀장", "ind": "운송·통신", "md": 1.5}, {"ym": "2026-08", "std": "27001", "kind": "1차", "stage": "2단계", "role": "팀장", "ind": "운송·통신", "md": 1.5}, {"ym": "2026-08", "std": "42001", "kind": "최초", "stage": "1단계", "role": "팀장", "ind": "정보기술", "md": 1.0}, {"ym": "2026-08", "std": "42001", "kind": "최초", "stage": "2단계", "role": "팀장", "ind": "정보기술", "md": 2.8}, {"ym": "2026-08", "std": "42001", "kind": "최초", "stage": "예비심사", "role": "팀장", "ind": "정보기술", "md": 1.0}];
+const AUDIT_MONTHS = [{"m": "2025-01", "v": 1}, {"m": "2025-02", "v": 3}, {"m": "2025-03", "v": 11}, {"m": "2025-04", "v": 5}, {"m": "2025-05", "v": 11}, {"m": "2025-06", "v": 8}, {"m": "2025-07", "v": 7}, {"m": "2025-08", "v": 6}, {"m": "2025-09", "v": 7}, {"m": "2025-10", "v": 10}, {"m": "2025-11", "v": 9}, {"m": "2025-12", "v": 8}, {"m": "2026-01", "v": 3}, {"m": "2026-02", "v": 3}, {"m": "2026-03", "v": 3}, {"m": "2026-04", "v": 7}, {"m": "2026-05", "v": 8}, {"m": "2026-06", "v": 10}, {"m": "2026-07", "v": 5}, {"m": "2026-08", "v": 7}, {"m": "2026-09", "v": 11}];
+
+  const LECT_LOG = [
+    {d:"2025.7.24 – 8.3",  t:"ISO/IEC 42001 인공지능경영시스템 인증심사원 양성과정(자격확대)", h:24},
+    {d:"2025.7.12 – 7.20", t:"ISO 27001 & 27701 통합 인증심사원 양성과정(자격확대)", h:24},
+    {d:"2025.6.3 – 6.8",   t:"ISO 27001:2022 정보보안경영시스템 인증심사원 양성과정", h:32},
+    {d:"2025.5.7 – 5.10",  t:"ISO 27001:2022 정보보안경영시스템 인증심사원 양성과정", h:32},
+    {d:"2025.4.29 – 5.15", t:"ISO 27001:2022 인증심사원 양성과정(자격확대)", h:16},
+    {d:"2025.2.15 – 2.22", t:"ISO/IEC 42001:2023 인증심사원 양성과정(자격확대)", h:24},
+    {d:"2025.1.9 – 1.19",  t:"ISO/IEC 42001:2023 인증심사원 양성과정(자격확대)", h:24},
+    {d:"2024.11.12 – 11.16", t:"ISO 27001:2022 정보보안경영시스템 인증심사원 양성과정", h:32},
+    {d:"2024.11.7 – 11.8", t:"ISO 27001:2022 인증심사원 양성과정(자격확대)", h:16},
+    {d:"2024.10.26 – 10.27", t:"ISO 27001:2022 인증심사원 양성과정(자격확대)", h:16},
+    {d:"2024.10.23",       t:"기반시설 자체평가", h:8},
+    {d:"2024.7.10 – 7.12", t:"ISO/IEC 42001:2023 인증심사원 양성과정(자격확대)", h:24},
+    {d:"2024.6.28 – 6.30", t:"ISO/IEC 42001:2023 인증심사원 양성과정(자격확대)", h:24},
+    {d:"2024.6.10 – 6.12", t:"ISO/IEC 42001:2023 인증심사원 양성과정(자격확대)", h:24},
+    {d:"2024.5.18 – 5.19", t:"ISO 27001:2022 인증심사원 양성과정(자격확대)", h:16},
+    {d:"2024.4.12 – 4.28", t:"ISO/IEC 42001:2023 인증심사원 양성과정(자격확대)", h:24},
+    {d:"2023.5.27 – 5.28", t:"ISO 27001:2022 인증심사원 양성과정(자격확대)", h:16},
+    {d:"2023.2.18 – 2.26", t:"ISO 27001:2022 인증심사원 양성과정(자격확대)", h:16},
+  ];
+
+  // 현장 사진 — 파일을 assets/photos/ 에 넣고 아래 배열에 추가하면 섹션이 나타남
+  const PHOTOS = [];
+
+  // 월별 스파크라인
+  (function(){
+    const max = Math.max(...AUDIT_MONTHS.map(m=>m.v));
+    document.getElementById('spark').innerHTML = AUDIT_MONTHS.map(m =>
+      `<div class="col" title="${esc(m.m)} · ${m.v}건">
+         <span class="vv">${m.v}</span>
+         <div class="bar2" style="height:${Math.round(m.v/max*62)}px"></div>
+         <span class="lb">${esc(m.m.slice(2).replace('-','.'))}</span>
+       </div>`).join('');
+  })();
+
+  // 심사 로그
+  document.getElementById('auditlog').innerHTML =
+    `<div class="lr"><span>시기</span><span>표준</span><span class="hide-s">종류</span><span class="hide-s">단계</span><span>역할</span><span>산업군</span><span class="num">MD</span></div>` +
+    AUDIT_LOG.map(e =>
+      `<div class="lr">
+         <span class="mono2">${esc(e.ym)}</span>
+         <span class="mono2">${esc(e.std)}</span>
+         <span class="hide-s">${esc(e.kind)}</span>
+         <span class="hide-s">${esc(e.stage)}</span>
+         <span class="${e.role==='팀장'?'lead':''}">${esc(e.role)}</span>
+         <span>${esc(e.ind)}</span>
+         <span class="num">${e.md}</span>
+       </div>`).join('');
+
+  // 강의 로그
+  document.getElementById('lectlog').innerHTML =
+    `<div class="lr"><span>기간</span><span>과정</span><span class="num">시간</span></div>` +
+    LECT_LOG.map(e =>
+      `<div class="lr"><span class="mono2">${esc(e.d)}</span><span>${esc(e.t)}</span><span class="num">${e.h}h</span></div>`).join('');
+
+  // 현장 사진
+  if (PHOTOS.length) {
+    document.getElementById('photos').style.display = '';
+    document.getElementById('gallery').innerHTML = PHOTOS.map(p =>
+      `<figure><img src="${esc(p.src)}" alt="${esc(p.cap)}" loading="lazy"><figcaption>${esc(p.cap)}</figcaption></figure>`).join('');
+  }
 
   // ── 자격 ──────────────────────────────────────────────
   const CERTS = [
