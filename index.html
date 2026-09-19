@@ -180,6 +180,7 @@
     <nav class="topnav">
       <a href="#apps">온디바이스 앱</a>
       <a href="#church">교회를 위한 Lupa</a>
+      <a href="#golf-sec">골프</a>
       <a href="#content">채널·글</a>
       <a href="#about">소개</a>
       <a href="profile/">프로필</a>
@@ -254,9 +255,17 @@
     <div class="grid" data-group="church"></div>
   </section>
 
+  <section id="golf-sec">
+    <div class="sechead">
+      <h2><span class="idx">03</span>골프</h2>
+      <span class="sub">KPGMA 골프지도자(세미) · AI 스코어카드 정산</span>
+    </div>
+    <div class="grid" data-group="golf"></div>
+  </section>
+
   <section id="content">
     <div class="sechead">
-      <h2><span class="idx">03</span>채널·글</h2>
+      <h2><span class="idx">04</span>채널·글</h2>
       <span class="sub">YouTube · Blogger · 네이버 블로그</span>
     </div>
     <div class="grid" data-group="content"></div>
@@ -264,7 +273,7 @@
 
   <section id="about">
     <div class="sechead">
-      <h2><span class="idx">04</span>소개</h2>
+      <h2><span class="idx">05</span>소개</h2>
       <span class="sub">Paeyoung Park</span>
     </div>
     <div class="about">
@@ -399,6 +408,18 @@
           {t:"채널 열기", u:"https://www.youtube.com/@revival_of_rotem", primary:true},
           {t:"재생목록", u:"https://www.youtube.com/@revival_of_rotem/playlists"},
           {t:"쇼츠", u:"https://www.youtube.com/@revival_of_rotem/shorts"},
+        ]
+      },
+    ],
+    golf: [
+      {
+        name:"Golf Score", sub:"AI 자동 정산", icon:"assets/golf.svg", accent:"#4ADE80",
+        platforms:["Web","Claude Vision"],
+        tag:"스코어카드 사진 한 장이면, 정산까지 끝납니다",
+        desc:"손글씨 스코어카드를 찍으면 AI가 플레이어 수·18홀/전반후반을 자동 판별하고, 타당 계산·배판·축하금·니어리스트를 정산합니다. Glassmorphism Dark Green UI.",
+        links:[
+          {t:"GitHub", u:"https://github.com/paeyoungpark-web/golf-score", primary:true},
+          {t:"골프 프로필", u:"golf/"},
         ]
       },
     ],
