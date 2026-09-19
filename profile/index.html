@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>박배영 — ISO 심사원 · AI 보안 전문가</title>
+<meta name="description" content="ISO/IEC 27001·42001 심사원 박배영. 인증심사 144건·196.6 MD(2023.2~2026.1), 심사원 양성과정 강의 392시간, ISO/IEC 42001 국내 KAB 1호·국가기관 1호 인증 심사팀장.">
+<meta property="og:title" content="박배영 — ISO 심사원 · AI 보안 전문가">
+<meta property="og:description" content="인증심사 144건 · 강의 392시간 · ISO/IEC 42001 국내 1호 인증 심사팀장">
+<meta name="theme-color" content="#0C0D10" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#F4F5F6" media="(prefers-color-scheme: light)">
+<link rel="icon" href="../assets/lupa.png">
+<link rel="canonical" href="https://apps.lupa.kr/profile/">
+<style>
+  :root{
+    --ground:#0C0D10; --surface:#15171B; --card:#141519;
+    --t1:#F1F2F4; --t2:rgba(241,242,244,.62); --t3:rgba(241,242,244,.40);
+    --hair:rgba(241,242,244,.13); --hair2:rgba(241,242,244,.24); --wash:rgba(241,242,244,.06);
+    --blue:#8A93F9; --teal:#2DD4BF; --gold:#D3A45E;
+    --shadow:0 24px 70px rgba(0,0,0,.5), 0 2px 8px rgba(0,0,0,.4);
+    --sans:-apple-system,BlinkMacSystemFont,"SF Pro Text","Apple SD Gothic Neo","Pretendard",system-ui,sans-serif;
+    --mono:ui-monospace,"SF Mono",SFMono-Regular,Menlo,monospace;
+  }
+  @media (prefers-color-scheme: light){:root:not([data-theme="dark"]){
+    --ground:#F4F5F6; --surface:#FFFFFF; --card:#FFFFFF;
+    --t1:#0C0D10; --t2:rgba(12,13,16,.62); --t3:rgba(12,13,16,.40);
+    --hair:rgba(12,13,16,.12); --hair2:rgba(12,13,16,.22); --wash:rgba(12,13,16,.05);
+    --blue:#4F57D6; --teal:#0D9488; --gold:#A9742F;
+    --shadow:0 24px 70px rgba(12,13,16,.16), 0 2px 8px rgba(12,13,16,.08);
+  }}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--ground);color:var(--t1);font-family:var(--sans);line-height:1.65;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:880px;margin:0 auto;padding:0 24px}
+  .mono{font-family:var(--mono);font-feature-settings:"tnum"}
+
+  .top{display:flex;align-items:center;justify-content:space-between;height:56px}
+  .brandwrap{display:flex;align-items:center}
+  .mark{width:16px;height:16px;border:2px solid var(--t1);border-radius:50%;display:inline-block;position:relative;vertical-align:-2px;margin-right:9px}
+  .mark::after{content:"";position:absolute;width:2px;height:7px;background:var(--t1);right:-3px;bottom:-5px;transform:rotate(-45deg);border-radius:1px}
+  .brand{font-size:17px;font-weight:680;letter-spacing:-.01em}
+  .brand small{font-weight:500;color:var(--t3);margin-left:8px;font-size:13px}
+  .topnav{display:flex;gap:18px;font-size:13.5px;color:var(--t2)}
+  .topnav a:hover{color:var(--t1)}
+  @media(max-width:620px){.topnav .hide-m{display:none}}
+
+  header.hero{padding:56px 0 36px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+  header h1{font-size:clamp(34px,6vw,52px);font-weight:700;letter-spacing:-.035em;line-height:1.1;margin-top:14px}
+  header h1 small{display:block;font-size:clamp(15px,2.4vw,18px);font-weight:600;color:var(--t2);letter-spacing:-.01em;margin-top:12px;line-height:1.45}
+  header .lede{color:var(--t2);font-size:16px;margin-top:18px;max-width:58ch;text-wrap:pretty}
+
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--hair);border-radius:14px;overflow:hidden;margin-top:30px;background:var(--surface)}
+  @media(max-width:700px){.stats{grid-template-columns:1fr 1fr}}
+  .stats .c{padding:18px 18px;border-right:1px solid var(--hair)}
+  .stats .c:last-child{border-right:0}
+  @media(max-width:700px){.stats .c:nth-child(2n){border-right:0}.stats .c:nth-child(n+3){border-top:1px solid var(--hair)}}
+  .stats .n{font-family:var(--mono);font-size:24px;font-weight:600;letter-spacing:-.02em}
+  .stats .n em{font-style:normal;color:var(--blue)}
+  .stats .k{color:var(--t2);font-size:12.5px;margin-top:4px}
+  .stats .s{color:var(--t3);font-size:11px;margin-top:2px;font-family:var(--mono)}
+
+  section{padding:44px 0 8px;border-top:1px solid var(--hair);margin-top:36px}
+  .sechead{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding-bottom:14px;border-bottom:1px solid var(--hair);margin-bottom:22px}
+  .sechead h2{font-size:19px;font-weight:660;letter-spacing:-.02em}
+  .sechead h2 .idx{font-family:var(--mono);font-size:11px;color:var(--t3);margin-right:10px;letter-spacing:.08em}
+  .sechead .sub{color:var(--t3);font-size:12.5px;font-family:var(--mono);text-align:right}
+
+  /* 현직 리스트 */
+  .roles{border-top:1px solid var(--hair)}
+  .role{display:grid;grid-template-columns:76px 1fr;gap:18px;padding:13px 0;border-bottom:1px solid var(--hair);align-items:baseline}
+  @media(max-width:560px){.role{grid-template-columns:1fr;gap:2px}}
+  .role .w{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--blue)}
+  .role .w.past{color:var(--t3)}
+  .role .b{font-size:15px;font-weight:600;letter-spacing:-.01em}
+  .role .d{color:var(--t2);font-size:13.5px;margin-top:2px}
+
+  /* 차트 */
+  .chart{display:flex;flex-direction:column;gap:9px;margin-bottom:26px}
+  .bar{display:grid;grid-template-columns:200px 1fr 92px;gap:14px;align-items:center}
+  @media(max-width:640px){.bar{grid-template-columns:130px 1fr 78px;gap:10px}}
+  .bar .lab{font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .bar .lab b{font-weight:640}
+  .bar .lab span{color:var(--t3);font-size:11px;font-family:var(--mono);margin-left:6px}
+  @media(max-width:640px){.bar .lab span{display:none}}
+  .bar .track{height:22px;background:var(--wash);border-radius:4px;overflow:hidden;position:relative}
+  .bar .fill{height:100%;border-radius:4px;background:var(--blue);opacity:.85}
+  .bar .fill.t{background:var(--teal)}
+  .bar .fill.g{background:var(--gold)}
+  .bar .val{font-family:var(--mono);font-size:12.5px;color:var(--t2);text-align:right;white-space:nowrap}
+  .bar .val b{color:var(--t1);font-weight:600}
+  .note{color:var(--t3);font-size:12.5px;margin:-14px 0 26px}
+
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  @media(max-width:760px){.split{grid-template-columns:1fr}}
+  .minihead{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);margin-bottom:12px}
+
+  /* 하이라이트 */
+  .hl{display:grid;gap:12px;margin-bottom:8px}
+  .hlc{background:var(--card);border:1px solid var(--hair2);border-radius:14px;padding:20px 22px;box-shadow:var(--shadow);display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:start}
+  .hlc .badge{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;color:var(--ground);background:var(--gold);border-radius:4px;padding:4px 8px;white-space:nowrap}
+  .hlc h3{font-size:16.5px;font-weight:660;letter-spacing:-.015em}
+  .hlc p{color:var(--t2);font-size:13.5px;margin-top:5px;text-wrap:pretty}
+  @media(max-width:560px){.hlc{grid-template-columns:1fr}}
+
+  /* 태그 */
+  .tags{display:flex;flex-wrap:wrap;gap:7px}
+  .tag{font-size:12.5px;color:var(--t2);border:1px solid var(--hair2);border-radius:6px;padding:6px 11px;background:var(--surface)}
+  .tag b{color:var(--t1);font-weight:600}
+  .tag.lead{border-color:var(--blue);color:var(--t1)}
+
+  /* 연표 */
+  .tl{border-top:1px solid var(--hair)}
+  .tl .r{display:grid;grid-template-columns:132px 1fr;gap:18px;padding:12px 0;border-bottom:1px solid var(--hair);align-items:baseline}
+  @media(max-width:560px){.tl .r{grid-template-columns:1fr;gap:2px}}
+  .tl .y{font-family:var(--mono);font-size:12px;color:var(--t3);letter-spacing:.04em}
+  .tl .t{font-size:14.5px}
+  .tl .t small{display:block;color:var(--t2);font-size:13px;margin-top:2px}
+
+  .cta{background:var(--surface);border:1px solid var(--hair2);border-radius:16px;padding:26px;margin:24px 0 8px;display:flex;justify-content:space-between;gap:18px;align-items:center;flex-wrap:wrap}
+  .cta h3{font-size:17px;font-weight:660;letter-spacing:-.02em}
+  .cta p{color:var(--t2);font-size:13.5px;margin-top:4px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:8px;font-size:14px;font-weight:600;background:var(--t1);color:var(--ground);border:1px solid var(--t1)}
+  .btn:hover{opacity:.86}
+  .btn.ghost{background:transparent;color:var(--t1);border-color:var(--hair2)}
+  .btn.ghost:hover{background:var(--wash);opacity:1}
+  .btn svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+
+  footer{text-align:center;color:var(--t3);font-size:13px;padding:36px 0 calc(48px + env(safe-area-inset-bottom));border-top:1px solid var(--hair);margin-top:40px}
+  footer a{color:var(--t2);border-bottom:1px solid transparent}
+  footer a:hover{border-color:var(--t3)}
+  footer .row{margin-top:8px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a class="brandwrap" href="/"><span class="mark"></span><span class="brand">Lupe<small>박배영 프로필</small></span></a>
+    <nav class="topnav">
+      <a class="hide-m" href="#audit">심사</a>
+      <a class="hide-m" href="#lecture">강의</a>
+      <a class="hide-m" href="#cert">자격</a>
+      <a href="/">만든 것들</a>
+    </nav>
+  </div>
+
+  <header class="hero">
+    <div class="eyebrow">ISO 심사원 · AI 보안 전문가</div>
+    <h1>박배영<small>정보보호·인공지능 경영시스템 인증심사원 / 심사원 양성과정 강사<br>(주)로뎀시스템 대표</small></h1>
+    <p class="lede">법학에서 출발해 네트워크 보안 강의를 거쳐, 지금은 기업의 정보보호와 인공지능 경영시스템을 심사하고 심사원을 길러 냅니다. AI가 실제로 쓰이기 시작한 현장에서 "이 시스템을 신뢰할 수 있는가"를 표준으로 검증하는 일을 합니다.</p>
+
+    <div class="stats">
+      <div class="c"><div class="n"><em>144</em>건</div><div class="k">인증심사 수행</div><div class="s">2023.2 – 2026.1</div></div>
+      <div class="c"><div class="n"><em>196.6</em> MD</div><div class="k">심사 투입일수</div><div class="s">58개사</div></div>
+      <div class="c"><div class="n"><em>392</em>h</div><div class="k">심사원 양성 강의</div><div class="s">18개 과정</div></div>
+      <div class="c"><div class="n"><em>11</em>종</div><div class="k">심사 수행 표준</div><div class="s">ISO / KS</div></div>
+    </div>
+  </header>
+
+  <section id="now">
+    <div class="sechead"><h2><span class="idx">01</span>지금 하는 일</h2><span class="sub">현직 · 위촉</span></div>
+    <div class="roles" id="roles" style="margin-bottom:26px"></div>
+    <div class="minihead">위촉 · 활동 이력</div>
+    <div class="roles" id="appts"></div>
+  </section>
+
+  <section id="audit">
+    <div class="sechead"><h2><span class="idx">02</span>인증심사 실적</h2><span class="sub">2023.2 – 2026.1 · 144건 · 196.6 MD</span></div>
+
+    <div class="minihead">표준별 심사 건수</div>
+    <div class="chart" id="ch-std"></div>
+    <p class="note">ISMS·PIMS·AIMS가 전체의 70%. 최근 2년은 AI 경영시스템(AIMS) 비중이 빠르게 올라가는 중입니다.</p>
+
+    <div class="split">
+      <div>
+        <div class="minihead">연도별 심사 건수</div>
+        <div class="chart" id="ch-year"></div>
+      </div>
+      <div>
+        <div class="minihead">산업군 분포 (심사 건수)</div>
+        <div class="chart" id="ch-ind"></div>
+      </div>
+    </div>
+    <p class="note">고객사는 기밀 유지를 위해 실명 대신 산업군으로만 표기합니다. 필요한 경우 심사 경력 증빙(인증기관 발행)을 별도로 제공합니다.</p>
+  </section>
+
+  <section id="highlight">
+    <div class="sechead"><h2><span class="idx">03</span>대표 이력</h2><span class="sub">ISO/IEC 42001 · 인공지능</span></div>
+    <div class="hl" id="hl"></div>
+  </section>
+
+  <section id="lecture">
+    <div class="sechead"><h2><span class="idx">04</span>강의</h2><span class="sub">2023.2 – 2025.8 · 392시간</span></div>
+    <div class="minihead">과정별 강의 시간 (한국경영인증원)</div>
+    <div class="chart" id="ch-lec"></div>
+    <div class="roles" id="teach"></div>
+  </section>
+
+  <section id="cert">
+    <div class="sechead"><h2><span class="idx">05</span>자격</h2><span class="sub">심사원 자격 · 전문강사</span></div>
+    <div class="minihead">심사원 자격</div>
+    <div class="tags" id="certs" style="margin-bottom:22px"></div>
+    <div class="minihead">전문강사 자격 · 기타</div>
+    <div class="tags" id="certs2"></div>
+  </section>
+
+  <section id="edu">
+    <div class="sechead"><h2><span class="idx">06</span>학력 · 저서</h2><span class="sub">AI·빅데이터</span></div>
+    <div class="tl" id="edu-list"></div>
+  </section>
+
+  <section id="contact" style="border-bottom:0">
+    <div class="sechead"><h2><span class="idx">07</span>연락</h2><span class="sub">심사 · 강의 · 컨설팅</span></div>
+    <div class="cta">
+      <div>
+        <h3>심사·강의·자문 문의</h3>
+        <p>ISO/IEC 27001·27701·42001 인증심사, 심사원 양성과정 강의, AI 신뢰성·정보보호 컨설팅.</p>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn" href="mailto:paeyoung.park@gmail.com?subject=%5B%EC%8B%AC%EC%82%AC%C2%B7%EA%B0%95%EC%9D%98%5D%20%EB%AC%B8%EC%9D%98">이메일 문의
+          <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="m4 7 8 6 8-6"/></svg></a>
+        <a class="btn ghost" href="https://rothemsystem.com">로뎀시스템</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div>© 2026 Paeyoung Park</div>
+    <div class="row">
+      <a href="/">만든 것들 (포트폴리오)</a>
+      <a href="/church/">교회를 위한 Lupa</a>
+      <a href="https://rothemsystem.com">RothemSystem</a>
+      <a href="mailto:paeyoung.park@gmail.com">이메일</a>
+    </div>
+  </footer>
+</div>
+
+<script>
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+  // ── 현직 ──────────────────────────────────────────────
+  const ROLES = [
+    {w:"현",   b:"(주)로뎀시스템 대표", d:"정보보호·AI 경영시스템 컨설팅 및 심사"},
+    {w:"현",   b:"대·중소기업·농어업협력재단 기술보호위원", d:"중소기업 기술보호 지도·심사"},
+    {w:"현",   b:"중소벤처기업부 기술정보진흥원 평가위원", d:""},
+    {w:"현",   b:"스마트공장 DX코칭 멘토 · 수준진단 위원", d:"제조 현장 디지털 전환 지도 200개사 이상"},
+  ];
+  const APPTS = [
+    {w:"2025~",          b:"AI 신뢰성 얼라이언스 인증·교육 분과위원", d:""},
+    {w:"2024.10–2025.12",b:"TTA 한국정보통신기술협회 외부교수 (인공지능)", d:"제2024-051호"},
+    {w:"전",             b:"대구과학대학교 겸임교수", d:"경찰사이버보안과 — 네트워크 보안", past:true},
+  ];
+  const roleHtml = r => `<div class="role"><div class="w ${r.past?'past':''}">${esc(r.w)}</div>
+     <div><div class="b">${esc(r.b)}</div>${r.d?`<div class="d">${esc(r.d)}</div>`:''}</div></div>`;
+  document.getElementById('roles').innerHTML = ROLES.map(roleHtml).join('');
+  document.getElementById('appts').innerHTML = APPTS.map(roleHtml).join('');
+
+  // ── 차트 ──────────────────────────────────────────────
+  function chart(id, data, unit, cls){
+    const max = Math.max(...data.map(d=>d.v));
+    document.getElementById(id).innerHTML = data.map(d =>
+      `<div class="bar">
+         <div class="lab"><b>${esc(d.k)}</b>${d.s?`<span>${esc(d.s)}</span>`:''}</div>
+         <div class="track"><div class="fill ${cls||''}" style="width:${(d.v/max*100).toFixed(1)}%"></div></div>
+         <div class="val"><b>${d.v}</b>${esc(unit)}${d.md!==undefined?` · ${d.md}MD`:''}</div>
+       </div>`).join('');
+  }
+
+  // 표준별 (건수 / MD)
+  chart('ch-std', [
+    {k:"ISMS",    s:"ISO/IEC 27001 정보보호",      v:66, md:109.0},
+    {k:"AIMS",    s:"ISO/IEC 42001 인공지능",      v:19, md:28.0},
+    {k:"PIMS",    s:"ISO/IEC 27701 개인정보",      v:16, md:15.9},
+    {k:"EMS",     s:"ISO 14001 환경",              v:13, md:11.0},
+    {k:"QMS",     s:"ISO 9001 품질",               v:13, md:10.5},
+    {k:"K-OHSMS", s:"안전보건 (45001 계열)",        v:6,  md:10.8},
+    {k:"ABMS",    s:"ISO 37001 부패방지",          v:4,  md:6.5},
+    {k:"PIIMS",   s:"클라우드 개인정보",            v:2,  md:0.2},
+    {k:"ISCMS",   s:"클라우드 정보보안",            v:2,  md:0.2},
+    {k:"CM",      s:"ISO 37301 준법경영",          v:2,  md:2.5},
+    {k:"SCSMS",   s:"ISO 28000 공급망보안",        v:1,  md:2.0},
+  ], "건");
+
+  chart('ch-year', [
+    {k:"2023", s:"22.0 MD",  v:18},
+    {k:"2024", s:"46.7 MD",  v:37},
+    {k:"2025", s:"122.9 MD", v:86},
+    {k:"2026", s:"5.0 MD · 1월까지", v:3},
+  ], "건", "t");
+
+  chart('ch-ind', [
+    {k:"IT·보안·AI",      s:"22개사", v:47},
+    {k:"공공·공기업",      s:"10개사", v:32},
+    {k:"제조·중공업",      s:"11개사", v:25},
+    {k:"대기업·지주·금융", s:"6개사",  v:22},
+    {k:"반도체·소재",      s:"5개사",  v:12},
+    {k:"유통·물류·서비스", s:"4개사",  v:6},
+  ], "건", "g");
+
+  chart('ch-lec', [
+    {k:"ISO/IEC 27001",      s:"정보보안 심사원 양성 · 9개 과정", v:192},
+    {k:"ISO/IEC 42001",      s:"인공지능 심사원 양성 · 7개 과정", v:168},
+    {k:"ISO 27001 & 27701",  s:"통합 심사원 양성 · 1개 과정",     v:24},
+    {k:"기반시설 자체평가",   s:"1개 과정",                       v:8},
+  ], "h", "t");
+
+  // ── 대표 이력 ─────────────────────────────────────────
+  const HL = [
+    {badge:"국내 1호", h:"ISO/IEC 42001 국내 KAB 인정 1호 인증 — 심사팀장",
+     p:"국내에서 처음으로 KAB 인정을 받은 인공지능경영시스템(AIMS) 인증심사를 팀장으로 수행했습니다."},
+    {badge:"국가기관 1호", h:"국가기관 최초 ISO/IEC 42001 인증 — 심사팀장",
+     p:"국내 국가기관 중 첫 인공지능경영시스템 인증심사를 팀장으로 수행 (해당 기관 보도자료로 공개)."},
+    {badge:"검증심사원", h:"ISO/IEC 27001 · 42001 검증심사원",
+     p:"심사 결과를 최종 검증하는 역할. ISO/IEC 42001은 선임심사원(Lead Auditor) 자격 보유."},
+    {badge:"표창", h:"중소기업청장 표창 (정보보안 부문)",
+     p:"2016년 9월. 중소기업 정보보안 지원 공로."},
+  ];
+  document.getElementById('hl').innerHTML = HL.map(x =>
+    `<div class="hlc"><span class="badge">${esc(x.badge)}</span>
+     <div><h3>${esc(x.h)}</h3><p>${esc(x.p)}</p></div></div>`).join('');
+
+  // ── 강의 부가 ─────────────────────────────────────────
+  const TEACH = [
+    {w:"2023~",  b:"한국경영인증원(KMR) 전문강사 — ISO 27001 · 27701", d:"정보보안·개인정보보호 인증심사원 양성과정"},
+    {w:"2024~",  b:"한국경영인증원(KMR) 전문강사 — ISO/IEC 42001", d:"인공지능 인증심사원 양성과정"},
+    {w:"2024.10–2025.12",b:"TTA 한국정보통신기술협회 외부교수 (인공지능)", d:"제2024-051호 · 위촉 기간"},
+    {w:"~2025.8",b:"강의 실적 392시간 / 18개 과정", d:"한국경영인증원 발행 강의확인증명서 기준 (2023.2.18 – 2025.8.3)"},
+  ];
+  document.getElementById('teach').innerHTML = TEACH.map(r =>
+    `<div class="role"><div class="w">${esc(r.w)}</div>
+     <div><div class="b">${esc(r.b)}</div><div class="d">${esc(r.d)}</div></div></div>`).join('');
+
+  // ── 자격 ──────────────────────────────────────────────
+  const CERTS = [
+    {t:"ISO/IEC 42001 인공지능경영시스템", s:"선임심사원", lead:true},
+    {t:"ISO/IEC 27001 정보보안경영시스템", s:"검증심사원", lead:true},
+    {t:"ISO/IEC 27701 개인정보보호", s:""},
+    {t:"ISO/IEC 27799 · 27018", s:"보건의료·클라우드 개인정보"},
+    {t:"ISO 9001 품질경영시스템", s:""},
+    {t:"ISO 14001 환경경영시스템", s:""},
+    {t:"ISO 45001 안전보건경영시스템", s:""},
+    {t:"ISO 37001 · 37301", s:"부패방지·준법경영"},
+    {t:"ISO 28000 공급망관리경영시스템", s:""},
+  ];
+  document.getElementById('certs').innerHTML = CERTS.map(c =>
+    `<span class="tag ${c.lead?'lead':''}"><b>${esc(c.t)}</b>${c.s?` · ${esc(c.s)}`:''}</span>`).join('');
+
+  document.getElementById('certs2').innerHTML = [
+    "ISO 27001 · 27701 전문강사 (KMR, 2023)",
+    "ISO 42001 전문강사 (KMR, 2024)",
+    "MCP — Microsoft Certified Professional (2005)",
+  ].map(t => `<span class="tag">${esc(t)}</span>`).join('');
+
+  // ── 학력·저서 ─────────────────────────────────────────
+  const EDU = [
+    {y:"2027.2 (예정)", t:"서울과학종합대학원 AI·빅데이터 공학박사", s:"박사과정 재학 중"},
+    {y:"2024.7 – 2025.7", t:"서울과학종합대학원 AI·빅데이터 공학석사", s:"졸업"},
+    {y:"2024", t:"저서 『AI시대, 꿈의 연금술사』", s:"4인 공저"},
+    {y:"1990 – 1997", t:"영남대학교 법학과", s:"졸업"},
+  ];
+  document.getElementById('edu-list').innerHTML = EDU.map(e =>
+    `<div class="r"><div class="y">${esc(e.y)}</div><div class="t">${esc(e.t)}<small>${esc(e.s)}</small></div></div>`).join('');
+</script>
+</body>
+</html>

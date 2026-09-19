@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Lupe — 박배영 포트폴리오 · 앱과 도구</title>
-<meta name="description" content="만드는 사람 박배영의 포트폴리오. 온디바이스 앱(Lupa, VerbaNote), 교회·공동체 도구(헤노테스 찬양 모니터, 주간 성경퀴즈), 채널과 글(온고,오늘 · 로뎀아래 · 네이버 블로그 · Blogger)까지 한 화면에서.">
+<meta name="description" content="만드는 사람 박배영의 포트폴리오. ISO 27001·42001 심사원. 온디바이스 앱(Lupa, VerbaNote), 교회·공동체 도구(헤노테스 찬양 모니터, 주간 성경퀴즈), 채널과 글(온고,오늘 · 로뎀아래 · 네이버 블로그 · Blogger)까지 한 화면에서.">
 <meta property="og:title" content="Lupe — 박배영 포트폴리오">
 <meta property="og:description" content="Lupa · VerbaNote · 헤노테스 · 주간 성경퀴즈 · 온고,오늘 · 로뎀아래 · 블로그">
 <meta name="theme-color" content="#0C0D10" media="(prefers-color-scheme: dark)">
@@ -126,6 +126,10 @@
   @media(max-width:720px){.about{grid-template-columns:1fr}}
   .about p{color:var(--t2);font-size:15px;margin-bottom:12px;max-width:54ch;text-wrap:pretty}
   .about p strong{color:var(--t1);font-weight:640}
+  .profilebtn{display:inline-flex;align-items:center;gap:8px;margin-top:6px;padding:10px 16px;border-radius:8px;
+    font-size:13.5px;font-weight:600;border:1px solid var(--hair2);color:var(--t1);transition:background .14s ease}
+  .profilebtn:hover{background:var(--wash)}
+  .profilebtn svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
   .kv{background:var(--card);border:1px solid var(--hair2);border-radius:14px;padding:18px 20px;align-self:start}
   .kv .r{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--hair);font-size:13.5px}
   .kv .r:last-child{border-bottom:0}
@@ -158,6 +162,7 @@
       <a href="#church">교회를 위한 Lupa</a>
       <a href="#content">채널·글</a>
       <a href="#about">소개</a>
+      <a href="profile/">프로필</a>
       <a href="mailto:paeyoung.park@gmail.com">문의</a>
     </nav>
   </div>
@@ -218,7 +223,10 @@
       <div>
         <p><strong>만드는 사람, 박배영입니다.</strong> 오래 걸리는 문제를 작은 도구로 덜어 주는 일을 좋아합니다. 검색이 답답하면 검색기를, 기록이 흩어지면 노트를, 찬양팀이 자기 소리를 못 들으면 모니터를, 출석부가 손으로 채워지면 자동 기록기를 만드는 식으로요.</p>
         <p>개인 앱은 모든 처리가 기기 안에서 끝나는 걸 원칙으로 두고, 교회·공동체 도구는 실제로 매주 쓰면서 다듬습니다. AI는 도구로 쓰되 결과는 사람에게 오래 남는 쪽을 목표로 합니다.</p>
+        <p><strong>만드는 일 밖에서는 심사합니다.</strong> ISO/IEC 27001·42001 인증심사원으로 2023년 이후 144건(196.6 MD)을 수행했고, 심사원 양성과정에서 392시간을 강의했습니다. ISO/IEC 42001 국내 KAB 1호·국가기관 1호 인증의 심사팀장을 맡았습니다.</p>
         <p>새 프로젝트나 협업, 도구 도입 문의는 언제든 환영합니다.</p>
+        <a class="profilebtn" href="profile/">경력 · 심사 실적 자세히
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
       <div class="kv">
         <div class="r"><span>개인</span><a href="https://lupa.kr">lupa.kr</a></div>
@@ -235,6 +243,7 @@
     <div class="row"><div>주소</div><div>내용</div></div>
     <div class="row"><a href="https://lupa.kr">lupa.kr</a><span>Lupa — macOS 파일·한글(HWP) 내용 검색 앱 제품 페이지</span></div>
     <div class="row"><a href="https://apps.lupa.kr">apps.lupa.kr</a><span>이 페이지. 포트폴리오 · 모든 앱·도구의 입구</span></div>
+    <div class="row"><a href="https://apps.lupa.kr/profile/">apps.lupa.kr/profile</a><span>박배영 프로필 — ISO 심사원·강사 경력, 심사 실적 통계</span></div>
     <div class="row"><a href="https://apps.lupa.kr/church/">apps.lupa.kr/church</a><span>교회를 위한 Lupa — 이름의 뜻(돋보기·눅 15:8)과 교회 도구 전체</span></div>
     <div class="row"><a href="https://verbanote.lupa.kr">verbanote.lupa.kr</a><span>VerbaNote — 온디바이스 AI 회의록 앱 제품 페이지</span></div>
     <div class="row"><a href="https://henotes.lupa.kr">henotes.lupa.kr</a><span>헤노테스 — 찬양팀 실황 멀티트랙 모니터 소개 · 앱 입장</span></div>
