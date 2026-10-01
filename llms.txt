@@ -21,14 +21,14 @@
 - VerbaNote: 온디바이스 AI 회의록 앱 (macOS·iOS). https://verbanote.lupa.kr
 - 헤노테스(Henotes, ἑνότης): 찬양팀 실황 멀티트랙 모니터 (Web). https://henotes.lupa.kr
 - 주간 성경퀴즈: 손글씨 답안지 AI 인식·Google Sheets 출석부 자동 기록 (Web). https://bible.lupa.kr
-- 교회 도구 도입 정책(선교·봉사): 헤노테스·주간 성경퀴즈는 교회에 무료로 구축. 대형 교회는 소정의 교육비만. 음향·영상·YouTube 운영에 어려움을 겪는 교회는 무료 자문. 문의 paeyoung.park@gmail.com
+- 교회 도구 도입 정책(선교·봉사): 헤노테스·주간 성경퀴즈는 교회에 무료로 구축. 대형 교회는 소정의 교육비만. 미자립교회·개척교회의 영상·음향·유튜브 방송에 어려움이 있으면 무료로 도움. 문의 paeyoung.park@gmail.com
 
 ## 03 채널·글·골프
 - 온고,오늘: 세계 명언 오디오북 YouTube. https://youtube.com/@온고오늘 · 블로그 https://ongotoday.blogspot.com
 - 로뎀아래(The Revival of Rotem): 한국 찬양 YouTube 채널, 한글 가사+영어 번역. https://youtube.com/@revival_of_rotem
 - 네이버 블로그(로뎀아래의 블로그): 명언 해설·Lupa 사용기·ISO 27001 메모. https://blog.naver.com/udrodem
 - Lupa 채널·블로그: https://youtube.com/@lupa-app · https://lupa-app.blogspot.com
-- 골프: KPGMA 골프지도자(세미). Golf Score AI 스코어카드 자동 정산 웹앱 https://golf-score-7xp.pages.dev · 골프 프로필 https://apps.lupa.kr/golf/
+- 골프: KPGMA 골프지도자(세미). 골프 앱 4종 — Golf Score(AI 스코어카드 자동 정산, https://golf-score-7xp.pages.dev), Scorecard OCR(손글씨 인식 엔진), 골프 정산 마스터(베팅 정산·송금표), 스코어 대시보드(누적 기록 분석). 골프 프로필 https://apps.lupa.kr/golf/
 
 ## 링크
 - 포트폴리오: https://apps.lupa.kr
