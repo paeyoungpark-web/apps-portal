@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Lupe — 박배영 포트폴리오 · 앱과 도구</title>
-<meta name="description" content="만드는 사람 박배영의 포트폴리오. ISO 27001·42001 심사원. 온디바이스 앱(Lupa, VerbaNote), 교회·공동체 도구(헤노테스 찬양 모니터, 주간 성경퀴즈), 채널과 글(온고,오늘 · 로뎀아래 · 네이버 블로그 · Blogger)까지 한 화면에서.">
+<title>Lupe — 박배영 포트폴리오 · 일 · 개발 · 채널</title>
+<meta name="description" content="박배영 포트폴리오. 일(로뎀시스템 · ISO 27001·42001 인증심사 · 컨설팅), 개발(Lupa, VerbaNote, 헤노테스, 주간 성경퀴즈 — 작은 교회 무료 구축), 채널과 글(온고,오늘 · 로뎀아래 · 블로그 · 골프)을 한 화면에서.">
 <meta property="og:title" content="Lupe — 박배영 포트폴리오">
-<meta property="og:description" content="Lupa · VerbaNote · 헤노테스 · 주간 성경퀴즈 · 온고,오늘 · 로뎀아래 · 블로그">
+<meta property="og:description" content="일 · 로뎀시스템 · 인증심사 · 컨설팅 | 개발 · Lupa · VerbaNote · 헤노테스 · 주간 성경퀴즈 | 채널 · 온고,오늘 · 로뎀아래 · 블로그 · 골프">
 <meta name="theme-color" content="#0C0D10" media="(prefers-color-scheme: dark)">
 <meta name="theme-color" content="#F4F5F6" media="(prefers-color-scheme: light)">
 <link rel="icon" href="assets/lupa.png">
@@ -170,9 +170,41 @@
   footer a{color:var(--t2);border-bottom:1px solid transparent}
   footer a:hover{border-color:var(--t3)}
   footer .row{margin-top:8px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+  /* ── launcher groups ── */
+  .lgroups{display:flex;flex-direction:column;gap:26px;margin:30px auto 0;max-width:820px}
+  @media(max-width:720px){.lgroups{gap:20px;margin-top:22px}}
+  .lgroup .lgl{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);margin-bottom:14px}
+  .lgroup .lgl::after{content:"";flex:1;height:1px;background:var(--hair)}
+  .lgroup .lgl b{color:var(--t2);font-weight:600}
+  .lgroup .icons{margin:0;grid-template-columns:repeat(auto-fit,104px);justify-content:center}
+  @media(max-width:720px){.lgroup .icons{grid-template-columns:repeat(4,1fr)}}
+  /* ── 무료 구축 강조 ── */
+  .free{display:grid;grid-template-columns:1fr auto;gap:20px;align-items:center;background:var(--surface);
+    border:1px solid #D3A45E;border-radius:14px;padding:18px 20px;margin:-6px 0 20px;position:relative;overflow:hidden}
+  .free::before{content:"";position:absolute;inset:0;background:radial-gradient(520px 220px at 0% 0%,#D3A45E,transparent 70%);opacity:.12;pointer-events:none}
+  @media(max-width:640px){.free{grid-template-columns:1fr}}
+  .free .t{font-size:16px;font-weight:660;letter-spacing:-.01em}
+  .free .t em{font-style:normal;color:#D3A45E}
+  .free p{color:var(--t2);font-size:13.5px;margin-top:5px;max-width:64ch;text-wrap:pretty}
+  .free a.more{white-space:nowrap;font-size:13px;color:var(--ground);background:#D3A45E;border-radius:6px;padding:9px 14px;font-weight:600}
+  .free a.more:hover{opacity:.88}
+  .plat span.hot{color:#D3A45E;border-color:#D3A45E}
+  .appcard .nums{margin:-6px 0 16px}
+  .nums b small{font-size:12px;font-weight:500;color:var(--t2);margin-left:2px;letter-spacing:0}
+  /* ── press ── */
+  .press{margin-top:22px;border:1px solid var(--hair);border-radius:12px;overflow:hidden}
+  .press .ph{display:flex;align-items:center;justify-content:space-between;padding:10px 18px;background:var(--wash);font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--t3)}
+  .press a.pr{display:grid;grid-template-columns:92px 1fr auto;gap:14px;align-items:baseline;padding:13px 18px;border-top:1px solid var(--hair);font-size:14px;transition:background .14s ease}
+  .press a.pr:hover{background:var(--wash)}
+  .press .pd{font-family:var(--mono);font-size:11.5px;color:var(--t3);letter-spacing:.04em}
+  .press .pt{color:var(--t1)}
+  .press .pt small{display:block;color:var(--t2);font-size:12.5px;margin-top:2px}
+  .press .ps{font-size:12px;color:var(--t3);white-space:nowrap}
+  @media(max-width:560px){.press a.pr{grid-template-columns:1fr;gap:3px}.press .ps{display:none}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "박배영", "alternateName": ["Paeyoung Park", "Under71"], "jobTitle": "ISO/IEC 인증심사원 · AI 보안 전문가", "worksFor": {"@type": "Organization", "name": "(주)로뎀시스템", "url": "https://rothemsystem.com"}, "url": "https://apps.lupa.kr", "sameAs": ["https://www.youtube.com/@revival_of_rotem", "https://www.youtube.com/@온고오늘", "https://www.youtube.com/@lupa-app", "https://blog.naver.com/udrodem", "https://ongotoday.blogspot.com", "https://rothemsystem.com"], "knowsAbout": ["ISO/IEC 27001", "ISO/IEC 42001", "ISO/IEC 27701", "정보보호", "인공지능경영시스템", "스마트공장", "골프"], "hasCredential": [{"@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "ISO/IEC 42001 선임심사원 (Lead Auditor)"}, {"@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "ISO/IEC 27001 검증심사원"}, {"@type": "EducationalOccupationalCredential", "credentialCategory": "certification", "name": "KPGMA 골프지도자(세미)", "recognizedBy": {"@type": "Organization", "name": "한국프로골프산업지도자협회"}}], "alumniOf": {"@type": "EducationalOrganization", "name": "서울과학종합대학원(aSSIST)", "url": "https://www.assist.ac.kr"}}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Lupe — 박배영 포트폴리오", "url": "https://apps.lupa.kr", "author": {"@type": "Person", "name": "박배영"}, "description": "온디바이스 앱(Lupa, VerbaNote), 교회 도구(헤노테스, 주간 성경퀴즈), 찬양 채널(로뎀아래), AI 보안·인증심사 프로필"}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "Lupe — 박배영 포트폴리오", "url": "https://apps.lupa.kr", "author": {"@type": "Person", "name": "박배영"}, "description": "일(로뎀시스템 · ISO 27001·42001 인증심사 · 컨설팅), 개발(Lupa, VerbaNote, 헤노테스, 주간 성경퀴즈), 채널(온고,오늘 · 로뎀아래 · 블로그 · 골프)"}</script>
 </head>
 <body>
 
@@ -180,120 +212,96 @@
   <div class="top">
     <a class="brandwrap" href="/"><span class="mark"></span><span class="brand">Lupe</span></a>
     <nav class="topnav">
-      <a href="#apps">온디바이스 앱</a>
-      <a href="#church">교회를 위한 Lupa</a>
-      <a href="#golf-sec">골프</a>
+      <a href="#work">일</a>
+      <a href="#dev">개발</a>
       <a href="#content">채널·글</a>
       <a href="#about">소개</a>
       <a href="profile/">프로필</a>
-      <a href="golf/">골프</a>
       <a href="mailto:paeyoung.park@gmail.com">문의</a>
     </nav>
   </div>
 
-  <!-- 첫 화면: 아이콘 런처 -->
+  <!-- 첫 화면: 아이콘 런처 (일 / 개발 / 채널·글) -->
   <header class="launcher">
     <div class="intro">
       <h1>박배영이 만드는 것들</h1>
-      <p>apps · tools · content — tap to open</p>
+      <p>work · dev · channels — tap to open</p>
     </div>
-    <nav class="icons" id="icons" aria-label="프로젝트 바로가기"></nav>
-    <a class="cue" href="#apps">자세히 보기
+    <nav class="lgroups" id="lgroups" aria-label="프로젝트 바로가기"></nav>
+    <a class="cue" href="#work">자세히 보기
       <svg viewBox="0 0 24 24"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
   </header>
 
-  <div class="me">
-    <a class="mecard" href="profile/">
-      <div class="mehead">
-        <img src="assets/profile.svg" alt="" width="46" height="46">
-        <div><div class="nm">프로필</div><div class="sb">ISO 심사원 · 강사</div></div>
-      </div>
-      <div class="nums">
-        <div><b>227</b>건<span>인증심사</span></div>
-        <div><b>156</b>건<span>심사팀장</span></div>
-        <div><b>392</b>h<span>강의</span></div>
-      </div>
-      <div class="go">심사·강의·수준확인 이력 보기 <span>→</span></div>
-    </a>
-    <a class="mecard golf" href="golf/">
-      <div class="mehead">
-        <img src="assets/golf.svg" alt="" width="46" height="46">
-        <div><div class="nm">골프</div><div class="sb">골프지도자 (세미)</div></div>
-      </div>
-      <div class="nums">
-        <div><b>KPGMA</b><span>자격</span></div>
-        <div><b>4</b>종<span>골프 앱</span></div>
-        <div><b>AI</b><span>스코어 정산</span></div>
-      </div>
-      <div class="go">자격과 만든 도구 보기 <span>→</span></div>
-    </a>
-  </div>
-
-  <section id="apps">
+  <!-- 01 일 -->
+  <section id="work">
     <div class="sechead">
-      <h2><span class="idx">01</span>온디바이스 앱</h2>
-      <span class="sub">macOS · iOS · App Store</span>
+      <h2><span class="idx">01</span>일</h2>
+      <span class="sub">로뎀시스템 · 인증심사 · 컨설팅</span>
+    </div>
+    <div class="meta">
+      <span class="tagpill">ISO/IEC 27001 · 27701 · 42001</span>
+      <span class="tagpill">ISMS-P</span>
+      <span class="tagpill">AI 거버넌스</span>
+      <span class="tagpill">스마트공장</span>
+    </div>
+    <div class="grid" data-group="work"></div>
+    <div class="press" id="press">
+      <div class="ph"><span>기사 · 언론</span><span>press</span></div>
+    </div>
+  </section>
+
+  <!-- 02 개발 -->
+  <section id="dev">
+    <div class="sechead">
+      <h2><span class="idx">02</span>개발</h2>
+      <span class="sub">macOS · iOS · Web</span>
     </div>
     <div class="meta">
       <span class="tagpill">100% 온디바이스</span>
-      <span class="tagpill">네트워크 0</span>
       <span class="tagpill">Apple Silicon 최적화</span>
+      <span class="tagpill">교회 도구 · 매주 실사용</span>
     </div>
-    <div class="grid" data-group="apps"></div>
-  </section>
-
-  <section id="church">
-    <div class="sechead">
-      <h2><span class="idx">02</span>교회를 위한 Lupa</h2>
-      <span class="sub">은천교회에서 매주 쓰는 것들 · 다른 교회 도입 가능</span>
-    </div>
-    <div class="meaning">
+    <div class="grid" data-group="dev"></div>
+    <div class="free" style="margin-top:20px">
       <div>
-        <div class="t">Lupa는 돋보기입니다. <em>작은 하나를 찾아내기까지.</em></div>
-        <p>작은 것을 크게 보이게 하고, 흩어진 빛을 한 점에 모으는 것. 아흔아홉을 두고 하나를 찾으시는 시선(눅 15:8)을 교회에 가져간 도구들입니다. 한 장에서 한 이름을, 한 트랙에서 한 목소리를, 한 곡에서 한 사람의 쉼을.</p>
+        <div class="t">헤노테스 · 주간 성경퀴즈 — <em>작은 교회에는 무료로 구축해 드립니다.</em></div>
+        <p>은천교회에서 매주 쓰는 도구를 그대로 다른 교회에 세팅해 드립니다. 작은 교회는 구축 비용이 없습니다. 대형 교회는 도입 교육에 드는 소정의 교육비만 받습니다.</p>
       </div>
-      <a class="more" href="church/">이름의 뜻 →</a>
+      <a class="more" href="mailto:paeyoung.park@gmail.com?subject=%5B%EA%B5%90%ED%9A%8C%20%EB%8F%84%EA%B5%AC%20%EB%8F%84%EC%9E%85%5D%20%EB%AC%B8%EC%9D%98">도입 문의 →</a>
     </div>
-    <div class="grid" data-group="church"></div>
   </section>
 
-  <section id="golf-sec">
-    <div class="sechead">
-      <h2><span class="idx">03</span>골프</h2>
-      <span class="sub">KPGMA 골프지도자(세미) · AI 스코어카드 정산</span>
-    </div>
-    <div class="grid" data-group="golf"></div>
-  </section>
-
+  <!-- 03 채널·글 -->
   <section id="content">
     <div class="sechead">
-      <h2><span class="idx">04</span>채널·글</h2>
-      <span class="sub">YouTube · Blogger · 네이버 블로그</span>
+      <h2><span class="idx">03</span>채널·글</h2>
+      <span class="sub">YouTube · 블로그 · 골프</span>
     </div>
     <div class="grid" data-group="content"></div>
   </section>
 
+  <!-- 04 소개 -->
   <section id="about">
     <div class="sechead">
-      <h2><span class="idx">05</span>소개</h2>
+      <h2><span class="idx">04</span>소개</h2>
       <span class="sub">Paeyoung Park</span>
     </div>
     <div class="about">
       <div>
-        <p><strong>만드는 사람, 박배영입니다.</strong> 오래 걸리는 문제를 작은 도구로 덜어 주는 일을 좋아합니다. 검색이 답답하면 검색기를, 기록이 흩어지면 노트를, 찬양팀이 자기 소리를 못 들으면 모니터를, 출석부가 손으로 채워지면 자동 기록기를 만드는 식으로요.</p>
-        <p>개인 앱은 모든 처리가 기기 안에서 끝나는 걸 원칙으로 두고, 교회·공동체 도구는 실제로 매주 쓰면서 다듬습니다. AI는 도구로 쓰되 결과는 사람에게 오래 남는 쪽을 목표로 합니다.</p>
-        <p><strong>만드는 일 밖에서는 심사합니다.</strong> ISO/IEC 27001·42001 인증심사원으로 2023년 이후 144건(196.6 MD)을 수행했고, 심사원 양성과정에서 392시간을 강의했습니다. ISO/IEC 42001 국내 KAB 1호·국가기관 1호 인증의 심사팀장을 맡았습니다.</p>
-        <p>새 프로젝트나 협업, 도구 도입 문의는 언제든 환영합니다.</p>
+        <p><strong>박배영입니다. 심사하고, 만들고, 기록합니다.</strong> 낮에는 기업의 정보보호·인공지능 경영시스템을 심사하고 심사원을 가르칩니다. ISO/IEC 27001·42001 인증심사원으로 2023년 이후 144건(196.6 MD)을 수행했고, 심사원 양성과정에서 392시간을 강의했습니다. ISO/IEC 42001 국내 KAB 1호·국가기관 1호 인증의 심사팀장을 맡았습니다.</p>
+        <p><strong>만드는 일</strong>은 오래 걸리는 문제를 작은 도구로 덜어 주는 쪽입니다. 검색이 답답하면 검색기를, 기록이 흩어지면 노트를, 찬양팀이 자기 소리를 못 들으면 모니터를, 출석부가 손으로 채워지면 자동 기록기를 만드는 식으로요. 개인 앱은 모든 처리가 기기 안에서 끝나는 걸 원칙으로 두고, 교회 도구는 실제로 매주 쓰면서 다듬습니다.</p>
+        <p>새 프로젝트나 협업, 심사·컨설팅, 교회 도구 도입 문의는 언제든 환영합니다.</p>
         <a class="profilebtn" href="profile/">경력 · 심사 실적 자세히
           <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </div>
       <div class="kv">
-        <div class="r"><span>개인</span><a href="https://lupa.kr">lupa.kr</a></div>
         <div class="r"><span>법인</span><a href="https://rothemsystem.com">rothemsystem.com</a></div>
+        <div class="r"><span>개인</span><a href="https://lupa.kr">lupa.kr</a></div>
         <div class="r"><span>이메일</span><a href="mailto:paeyoung.park@gmail.com">paeyoung.park@gmail.com</a></div>
+        <div class="r"><span>기사</span><span><a href="https://www.ibrandnews.com/news/articleView.html?idxno=12074">브랜드뉴스 인터뷰</a> · <a href="https://www.yna.co.kr/view/AKR20250327084100017">연합뉴스</a></span></div>
         <div class="r"><span>YouTube</span><span><a href="https://www.youtube.com/@revival_of_rotem">@revival_of_rotem</a> · <a href="https://www.youtube.com/@온고오늘">@온고오늘</a> · <a href="https://www.youtube.com/@lupa-app">@lupa-app</a></span></div>
-        <div class="r"><span>블로그</span><span><a href="https://blog.naver.com/udrodem">네이버</a> · <a href="https://ongotoday.blogspot.com">온고,오늘</a></span></div>
-        <div class="r"><span>분야</span><span>Apps · AI · 교회 도구 · 찬양·명언 콘텐츠</span></div>
+        <div class="r"><span>블로그</span><span><a href="https://blog.naver.com/udrodem">네이버</a> · <a href="https://ongotoday.blogspot.com">온고,오늘</a> · <a href="https://lupa-app.blogspot.com">Lupa</a></span></div>
+        <div class="r"><span>분야</span><span>ISO 심사 · AI 거버넌스 · Apps · 교회 도구 · 찬양·명언 콘텐츠</span></div>
         <div class="r"><span>그 외</span><a href="golf/">골프지도자(세미) · 골프 앱</a></div>
       </div>
     </div>
@@ -301,64 +309,108 @@
 
   <div class="sitemap" id="map">
     <div class="row"><div>주소</div><div>내용</div></div>
+    <div class="row"><a href="https://apps.lupa.kr">apps.lupa.kr</a><span>이 페이지. 포트폴리오 · 일·개발·채널의 입구</span></div>
+    <div class="row"><a href="https://rothemsystem.com">rothemsystem.com</a><span>(주)로뎀시스템 — 정보보안 · ISO 인증 컨설팅 · AI 자문</span></div>
+    <div class="row"><a href="https://apps.lupa.kr/profile/">apps.lupa.kr/profile</a><span>박배영 프로필 — ISO 심사원·강사 경력, 심사 실적 통계, 기사</span></div>
     <div class="row"><a href="https://lupa.kr">lupa.kr</a><span>Lupa — macOS 파일·한글(HWP) 내용 검색 앱 제품 페이지</span></div>
-    <div class="row"><a href="https://apps.lupa.kr">apps.lupa.kr</a><span>이 페이지. 포트폴리오 · 모든 앱·도구의 입구</span></div>
-    <div class="row"><a href="https://apps.lupa.kr/profile/">apps.lupa.kr/profile</a><span>박배영 프로필 — ISO 심사원·강사 경력, 심사 실적 통계</span></div>
-    <div class="row"><a href="https://apps.lupa.kr/golf/">apps.lupa.kr/golf</a><span>골프 프로필 — 골프지도자(세미) 자격, AI 스코어카드 정산 앱</span></div>
-    <div class="row"><a href="https://apps.lupa.kr/church/">apps.lupa.kr/church</a><span>교회를 위한 Lupa — 이름의 뜻(돋보기·눅 15:8)과 교회 도구 전체</span></div>
     <div class="row"><a href="https://verbanote.lupa.kr">verbanote.lupa.kr</a><span>VerbaNote — 온디바이스 AI 회의록 앱 제품 페이지</span></div>
     <div class="row"><a href="https://henotes.lupa.kr">henotes.lupa.kr</a><span>헤노테스 — 찬양팀 실황 멀티트랙 모니터 소개 · 앱 입장</span></div>
-    <div class="row"><a href="https://bible.lupa.kr">bible.lupa.kr</a><span>주간 성경퀴즈 — 답안지 제출 관리 소개 · 교회 도입 문의</span></div>
+    <div class="row"><a href="https://bible.lupa.kr">bible.lupa.kr</a><span>주간 성경퀴즈 — 답안지 제출 관리 소개 · 교회 도입 문의 (작은 교회 무료)</span></div>
     <div class="row"><a href="https://euncheon-bible.lupa.kr">euncheon-bible.lupa.kr</a><span>주간 성경퀴즈 — 은천교회 관리자 페이지 (도입 교회는 ○○-bible.lupa.kr)</span></div>
+    <div class="row"><a href="https://apps.lupa.kr/church/">apps.lupa.kr/church</a><span>교회 도구 이야기 — 이름의 뜻(돋보기·눅 15:8)과 교회 도구 전체</span></div>
     <div class="row"><a href="https://www.youtube.com/@온고오늘">youtube.com/@온고오늘</a><span>온고,오늘 — 세계 명언·어록 오디오북 채널</span></div>
     <div class="row"><a href="https://ongotoday.blogspot.com">ongotoday.blogspot.com</a><span>온고(溫故),오늘 — 영상 속 명언을 글로 풀어 쓰는 Blogger</span></div>
     <div class="row"><a href="https://www.youtube.com/@revival_of_rotem">youtube.com/@revival_of_rotem</a><span>로뎀아래(The Revival of Rotem) — 한글 가사 + 영어 번역 자막 찬양 채널</span></div>
     <div class="row"><a href="https://blog.naver.com/udrodem">blog.naver.com/udrodem</a><span>로뎀아래의 블로그 — 명언 해설 · Lupa 사용기 · ISO 27001·IT 실무 메모</span></div>
     <div class="row"><a href="https://lupa-app.blogspot.com">lupa-app.blogspot.com</a><span>개발자 - lupa — Lupa 개발·사용 글 (Blogger)</span></div>
+    <div class="row"><a href="https://apps.lupa.kr/golf/">apps.lupa.kr/golf</a><span>골프 프로필 — 골프지도자(세미) 자격, AI 스코어카드 정산 앱</span></div>
   </div>
 
   <footer>
     <div>© 2026 Paeyoung Park · Lupe</div>
     <div class="row">
       <a href="mailto:paeyoung.park@gmail.com">문의</a>
+      <a href="https://rothemsystem.com">RothemSystem</a>
+      <a href="profile/">프로필</a>
       <a href="https://lupa.kr">lupa.kr</a>
       <a href="https://www.youtube.com/@lupa-app">YouTube</a>
-      <a href="https://rothemsystem.com">RothemSystem</a>
     </div>
   </footer>
 </div>
 
 <script>
-  // ── 런처 아이콘: 첫 화면. 순서 = 화면 순서. 추가 = 객체 하나 ─────────────
-  const ICONS = [
-    // 1행: 앱·도구
-    {name:"Lupa",        sub:"파일 검색",     icon:"assets/lupa.png",       url:"https://lupa.kr"},
-    {name:"VerbaNote",   sub:"AI 회의록",     icon:"assets/verbanote.png",  url:"https://verbanote.lupa.kr"},
-    {name:"헤노테스",     sub:"찬양 모니터",   icon:"assets/henotes.svg",    url:"https://henotes.lupa.kr"},
-    {name:"주간 성경퀴즈", sub:"답안지 관리",   icon:"assets/bible.svg",      url:"https://bible.lupa.kr"},
-    // 2행: 채널
-    {name:"온고,오늘",    sub:"명언 오디오북", icon:"assets/ongo-yt.jpg",    url:"https://www.youtube.com/@온고오늘"},
-    {name:"로뎀아래",     sub:"찬양 · 가사번역", icon:"assets/rotem-yt.jpg",   url:"https://www.youtube.com/@revival_of_rotem"},
-    {name:"Lupa 채널",    sub:"YouTube",      icon:"assets/youtube.svg",    url:"https://www.youtube.com/@lupa-app"},
-    {name:"온고 블로그",   sub:"Blogger",      icon:"assets/blogger.svg",    url:"https://ongotoday.blogspot.com"},
-    // 3행: 글·회사·연락
-    {name:"네이버 블로그",  sub:"로뎀아래의 블로그", icon:"assets/naver-blog.svg", url:"https://blog.naver.com/udrodem"},
-    {name:"Lupa 블로그",   sub:"Blogger",      icon:"assets/blogger-lupa.svg",    url:"https://lupa-app.blogspot.com"},
-    {name:"RothemSystem", sub:"법인",         icon:"assets/rothem.svg",     url:"https://rothemsystem.com"},
-    // 4행: 나에 대하여
-    {name:"프로필",       sub:"심사·강의",     icon:"assets/profile.svg",    url:"profile/"},
-    {name:"골프",         sub:"세미프로",      icon:"assets/golf.svg",       url:"golf/"},
-    {name:"이메일",       sub:"문의·협업",     icon:"assets/mail.svg",       url:"mailto:paeyoung.park@gmail.com"},
+  // ── 런처 아이콘: 첫 화면. 그룹 = 일 / 개발 / 채널·글. 추가 = 객체 하나 ──
+  const ICON_GROUPS = [
+    {label:"01", title:"일 · 로뎀시스템 · 심사 · 컨설팅", items:[
+      {name:"RothemSystem", sub:"법인 · 컨설팅",  icon:"assets/rothem.svg",     url:"https://rothemsystem.com"},
+      {name:"프로필",       sub:"심사 · 강의",    icon:"assets/profile.svg",    url:"profile/"},
+      {name:"이메일",       sub:"문의 · 협업", icon:"assets/mail.svg",     url:"mailto:paeyoung.park@gmail.com"},
+    ]},
+    {label:"02", title:"개발 · 앱과 도구", items:[
+      {name:"Lupa",         sub:"파일 검색",      icon:"assets/lupa.png",       url:"https://lupa.kr"},
+      {name:"VerbaNote",    sub:"AI 회의록",      icon:"assets/verbanote.png",  url:"https://verbanote.lupa.kr"},
+      {name:"헤노테스",      sub:"찬양 모니터 · 무료", icon:"assets/henotes.svg", url:"https://henotes.lupa.kr"},
+      {name:"주간 성경퀴즈",  sub:"답안지 관리 · 무료", icon:"assets/bible.svg",   url:"https://bible.lupa.kr"},
+    ]},
+    {label:"03", title:"채널 · 글 · 골프", items:[
+      {name:"온고,오늘",     sub:"명언 오디오북",  icon:"assets/ongo-yt.jpg",    url:"https://www.youtube.com/@온고오늘"},
+      {name:"로뎀아래",      sub:"찬양 · 가사번역", icon:"assets/rotem-yt.jpg",   url:"https://www.youtube.com/@revival_of_rotem"},
+      {name:"Lupa 채널",     sub:"YouTube",       icon:"assets/youtube.svg",    url:"https://www.youtube.com/@lupa-app"},
+      {name:"네이버 블로그",   sub:"네이버", icon:"assets/naver-blog.svg", url:"https://blog.naver.com/udrodem"},
+      {name:"온고 블로그",    sub:"Blogger",       icon:"assets/blogger.svg",    url:"https://ongotoday.blogspot.com"},
+      {name:"Lupa 블로그",    sub:"Blogger",       icon:"assets/blogger-lupa.svg", url:"https://lupa-app.blogspot.com"},
+      {name:"골프",          sub:"세미프로 · 앱", icon:"assets/golf.svg",    url:"golf/"},
+    ]},
+  ];
+
+  // ── 기사·언론. 추가 = 객체 하나 (최신이 위) ─────────────────────────
+  const PRESS = [
+    {d:"2026.05", s:"브랜드뉴스", t:"[인터뷰] '40살에 회사 창업' 현재 AI 박사 과정 재학…끊임없이 도전하는 박배영 대표",
+     sub:"로뎀시스템 · 연평균 7억 매출 비결 '직접 책임지는 구조' · 국내 AI 경영시스템 1호 심사팀장",
+     u:"https://www.ibrandnews.com/news/articleView.html?idxno=12074"},
+    {d:"2026.05", s:"aSSIST 뉴스", t:"[인터뷰] 로뎀시스템 박배영 대표 — aSSIST AI융합 박사과정",
+     sub:"서울과학종합대학원 홈페이지 전재",
+     u:"https://intro.assist.ac.kr/news/articleView.html?idxno=2416"},
+    {d:"2025.03", s:"연합뉴스", t:"수입식품 자동 검사 시스템, AI 경영 국제표준 인증 — 식약처, 정부기관 최초 ISO/IEC 42001",
+     sub:"국가기관 1호 인공지능경영시스템 인증 · 심사팀장 수행",
+     u:"https://www.yna.co.kr/view/AKR20250327084100017"},
+    {d:"2024", s:"교보문고", t:"저서 『AI시대, 꿈의 연금술사』 (4인 공저) — 저자 소개",
+     sub:"법학 → IT 보안 → 40대 1인 창업, 연평균 7억 매출",
+     u:"https://store.kyobobook.co.kr/person/detail/1114957502"},
   ];
 
   // ── 상세 카드: 그룹별. 추가 = 해당 배열에 객체 하나 ──────────────────────
   const GROUPS = {
-    apps: [
+    work: [
+      {
+        name:"인증심사", sub:"ISO/IEC 27001 · 27701 · 42001", icon:"assets/profile.svg", accent:"#8A93F9",
+        platforms:["KMR 심사원","심사팀장","검증심사원"],
+        nums:[["227","건","인증심사"],["156","건","심사팀장"],["392","h","강의"]],
+        tag:"\"이 시스템을 신뢰할 수 있는가\"를 표준으로 검증합니다",
+        desc:"정보보호·개인정보보호·인공지능 경영시스템 인증심사 227건, 그중 156건을 심사팀장으로. ISO/IEC 42001 국내 KAB 1호·국가기관(식약처) 1호 인증의 심사팀장을 맡았습니다. 한국경영인증원(KMR) 심사원 양성과정 전문강사 392시간.",
+        links:[
+          {t:"프로필 · 실적", u:"profile/", primary:true},
+          {t:"기사", u:"https://www.ibrandnews.com/news/articleView.html?idxno=12074"},
+        ]
+      },
+      {
+        name:"컨설팅 · 자문", sub:"(주)로뎀시스템", icon:"assets/rothem.svg", accent:"#2DD4BF",
+        platforms:["ISO 인증 구축","ISMS-P","CISO 자문","AI 거버넌스"],
+        nums:[["2010","","설립"],["100","+","컨설팅"],["45","+","고객사"]],
+        tag:"인증을 받을 수 있도록, 기업이 스스로 안전해지도록",
+        desc:"2010년 설립. ISO/IEC 27001·27701·42001·27017, ISMS-P, TISAX 인증 구축 컨설팅과 CISO 자문, 보안 솔루션 공급(eWalker SWG 등). 스마트공장 수준확인·DX코칭 200개사 이상. 대구 본사, 전국 대응.",
+        links:[
+          {t:"로뎀시스템", u:"https://rothemsystem.com", primary:true},
+          {t:"문의 메일", u:"mailto:rothem@rothemsystem.com"},
+        ]
+      },
+    ],
+    dev: [
       {
         name:"Lupa", icon:"assets/lupa.png", accent:"#8A93F9",
-        platforms:["macOS"],
+        platforms:["macOS","App Store"],
         tag:"기억의 조각으로 파일을 찾다",
-        desc:"파일 이름이 기억 안 나도, 문서 속 단어 하나로. 한글(HWP) 내용검색·0.03초, 그리고 AI 에이전트가 자연어로 찾아주는 CLI까지.",
+        desc:"파일 이름이 기억 안 나도, 문서 속 단어 하나로. 한글(HWP) 내용검색·0.03초, 그리고 AI 에이전트가 자연어로 찾아주는 CLI·MCP까지. 100% 온디바이스.",
         links:[
           {t:"소개", u:"lupa/", primary:true},
           {t:"App Store", u:"https://apps.apple.com/kr/app/id6789231809"},
@@ -368,7 +420,7 @@
       },
       {
         name:"VerbaNote", icon:"assets/verbanote.png", accent:"#2DD4BF",
-        platforms:["macOS","iOS"],
+        platforms:["macOS","iOS","App Store"],
         tag:"녹음이 끝나면, 회의록도 끝나 있습니다",
         desc:"기기 안의 AI가 회의·강의를 전사하고 요약·결정사항·액션아이템·구간 강의록까지 정리합니다. 서버도, 업로드도 없습니다.",
         links:[
@@ -376,53 +428,28 @@
           {t:"App Store", u:"https://apps.apple.com/kr/app/verbanote/id6799537760"},
         ]
       },
-    ],
-    church: [
       {
         name:"헤노테스", sub:"Henotes · ἑνότης", icon:"assets/henotes.svg", accent:"#FF8C1A",
-        platforms:["Web","찬양팀"],
+        platforms:["Web","찬양팀","작은 교회 무료 구축"],
         motto:"한 트랙에서 한 지체의 소리를", ref:"고전 12:12 · 엡 4:3",
         tag:"따로 녹음된 각자의 소리. 다시, 하나의 예배가 됩니다",
-        desc:"주일 실황 멀티트랙을 단원 각자가 자기 귀로 다시 듣는 모니터. 내 파트만 솔로, A–B 구간 반복, 페이더 값을 숫자로 남기는 피드백까지.",
+        desc:"주일 실황 멀티트랙을 단원 각자가 자기 귀로 다시 듣는 모니터. 내 파트만 솔로, A–B 구간 반복, 페이더 값을 숫자로 남기는 피드백까지. 은천교회 찬양팀이 매주 사용 중. 작은 교회에는 무료로 구축해 드리고, 대형 교회는 소정의 교육비만 받습니다.",
         links:[
           {t:"소개", u:"https://henotes.lupa.kr", primary:true},
           {t:"앱 열기", u:"https://worship-henotes.pages.dev/"},
+          {t:"도입 문의", u:"mailto:paeyoung.park@gmail.com?subject=%5B%ED%97%A4%EB%85%B8%ED%85%8C%EC%8A%A4%20%EB%8F%84%EC%9E%85%5D%20%EB%AC%B8%EC%9D%98"},
         ]
       },
       {
-        name:"주간 성경퀴즈", sub:"은천성경", icon:"assets/bible.svg", accent:"#D3A45E",
-        platforms:["Web","교회 무료·실비"],
+        name:"주간 성경퀴즈", sub:"답안지 관리", icon:"assets/bible.svg", accent:"#D3A45E",
+        platforms:["Web","AI 인식","작은 교회 무료 구축"],
         motto:"한 장의 답안지에서 한 사람의 이름을", ref:"눅 10:20 · 마 10:30",
         tag:"손글씨 답안지, 사진만 올리면 출석부가 채워집니다",
-        desc:"성도가 제출한 주간 성경퀴즈 답안지 사진을 AI가 읽어 이름·회차를 인식하고 교회 Google Sheets 출석부에 바로 기록합니다. 은천교회에서 매주 운영 중, 다른 교회에 무료 또는 실비로 제공합니다.",
+        desc:"성도가 제출한 주간 성경퀴즈 답안지 사진을 AI가 읽어 이름·회차를 인식하고 교회 Google Sheets 출석부에 바로 기록합니다. 은천교회에서 매주 운영 중. 작은 교회에는 무료로 구축해 드리고, 대형 교회는 소정의 교육비만 받습니다.",
         links:[
           {t:"소개·도입 문의", u:"https://bible.lupa.kr", primary:true},
           {t:"은천교회 관리자", u:"https://euncheon-bible.lupa.kr"},
-        ]
-      },
-      {
-        name:"로뎀아래", sub:"The Revival of Rotem", icon:"assets/rotem-yt.jpg", accent:"#7FB3D5",
-        platforms:["YouTube","찬양"],
-        motto:"한 곡의 찬양에서 한 사람의 쉼을", ref:"왕상 19:5 · 시 96:3",
-        tag:"한국의 찬양을 온 세계와, 한글 가사와 영어 번역을 한 화면에",
-        desc:"엘리야가 로뎀나무 아래서 새 힘을 얻었듯(열왕기상 19장), 지친 사람이 잠시 쉬어 가는 찬양 채널. 2012년부터 영상 4,000편 이상, 로마자 발음·100개 언어 자동 번역 자막. 헤노테스 찬양 실황도 이곳에.",
-        links:[
-          {t:"채널 열기", u:"https://www.youtube.com/@revival_of_rotem", primary:true},
-          {t:"재생목록", u:"https://www.youtube.com/@revival_of_rotem/playlists"},
-          {t:"쇼츠", u:"https://www.youtube.com/@revival_of_rotem/shorts"},
-        ]
-      },
-    ],
-    golf: [
-      {
-        name:"Golf Score", sub:"AI 자동 정산", icon:"assets/golf.svg", accent:"#4ADE80",
-        platforms:["Web","Claude Vision"],
-        tag:"스코어카드 사진 한 장이면, 정산까지 끝납니다",
-        desc:"손글씨 스코어카드를 찍으면 AI가 플레이어 수·18홀/전반후반을 자동 판별하고, 타당 계산·배판·축하금·니어리스트를 정산합니다. Glassmorphism Dark Green UI.",
-        links:[
-          {t:"앱 열기", u:"https://golf-score-7xp.pages.dev/", primary:true},
-          {t:"GitHub", u:"https://github.com/paeyoungpark-web/golf-score"},
-          {t:"골프 프로필", u:"golf/"},
+          {t:"교회 도구 이야기", u:"church/"},
         ]
       },
     ],
@@ -439,6 +466,18 @@
         ]
       },
       {
+        name:"로뎀아래", sub:"The Revival of Rotem", icon:"assets/rotem-yt.jpg", accent:"#7FB3D5",
+        platforms:["YouTube","찬양"],
+        motto:"한 곡의 찬양에서 한 사람의 쉼을", ref:"왕상 19:5 · 시 96:3",
+        tag:"한국의 찬양을 온 세계와, 한글 가사와 영어 번역을 한 화면에",
+        desc:"엘리야가 로뎀나무 아래서 새 힘을 얻었듯(열왕기상 19장), 지친 사람이 잠시 쉬어 가는 찬양 채널. 2012년부터 영상 4,000편 이상, 로마자 발음·100개 언어 자동 번역 자막. 헤노테스 찬양 실황도 이곳에.",
+        links:[
+          {t:"채널 열기", u:"https://www.youtube.com/@revival_of_rotem", primary:true},
+          {t:"재생목록", u:"https://www.youtube.com/@revival_of_rotem/playlists"},
+          {t:"쇼츠", u:"https://www.youtube.com/@revival_of_rotem/shorts"},
+        ]
+      },
+      {
         name:"로뎀아래의 블로그", sub:"네이버", icon:"assets/naver-blog.svg", accent:"#03C75A",
         platforms:["Naver Blog","교육·학문"],
         tag:"명언 해설부터 Lupa 사용기, ISO 27001까지",
@@ -446,22 +485,51 @@
         links:[
           {t:"블로그 열기", u:"https://blog.naver.com/udrodem", primary:true},
           {t:"Lupa 개발 블로그", u:"https://lupa-app.blogspot.com"},
+          {t:"Lupa 채널", u:"https://www.youtube.com/@lupa-app"},
+        ]
+      },
+      {
+        name:"골프", sub:"골프지도자(세미) · Golf Score", icon:"assets/golf.svg", accent:"#4ADE80",
+        platforms:["KPGMA","Web 앱","Claude Vision"],
+        tag:"스코어카드 사진 한 장이면, 정산까지 끝납니다",
+        desc:"KPGMA 골프지도자(세미) 자격. 손글씨 스코어카드를 찍으면 AI가 플레이어 수·18홀/전반후반을 자동 판별하고 타당 계산·배판·축하금·니어리스트를 정산하는 Golf Score 앱 등 골프 도구 4종을 만들었습니다.",
+        links:[
+          {t:"골프 프로필", u:"golf/", primary:true},
+          {t:"Golf Score 앱", u:"https://golf-score-7xp.pages.dev/"},
+          {t:"GitHub", u:"https://github.com/paeyoungpark-web/golf-score"},
         ]
       },
     ],
   };
 
   const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const ext = u => /^https?:/.test(u) && !u.includes('lupa.kr');
 
-  // launcher
-  const iconsEl = document.getElementById('icons');
-  ICONS.forEach(a => {
-    const el = document.createElement('a');
-    el.className = 'app' + (a.ghost ? ' ghost' : '');
-    el.href = a.url;
-    if (/^https?:/.test(a.url) && !a.url.includes('lupa.kr')) { el.target = '_blank'; el.rel = 'noopener'; }
-    el.innerHTML = `<img src="${esc(a.icon)}" alt="" width="72" height="72"><span class="nm">${esc(a.name)}</span><span class="sub">${esc(a.sub||'')}</span>`;
-    iconsEl.appendChild(el);
+  // launcher (grouped)
+  const lg = document.getElementById('lgroups');
+  ICON_GROUPS.forEach(g => {
+    const wrap = document.createElement('div');
+    wrap.className = 'lgroup';
+    wrap.innerHTML = `<div class="lgl"><span>${esc(g.label)}</span><b>${esc(g.title)}</b></div><div class="icons"></div>`;
+    const icons = wrap.querySelector('.icons');
+    g.items.forEach(a => {
+      const el = document.createElement('a');
+      el.className = 'app' + (a.ghost ? ' ghost' : '');
+      el.href = a.url;
+      if (ext(a.url)) { el.target = '_blank'; el.rel = 'noopener'; }
+      el.innerHTML = `<img src="${esc(a.icon)}" alt="" width="72" height="72"><span class="nm">${esc(a.name)}</span><span class="sub">${esc(a.sub||'')}</span>`;
+      icons.appendChild(el);
+    });
+    lg.appendChild(wrap);
+  });
+
+  // press
+  const pressEl = document.getElementById('press');
+  PRESS.forEach(p => {
+    const a = document.createElement('a');
+    a.className = 'pr'; a.href = p.u; a.target = '_blank'; a.rel = 'noopener';
+    a.innerHTML = `<span class="pd">${esc(p.d)}</span><span class="pt">${esc(p.t)}<small>${esc(p.sub||'')}</small></span><span class="ps">${esc(p.s)} ↗</span>`;
+    pressEl.appendChild(a);
   });
 
   // detail cards
@@ -469,6 +537,7 @@
     const card = document.createElement('a');
     card.className = 'appcard';
     card.href = a.links[0]?.u || '#';
+    if (ext(card.href)) { card.target = '_blank'; card.rel = 'noopener'; }
     card.style.setProperty('--acc', a.accent);
     card.innerHTML =
       `<div class="glow"></div>
@@ -476,17 +545,19 @@
          <img src="${esc(a.icon)}" alt="${esc(a.name)} 아이콘" width="60" height="60">
          <div class="apptitle">
            <span class="nm">${esc(a.name)}${a.sub?`<small>${esc(a.sub)}</small>`:''}</span>
-           <span class="plat">${a.platforms.map(p=>`<span>${esc(p)}</span>`).join('')}</span>
+           <span class="plat">${a.platforms.map(p=>`<span class="${/무료/.test(p)?'hot':''}">${esc(p)}</span>`).join('')}</span>
          </div>
        </div>
        <div class="tag">${esc(a.tag)}</div>
        ${a.motto?`<div class="motto">${esc(a.motto)}<span class="ref">${esc(a.ref||'')}</span></div>`:''}
        <div class="desc">${esc(a.desc)}</div>
+       ${a.nums?`<div class="nums">${a.nums.map(n=>`<div><b>${esc(n[0])}<small>${esc(n[1])}</small></b><span>${esc(n[2])}</span></div>`).join('')}</div>`:''}
        <div class="links">${a.links.map(l =>
          `<span class="lk ${l.primary?'primary':''}"${l.primary?'':' data-u="'+esc(l.u)+'"'}>${esc(l.t)}${l.primary?'<span class="arw">→</span>':''}</span>`
        ).join('')}</div>`;
     card.querySelectorAll('.lk[data-u]').forEach(el=>{
-      el.addEventListener('click', e=>{ e.preventDefault(); e.stopPropagation(); window.open(el.dataset.u,'_blank'); });
+      el.addEventListener('click', e=>{ e.preventDefault(); e.stopPropagation();
+        const u = el.dataset.u; if (u.startsWith('mailto:')) location.href = u; else window.open(u,'_blank'); });
     });
     return card;
   }

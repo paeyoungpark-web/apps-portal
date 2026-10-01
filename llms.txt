@@ -1,37 +1,37 @@
 # Lupe — 박배영(Paeyoung Park) 포트폴리오
 
-> 온디바이스 앱, 교회·공동체 도구, AI 보안·인증심사를 만드는 사람.
+> 일(인증심사·컨설팅), 개발(온디바이스 앱·교회 도구), 채널(YouTube·블로그·골프)을 하는 사람.
 
 ## 사람
 - 이름: 박배영 (Paeyoung Park, Under71)
-- 직함: ISO/IEC 27001·42001 인증심사원, 심사원 양성과정 전문강사, (주)로뎀시스템 대표
+- 직함: (주)로뎀시스템 대표, ISO/IEC 27001·27701·42001 인증심사원, 심사원 양성과정 전문강사
 - 자격: ISO/IEC 42001 선임심사원, ISO/IEC 27001 검증심사원 외 9종
 - 학력: 서울과학종합대학원 AI·빅데이터 공학석사(졸업), 공학박사(재학)
 - 실적: 인증심사 227건(321.5 MD, 심사팀장 156건), 심사원 양성 강의 392시간
 - 골프: KPGMA 골프지도자(세미) 자격
 
-## 앱
-- Lupa: macOS 파일 검색 앱. HWP·PDF 내용검색, OCR, 0.03초. https://lupa.kr
+## 01 일 — 로뎀시스템 · 인증심사 · 컨설팅
+- (주)로뎀시스템: 2010년 설립, 대구. 정보보안·ISO 인증 구축 컨설팅(27001·27701·42001·27017, ISMS-P, TISAX), CISO 자문, 보안 솔루션 공급. https://rothemsystem.com
+- 인증심사: ISO/IEC 42001 국내 KAB 1호·국가기관(식약처) 1호 인증 심사팀장. https://apps.lupa.kr/profile/
+- 기사: 브랜드뉴스 인터뷰(2026.05) https://www.ibrandnews.com/news/articleView.html?idxno=12074 · 연합뉴스 식약처 ISO/IEC 42001 인증(2025.03) https://www.yna.co.kr/view/AKR20250327084100017
+- 저서: 『AI시대, 꿈의 연금술사』(2024, 4인 공저)
+
+## 02 개발 — 앱과 도구
+- Lupa: macOS 파일 검색 앱. HWP·PDF 내용검색, OCR, 0.03초. 100% 온디바이스. https://lupa.kr
 - VerbaNote: 온디바이스 AI 회의록 앱 (macOS·iOS). https://verbanote.lupa.kr
+- 헤노테스(Henotes, ἑνότης): 찬양팀 실황 멀티트랙 모니터 (Web). https://henotes.lupa.kr
+- 주간 성경퀴즈: 손글씨 답안지 AI 인식·Google Sheets 출석부 자동 기록 (Web). https://bible.lupa.kr
+- 교회 도구 도입 정책: 작은 교회에는 무료로 구축. 대형 교회는 소정의 교육비만. 문의 paeyoung.park@gmail.com
 
-## 교회 도구 (Lupa = 돋보기, 눅 15:8)
-- 헤노테스(Henotes, ἑνότης): 찬양팀 실황 멀티트랙 모니터. https://henotes.lupa.kr
-- 주간 성경퀴즈: 손글씨 답안지 AI 인식·출석부 자동 기록. https://bible.lupa.kr
+## 03 채널·글·골프
+- 온고,오늘: 세계 명언 오디오북 YouTube. https://youtube.com/@온고오늘 · 블로그 https://ongotoday.blogspot.com
 - 로뎀아래(The Revival of Rotem): 한국 찬양 YouTube 채널, 한글 가사+영어 번역. https://youtube.com/@revival_of_rotem
-
-## 콘텐츠
-- 온고,오늘: 세계 명언 오디오북 YouTube. https://youtube.com/@온고오늘
-- 네이버 블로그: https://blog.naver.com/udrodem
-- Blogger: https://ongotoday.blogspot.com
-
-## 골프
-- Golf Score: AI 스코어카드 자동 정산 웹앱. https://golf-score-7xp.pages.dev
-
-## 법인
-- (주)로뎀시스템: 정보보호·AI 거버넌스 컨설팅. https://rothemsystem.com
+- 네이버 블로그(로뎀아래의 블로그): 명언 해설·Lupa 사용기·ISO 27001 메모. https://blog.naver.com/udrodem
+- Lupa 채널·블로그: https://youtube.com/@lupa-app · https://lupa-app.blogspot.com
+- 골프: KPGMA 골프지도자(세미). Golf Score AI 스코어카드 자동 정산 웹앱 https://golf-score-7xp.pages.dev · 골프 프로필 https://apps.lupa.kr/golf/
 
 ## 링크
 - 포트폴리오: https://apps.lupa.kr
 - 프로필: https://apps.lupa.kr/profile/
-- 교회를 위한 Lupa: https://apps.lupa.kr/church/
+- 교회 도구 이야기: https://apps.lupa.kr/church/
 - 골프 프로필: https://apps.lupa.kr/golf/
