@@ -28,7 +28,7 @@
 - 로뎀아래(The Revival of Rotem): 한국 찬양 YouTube 채널, 한글 가사+영어 번역. https://youtube.com/@revival_of_rotem
 - 네이버 블로그(로뎀아래의 블로그): 명언 해설·Lupa 사용기·ISO 27001 메모. https://blog.naver.com/udrodem
 - Lupa 채널·블로그: https://youtube.com/@lupa-app · https://lupa-app.blogspot.com
-- 골프: KPGMA 골프지도자(세미). 골프 앱 4종 — Golf Score(AI 스코어카드 자동 정산, https://golf-score-7xp.pages.dev), Scorecard OCR(손글씨 인식 엔진), 골프 정산 마스터(베팅 정산·송금표), 스코어 대시보드(누적 기록 분석). 골프 프로필 https://apps.lupa.kr/golf/
+- 골프: KPGMA 골프지도자(세미). Golf Score(AI 스코어카드 자동 정산, https://golf-score-7xp.pages.dev) + Scorecard OCR(손글씨 인식 엔진, 보안형 서버 구성). 골프 프로필 https://apps.lupa.kr/golf/
 
 ## 링크
 - 포트폴리오: https://apps.lupa.kr

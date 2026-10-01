@@ -101,6 +101,9 @@
   .btn.ghost:hover{background:var(--wash);opacity:1}
   .btn svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 
+  .certimg{margin:18px 0 0}
+  .certimg img{width:100%;height:auto;border-radius:12px;border:1px solid var(--hair2,rgba(0,0,0,.15));display:block}
+  .certimg figcaption{font-size:12px;color:var(--t3,#888);margin-top:8px;text-align:center}
   footer{text-align:center;color:var(--t3);font-size:13px;padding:34px 0 calc(48px + env(safe-area-inset-bottom));border-top:1px solid var(--hair);margin-top:38px}
   footer a{color:var(--t2);border-bottom:1px solid transparent}
   footer a:hover{border-color:var(--t3)}
@@ -139,10 +142,14 @@
         <div><dt>구분</dt><dd>세미프로<small>골프지도자</small></dd></div>
       </dl>
     </div>
+    <figure class="certimg">
+      <img src="/assets/golf-cert.jpg" alt="골프지도자(세미) 자격인증서 — 문화체육관광부 등록번호 2022-001794" loading="lazy">
+      <figcaption>자격인증서 원본 (문화체육관광부 등록 민간자격 · 개인정보는 가림)</figcaption>
+    </figure>
   </section>
 
   <section id="apps">
-    <div class="sechead"><h2><span class="idx">02</span>만든 것</h2><span class="sub">AI 스코어카드 · 자동 정산</span></div>
+    <div class="sechead"><h2><span class="idx">02</span>만든 것</h2><span class="sub">AI 스코어카드 자동 정산 · 인식 엔진</span></div>
     <div class="apps" id="apps-grid"></div>
 
     <div class="why">
@@ -193,18 +200,6 @@
       name:"Scorecard OCR", tag:"보안형 구성",
       desc:"손글씨 스코어카드 인식 엔진. API 키가 브라우저에 노출되지 않도록 OpenAI 호출을 서버에서만 수행하고, 요청 제한과 보안 헤더를 걸었습니다.",
       stack:["Express","helmet","rate-limit","OpenAI API"]
-    },
-    {
-      icon:'<path d="M12 2v20M5 7h14M5 17h14"/><circle cx="12" cy="12" r="2"/>',
-      name:"골프 정산 마스터", tag:"Settlement Pro",
-      desc:"라운드별 참가자·베팅 규칙을 넣으면 정산표가 나오는 도구. 누가 누구에게 얼마를 보내야 하는지까지 정리합니다.",
-      stack:["Opal","웹앱"]
-    },
-    {
-      icon:'<path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/>',
-      name:"스코어 대시보드", tag:"기록 분석",
-      desc:"누적 라운드 기록을 모아 코스별·홀별 성적과 추이를 보는 대시보드. 데이터 분석 과제로 설계했습니다.",
-      stack:["데이터 시각화","aSSIST 과제"]
     },
   ];
   document.getElementById('apps-grid').innerHTML = APPS.map(a =>
