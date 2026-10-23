@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <rect width="120" height="120" rx="26" fill="#1A1A2E"/>
+  <circle cx="60" cy="48" r="22" stroke="#E94560" stroke-width="3" fill="none"/>
+  <circle cx="60" cy="48" r="8" fill="#E94560" opacity=".8"/>
+  <line x1="60" y1="26" x2="60" y2="70" stroke="#E94560" stroke-width="1.5" opacity=".4"/>
+  <line x1="38" y1="48" x2="82" y2="48" stroke="#E94560" stroke-width="1.5" opacity=".4"/>
+  <path d="M42 80 L60 72 L78 80 L60 96Z" fill="#E94560" opacity=".7"/>
+  <path d="M60 72 L60 96" stroke="#fff" stroke-width="1.2" opacity=".5"/>
+  <path d="M48 82 L72 82" stroke="#fff" stroke-width="1" opacity=".4"/>
+  <text x="60" y="110" text-anchor="middle" font-family="system-ui" font-size="8" fill="#E94560" font-weight="700" opacity=".6">ARES</text>
+</svg>

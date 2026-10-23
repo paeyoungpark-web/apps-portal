@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <rect width="120" height="120" rx="26" fill="#1F7A3A"/>
+  <circle cx="60" cy="50" r="12" fill="#fff" opacity=".9"/>
+  <circle cx="56" cy="47" r="1.5" fill="#1F7A3A" opacity=".4"/>
+  <circle cx="60" cy="44" r="1.5" fill="#1F7A3A" opacity=".4"/>
+  <circle cx="64" cy="47" r="1.5" fill="#1F7A3A" opacity=".4"/>
+  <circle cx="58" cy="52" r="1.5" fill="#1F7A3A" opacity=".4"/>
+  <circle cx="63" cy="51" r="1.5" fill="#1F7A3A" opacity=".4"/>
+  <line x1="60" y1="62" x2="60" y2="90" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M60 62 L72 72 Q76 76 72 78 L60 90" fill="none" stroke="#fff" stroke-width="2" opacity=".5"/>
+  <rect x="30" y="84" width="60" height="8" rx="4" fill="#166534" opacity=".6"/>
+  <text x="60" y="106" text-anchor="middle" font-family="system-ui" font-size="10" fill="#fff" font-weight="700" opacity=".8">AI</text>
+</svg>
